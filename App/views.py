@@ -9,24 +9,40 @@ def index(request):
 def login(request):
     if request.method=='POST':
         username = request.POST['username']
-        password = request.POST['pass']
-        cat = request.POST['cat']
+        password = request.POST['userpassword']
 
-        user = auth.authenticate(username=username, password=password, cat=cat)
-        if (user is not None) and (cat=="Student"):
+        user = auth.authenticate(username=username, password=password)
+        if (user is not None):
             auth.login(request, user)
-            return redirect("dashboard2.html")
-        elif (user is not None) and (cat=="Teacher"):
-            auth.login(request, user)
-            return redirect("dashboard4.html")
-        elif (user is not None) and (cat=="Parent"):
-            auth.login(request, user)
-            return redirect("dashboard5.html")
+            account_type = user.user_type
+            if (account_type=="Student"):
+                return redirect("dashboard2.html")
+            elif (account_type=="Parent"):
+                return redirect("dashboard5.html")
+            elif (account_type=="Teacher"):
+                return redirect("dashboard5.html")
+            elif (account_type=="Admin"):
+                return redirect("dashboard5.html")
+            elif (account_type=="Liberian"):
+                return redirect("dashboard5.html")
+            elif (account_type=="Accountant"):
+                return redirect("dashboard5.html")
+            return render(request, 'auth-login.html', {"message": "The user does not exist"})
+
         else:
             return render(request, 'auth-login.html', {"message": "The user does not exist"})
     else:
         return render(request, 'auth-login.html')
-
+def validate(request):
+        if request.method=='POST':
+            secrete_key = request.POST['secrete_pin']
+            key = user.objects.all().filter(usertype="Student").secret_pin
+            if (secrete_key==key):
+                return redirect("index.html")
+            else:
+                return redirect("auth-lock-screen.html")
+        else:
+            return render(request, 'auth-lock-screen.html')
 def recover(request):
     return render(request, "auth-recoverpw.html")
 def verify(request):

@@ -13,6 +13,7 @@ class UserProfile(models.Model):
         ('Liberian', 'Liberian'),
 
     )
+    secret_pin = models.IntegerField()
 
     def __str__(self):
         return self.user.username
