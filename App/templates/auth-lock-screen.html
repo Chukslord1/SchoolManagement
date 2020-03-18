@@ -1,0 +1,113 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Pin - Enter Pin
+  </title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="A premium admin dashboard template by mannatthemes" name="description">
+   <meta content="Mannatthemes" name="author"/>
+   <!-- App favicon -->
+   <link href="{% static 'assets/images/favicon.ico' %}" rel="shortcut icon"/>
+   <!-- App css -->
+   <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"/>
+   <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/metismenu.min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+   </link>
+  </meta>
+ </head>
+ <body class="account-body">
+  <!-- Log In page -->
+  <div class="row vh-100">
+   <div class="col-lg-3 pr-0">
+    <div class="card mb-0 shadow-none">
+     <div class="card-body">
+      <div class="px-3">
+       <div class="media">
+        <a class="logo logo-admin" href="#">
+         <img alt="logo" class="my-3" height="55" src="{% static 'assets/images/logo-sm.png' %}"/>
+        </a>
+        <div class="media-body ml-3 align-self-center">
+         <h4 class="mt-0 mb-1">
+          Enter PIN
+         </h4>
+         <p class="text-muted mb-0">
+          Hello Ochuko, enter your pin to gain access !
+         </p>
+        </div>
+       </div>
+       <form action="index.html" class="form-horizontal my-4">
+        <div class="user-thumb text-center m-b-30">
+         <img alt="thumbnail" class="rounded-circle img-thumbnail thumb-xl" src="{% static 'assets/images/users/user-2.jpg' %}"/>
+         <h5>
+          Ochuko Onoja
+         </h5>
+        </div>
+        <div class="form-group">
+         <label for="userpassword">
+          Password
+         </label>
+         <div class="input-group mb-3">
+          <div class="input-group-prepend">
+           <span class="input-group-text" id="basic-addon3">
+            <i class="mdi mdi-lock-outline font-16">
+            </i>
+           </span>
+          </div>
+          <input class="form-control" id="userpassword" placeholder="Enter password" type="password"/>
+         </div>
+        </div>
+        <div class="form-group mb-0 row">
+         <div class="col-12 mt-2">
+          <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">
+           Unlock
+           <i class="fas fa-sign-in-alt ml-1">
+           </i>
+          </button>
+         </div>
+        </div>
+       </form>
+      </div>
+      <div class="m-3 text-center bg-light p-3 text-primary">
+       <h5 class="">
+        Not you ? return
+       </h5>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="col-lg-9 p-0 d-flex justify-content-center">
+    <div class="accountbg d-flex align-items-center">
+     <div class="account-title text-white text-center">
+      <img alt="" class="thumb-sm" src="{% static 'assets/images/logo-sm.png' %}"/>
+      <p class="font-14 mt-3">
+       Forgot or Misplaced PIN ?
+       <a class="text-primary" href="">
+        Request For Pin
+       </a>
+      </p>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- End Log In page -->
+  <!-- jQuery  -->
+  <script src="{% static 'assets/js/jquery.min.js' %}">
+  </script>
+  <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}">
+  </script>
+  <script src="{% static 'assets/js/metisMenu.min.js' %}">
+  </script>
+  <script src="{% static 'assets/js/waves.min.js' %}">
+  </script>
+  <script src="{% static 'assets/js/jquery.slimscroll.min.js' %}">
+  </script>
+  <!-- App js -->
+  <script src="{% static 'assets/js/app.js' %}">
+  </script>
+ </body>
+</html>
