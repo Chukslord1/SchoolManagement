@@ -5,7 +5,7 @@ from . import views
 
 app_name = "APP"
 urlpatterns = [
-    path("", views.index, name="index"),
+    path("", views.login, name="login"),
     path("index.html", views.index, name="index"),
     path("auth-login.html", views.login, name="login"),
     path("pages-recoverpw-2.html", views.recover, name="recover"),
