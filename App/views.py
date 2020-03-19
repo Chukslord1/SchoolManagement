@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views.generic import ListView, DetailView, View
 from django.contrib.auth.models import User, auth
 from .models import UserProfile
@@ -6,27 +6,42 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def index(request):
-    return render(request, "index.html")
+    global user_type
+    user=request.user
+    account_type = user.profile.user_type
+    if (account_type=="Student"):
+        return redirect("auth-lock-screen.html")
+    elif(account_type=="Parent"):
+        return redirect("index.html")
+    elif(account_type=="Teacher"):
+        return redirect("index.html")
+    elif(account_type=="Admin"):
+        return redirect("index.html")
+    elif(account_type=="Liberian"):
+        return redirect("index.html")
+    elif(account_type=="Accountant"):
+        return redirect("index.html")
+    else:
+        return render(request, 'auth-login.html')
 # Create your views here.
 def login(request):
-    account_type = UserProfile.objects.filter(user=request.user, user_type="user_type")
     if (request.method=='POST'):
         username = request.POST['username']
         password = request.POST['userpassword']
         user = auth.authenticate(username=username, password=password)
-        account_type = UserProfile.objects.filter(user=request.user, user_type="user_type")
+
         if (user is not None):
             auth.login(request, user)
-            account_type = UserProfile.objects.filter(user=request.user, user_type="user_type")
-            print(account_type)
             return redirect("index.html")
 
         else:
-            print(account_type)
+
             return render(request, 'auth-login.html', {"message": "The user does not exist"})
     else:
-        print(account_type)
+
         return render(request, 'auth-login.html')
+
+
 
 def validate(request):
         if request.method=='POST':
