@@ -12,15 +12,15 @@ def index(request):
     if (account_type=="Student"):
         return redirect("auth-lock-screen.html")
     elif(account_type=="Parent"):
-        return redirect("index.html")
+        return render(request,"index.html")
     elif(account_type=="Teacher"):
-        return redirect("index.html")
+        return render(request,"dashboard.html")
     elif(account_type=="Admin"):
-        return redirect("index.html")
+        return render(request,"dashboard5.html")
     elif(account_type=="Liberian"):
-        return redirect("index.html")
+        return render(request,"dashboard4.html")
     elif(account_type=="Accountant"):
-        return redirect("index.html")
+        return render(request,"dashboard6.html")
     else:
         return render(request, 'auth-login.html')
 # Create your views here.
@@ -43,17 +43,19 @@ def login(request):
 
 
 
-def validate(request):
-        if request.method=='POST':
-            secrete_key = request.POST['secrete_pin']
-            key = UserProfile.objects.all().filter(user_type="Student").secret_pin
-            if (secrete_key==key):
-                return redirect("index.html")
-            else:
-                return redirect("auth-lock-screen.html")
-        else:
-            return render(request, 'auth-lock-screen.html')
+
+
 def recover(request):
     return render(request, "auth-recoverpw.html")
 def verify(request):
-    return render(request, "auth-lock-screen.html")
+    if request.method=='POST':
+        secret_key = int(request.POST['secret_pin'])
+
+        user=request.user
+        key = user.profile.secret_pin
+        if (secret_key==key):
+            return render(request, "index.html")
+        else:
+            return redirect("auth-lock-screen.html")
+    else:
+        return render(request, 'auth-lock-screen.html')
