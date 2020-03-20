@@ -59,3 +59,7 @@ def verify(request):
             return redirect("auth-lock-screen.html")
     else:
         return render(request, 'auth-lock-screen.html')
+@login_required
+def logout(request):
+    auth.logout(request)
+    return redirect("auth-login.html")
