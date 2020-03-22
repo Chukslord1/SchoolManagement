@@ -1,8 +1,10 @@
 from django.shortcuts import render,redirect
 from django.views.generic import ListView, DetailView, View
 from django.contrib.auth.models import User, auth
-from .models import UserProfile
+from .models import UserProfile, UnusedPins, UsedPins
 from django.contrib.auth.decorators import login_required
+import random
+import string
 
 @login_required
 def index(request):
@@ -47,19 +49,53 @@ def login(request):
 
 def recover(request):
     return render(request, "auth-recoverpw.html")
+
 def verify(request):
     if request.method=='POST':
-        secret_key = int(request.POST['secret_pin'])
-
+        secret_key = (request.POST['secret_pin'])
         user=request.user
-        key = user.profile.secret_pin
-        if (secret_key==key):
-            return render(request, "index.html")
+        if UnusedPins.objects.filter(pin=secret_key):
+            if not UsedPins.objects.filter(pin=secret_key):
+                profile = user.profile
+                profile.secret_pin = secret_key
+                profile.save()
+                special = UsedPins.objects.create(pin=secret_key)
+                special.save()
+                key = UnusedPins.objects.filter(pin=secret_key)
+                key.delete()
+                return render(request, "index.html")
+
         else:
-            return redirect("auth-lock-screen.html")
+        	if UsedPins.objects.filter(pin=secret_key):
+        		#User has used the key before
+        		return render(request, "index.html")
+        	else:
+        		#user doesnt have a key, hes probably forging or putting a pin incorrectly
+        		return "Please input a valid pin"
     else:
         return render(request, 'auth-lock-screen.html')
 @login_required
 def logout(request):
     auth.logout(request)
     return redirect("auth-login.html")
+
+
+
+def randomStringDigits(stringLength=6):
+    """Generate a random string of letters and digits """
+    lettersAndDigits = string.ascii_letters + string.digits
+    return ''.join(random.choice(lettersAndDigits) for i in range(stringLength))
+
+def generate(request):
+    params = {"pins":UnusedPins.objects.all()}
+    if request.method == 'POST':
+        number = request.POST['number']
+        x = int(number)
+        for i in range(x):
+            code = UnusedPins.objects.create(pin=randomStringDigits(12))
+            code.save()
+            print (randomStringDigits(12))
+        return render(request,"gen.html",params)
+    else:
+        return render(request,"gen.html")
+#so create a database for used and unused and delete used ones from unused and add to used and assign the current used to user

@@ -14,7 +14,14 @@ class UserProfile(models.Model):
 
     )
     user_type = models.CharField(max_length=100, choices=USER_TYPE_CHOICES)
-    secret_pin = models.IntegerField()
+    secret_pin = models.CharField(max_length=12)
 
     def __str__(self):
         return self.user.username
+NULL_AND_BLANK = {'null': True, 'blank': True}
+class UnusedPins(models.Model):
+    pin = models.CharField(max_length=12)
+
+class UsedPins(models.Model):
+    pin = models.CharField(max_length=12)
+#use auth to check if the pin is in the unusedpin and in the used pinwhen your posting what the users are going to use
