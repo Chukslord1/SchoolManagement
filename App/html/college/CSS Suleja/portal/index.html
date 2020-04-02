@@ -2,10 +2,10 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Portal - Command Seconday School Suleja</title>
+        <title>Admin Dashboard - Command Seconday School Suleja</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="A premium admin dashboard template by mannatthemes" name="description" />
-        <meta content="Mannatthemes" name="author" />
+        <meta content="School Management System Portal" name="description" />
+        <meta content="Advance Scholar" name="author" />
 
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
@@ -89,14 +89,16 @@
                             aria-haspopup="false" aria-expanded="false">
                             <img src="assets/images/users/user-1.jpg" alt="profile-user" class="rounded-circle" /> 
                             <span class="ml-1 nav-user-name hidden-sm"> <i class="mdi mdi-chevron-down"></i> </span>
+                          
                         </a>
+                     
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="#"><i class="dripicons-user text-muted mr-2"></i> Profile</a>
-                            <a class="dropdown-item" href="#"><i class="dripicons-wallet text-muted mr-2"></i> My Wallet</a>
-                            <a class="dropdown-item" href="#"><i class="dripicons-gear text-muted mr-2"></i> Settings</a>
-                            <a class="dropdown-item" href="#"><i class="dripicons-lock text-muted mr-2"></i> Lock screen</a>
+                            <a class="dropdown-item" href="profile.html"><i class="dripicons-user text-muted mr-2"></i> Profile</a>
+                            <a class="dropdown-item" href="payment.html"><i class="dripicons-wallet text-muted mr-2"></i> Payment</a>
+                            <a class="dropdown-item" href="website-setting.html"><i class="dripicons-gear text-muted mr-2"></i> Settings</a>
+                            <a class="dropdown-item" href="http://adavancescholar.com/gen.html"><i class="dripicons-lock text-muted mr-2"></i> Pin</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#"><i class="dripicons-exit text-muted mr-2"></i> Logout</a>
+                            <a class="dropdown-item" href="logout.html"><i class="dripicons-exit text-muted mr-2"></i> Logout</a>
                         </div>
                     </li>
                 </ul>
@@ -131,13 +133,13 @@
                         <h5 class="text-light">Ochuko Onoja </h5>
                         <ul class="list-unstyled list-inline mb-0 mt-2">
                             <li class="list-inline-item">
-                                <a href="#" class=""><i class="mdi mdi-account text-light"></i></a>
+                                <a href="profile.html" class=""><i class="mdi mdi-account text-light"></i></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#" class=""><i class="mdi mdi-settings text-light"></i></a>
+                                <a href="website-setting.html" class=""><i class="mdi mdi-settings text-light"></i></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#" class=""><i class="mdi mdi-power text-danger"></i></a>
+                                <a href="logout.html" class=""><i class="mdi mdi-power text-danger"></i></a>
                             </li>
                         </ul>
                     </div>                    
@@ -147,7 +149,11 @@
                     <div class="col-sm-12">
                         <div class="page-title-box">
                             <div class="float-right align-item-center mt-2">
-                                <button class="btn btn-info px-4 align-self-center report-btn">Report Card</button>
+                                <button class="btn btn-info px-4 align-self-center report-btn">Visit Website</button>
+                            </div>
+                            &nbsp;&nbsp;
+                            <div class="float-right align-item-center mt-2">
+                                <button class="btn btn-info px-4 align-self-center report-btn">View Report Card</button>
                             </div>
                             <h4 class="page-title mb-2"><i class="mdi mdi-monitor-dashboard mr-2"></i>Dashboard</h4>  
                             <div class="">
@@ -174,138 +180,140 @@
                         <li class="menu-title">Main</li>
 
                         <li>
-                            <a href="index-3.html"><i class="mdi mdi-monitor"></i><span>Dashboard</span><span class="badge badge-danger badge-pill float-right">9+</span></a>
+                            <a href="index.html"><i class="mdi mdi-monitor"></i><span>Dashboard</span><span class="badge badge-danger badge-pill float-right">9+ Unread</span></a>
                            
                         </li>
 
                         <li>
                             <a href="javascript: void(0);"><i class="mdi mdi-account-group"></i><span>Users</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="nav-second-level" aria-expanded="false">
-                                <li><a href="#"><span>Admin</span></a></li>
-                                <li><a href="#"><span>Student</span></a></li>
-                                <li><a href="#"><span>Admission</span></a></li>
-                                <li><a href="#"><span>Teacher</span></a></li>
-                                <li><a href="#"><span>Teacher Permission</span></a></li>
-                                <li><a href="#"><span>Parent</span></a></li>
-                                <li><a href="#"><span>Accountant</span></a></li>
-                                <li><a href="#"><span>Libarian</span></a></li>
+                                <li><a href="manage-admin.html"><span>Admin</span></a></li>
+                                <li><a href="manage-student.html"><span>Student</span></a></li>      
+                                <li><a href="manage-teacher.html"><span>Teacher</span></a></li>
+                                <li><a href="manage-parent.html"><span>Parent</span></a></li>
+                                <li><a href="manage-accountant.html"><span>Accountant</span></a></li>
+                                <li><a href="manage-libarian.html"><span>Libarian</span></a></li>
                             </ul>
+                        </li>
+                        <li>
+                            <a href="admission.html"><i class="mdi mdi-monitor"></i><span>Admission</span><span class="badge badge-danger badge-pill float-right">8 New</span></a>
+                            
                         </li>
 
                         <li>
                             <a href="javascript: void(0);"><i class="mdi mdi-bank"></i><span>Academic</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="nav-second-level" aria-expanded="false">
-                                <li><a href="#"><span>Daily Attendance</span></a></li>
-                                <li><a href="#"><span>Class Routine</span></a></li>
-                                <li><a href="#"><span>Subject</span></a></li>
-                                <li><a href="#"><span>Syllabus</span></a></li>
-                                <li><a href="#"><span>Class</span></a></li>
-                                <li><a href="#"><span>Class Room</span></a></li>
-                                <li><a href="#"><span>Department</span></a></li>
-                                <li><a href="#"><span>Event Calendar</span></a></li>
+                                <li><a href="daily-attendance.html"><span>Daily Attendance</span></a></li>
+                                <li><a href="time-table.html"><span>Time Table</span></a></li>
+                                <li><a href="subject.html"><span>Subject</span></a></li>
+                                <li><a href="syllabus.html"><span>Syllabus</span></a></li>
+                                <li><a href="class.html"><span>Class</span></a></li>
+                                <li><a href="department.html"><span>Department</span></a></li>
+                                <li><a href="calendar.html"><span>Calendar</span></a></li>
                             </ul>
                         </li>
 
                         <li>
-                            <a href="javascript: void(0);"><i class="mdi mdi-bank"></i><span>Exam</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <a href="javascript: void(0);"><i class="mdi mdi-cards-outline"></i><span>Exam</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="nav-second-level" aria-expanded="false">
-                                <li><a href="#"><span>Daily Attendance</span></a></li>
-                                <li><a href="#"><span>Class Routine</span></a></li>
-                                <li><a href="#"><span>Subject</span></a></li>
-                                <li><a href="#"><span>Syllabus</span></a></li>
-                                <li><a href="#"><span>Class</span></a></li>
-                                <li><a href="#"><span>Class Room</span></a></li>
-                                <li><a href="#"><span>Department</span></a></li>
-                                <li><a href="#"><span>Event Calendar</span></a></li>
+                                <li><a href="#"><span>Marks</span></a></li>
+                                <li><a href="#"><span>Exam</span></a></li>
+                                <li><a href="#"><span>Grades</span></a></li>
+                                <li><a href="#"><span>Promotion</span></a></li>
+                                <li><a href="#"><span>Tabulation Sheet</span></a></li>
                             </ul>
                         </li>
 
                         <li>
-                            <a href="javascript: void(0);"><i class="mdi mdi-bank"></i><span>CBT</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <a href="javascript: void(0);"><i class="mdi mdi-cards-variant"></i><span>CBT</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="nav-second-level" aria-expanded="false">
-                                <li><a href="#"><span>Daily Attendance</span></a></li>
-                                <li><a href="#"><span>Class Routine</span></a></li>
-                                <li><a href="#"><span>Subject</span></a></li>
-                                <li><a href="#"><span>Syllabus</span></a></li>
-                                <li><a href="#"><span>Class</span></a></li>
-                                <li><a href="#"><span>Class Room</span></a></li>
-                                <li><a href="#"><span>Department</span></a></li>
-                                <li><a href="#"><span>Event Calendar</span></a></li>
+                                <li><a href="#"><span>Create Online Exam</span></a></li>
+                                <li><a href="#"><span>Manage Online Exam</span></a></li>
+                                <li><a href="#"><span>WAEC Past Questions</span></a></li>
+                                <li><a href="#"><span>NECO Past Questions</span></a></li>
+                                <li><a href="#"><span>Jamb Past Questions</span></a></li>
+                                </ul>
+                        </li>
+                        
+                        <li>
+                            <a href="sms.html"><i class="mdi mdi-cellphone-message"></i><span>SMS</span><span class="badge badge-danger badge-pill float-right">8 New</span></a>
+                            
+                        </li>
+                        
+                        <li>
+                            <a href="javascript: void(0);"><i class="mdi mdi-chat"></i><span>Messaging</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="nav-second-level" aria-expanded="false">
+                                <li><a href="chat.html"><span>Chat</span></a></li>
+                                <li><a href="email-inbox.html"><span>Email</span></a></li>
                             </ul>
                         </li>
 
                         <li>
-                            <a href="javascript: void(0);"><i class="mdi mdi-bank"></i><span>Academic</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <a href="javascript: void(0);"><i class="mdi mdi-account-card-details"></i><span>ID CARDS</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="nav-second-level" aria-expanded="false">
-                                <li><a href="#"><span>Daily Attendance</span></a></li>
-                                <li><a href="#"><span>Class Routine</span></a></li>
-                                <li><a href="#"><span>Subject</span></a></li>
-                                <li><a href="#"><span>Syllabus</span></a></li>
-                                <li><a href="#"><span>Class</span></a></li>
-                                <li><a href="#"><span>Class Room</span></a></li>
-                                <li><a href="#"><span>Department</span></a></li>
-                                <li><a href="#"><span>Event Calendar</span></a></li>
+                                <li><a href="#"><span>Student ID</span></a></li>
+                                <li><a href="#"><span>Staff ID</span></a></li>
+                                <li><a href="https://advancescholar.com/gen.html"><span>PINS</span></a></li>
+                               
                             </ul>
                         </li>
 
                         <li>
-                            <a href="javascript: void(0);"><i class="mdi mdi-bank"></i><span>Accounting</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <a href="javascript: void(0);"><i class="mdi mdi-account-details"></i><span>Accounting</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="nav-second-level" aria-expanded="false">
-                                <li><a href="#"><span>Daily Attendance</span></a></li>
-                                <li><a href="#"><span>Class Routine</span></a></li>
-                                <li><a href="#"><span>Subject</span></a></li>
-                                <li><a href="#"><span>Syllabus</span></a></li>
-                                <li><a href="#"><span>Class</span></a></li>
-                                <li><a href="#"><span>Class Room</span></a></li>
-                                <li><a href="#"><span>Department</span></a></li>
-                                <li><a href="#"><span>Event Calendar</span></a></li>
+                                <li><a href="#"><span>Student Fee Manager</span></a></li>
+                                <li><a href="#"><span>Expense Category</span></a></li>
+                                <li><a href="#"><span>Expense Manager</span></a></li>
+                                
                             </ul>
                         </li>
 
+                       
+                       
+
                         <li>
-                            <a href="javascript: void(0);"><i class="mdi mdi-bank"></i><span>Back Office</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <a href="javascript: void(0);"><i class=" mdi mdi-flip-to-front"></i><span>Back Office</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="nav-second-level" aria-expanded="false">
-                                <li><a href="#"><span>Daily Attendance</span></a></li>
-                                <li><a href="#"><span>Class Routine</span></a></li>
-                                <li><a href="#"><span>Subject</span></a></li>
-                                <li><a href="#"><span>Syllabus</span></a></li>
-                                <li><a href="#"><span>Class</span></a></li>
-                                <li><a href="#"><span>Class Room</span></a></li>
-                                <li><a href="#"><span>Department</span></a></li>
-                                <li><a href="#"><span>Event Calendar</span></a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript: void(0);"><i class="mdi mdi-bank"></i><span>Academic</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
-                            <ul class="nav-second-level" aria-expanded="false">
-                                <li><a href="#"><span>Daily Attendance</span></a></li>
-                                <li><a href="#"><span>Class Routine</span></a></li>
-                                <li><a href="#"><span>Subject</span></a></li>
-                                <li><a href="#"><span>Syllabus</span></a></li>
-                                <li><a href="#"><span>Class</span></a></li>
-                                <li><a href="#"><span>Class Room</span></a></li>
-                                <li><a href="#"><span>Department</span></a></li>
-                                <li><a href="#"><span>Event Calendar</span></a></li>
+                                <li><a href="website-setting.html"><span>Website Setting</span></a></li>
+                                <li><a href="event.html"><span>Noticeboard</span></a></li>
+                                <li><a href="school-setting.html"><span>School Setting</span></a></li>
+                                <li><a href="load-credit.html"><span>Load Credit</span></a></li>
+                                <li><a href="library.html"><span>Library</span></a></li>
+                                <li><a href="dormitory.html"><span>Dormitory (day/boarder)</span></a></li>
                             </ul>
                         </li>
 
-                        <li class="menu-title">Settings (Beta)</li>
-                        <li>
-                            <a href="javascript: void(0);"><i class="mdi mdi-bank"></i><span>Settings</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
-                            <ul class="nav-second-level" aria-expanded="false">
-                                <li><a href="#"><span>Daily Attendance</span></a></li>
-                                <li><a href="#"><span>Class Routine</span></a></li>
-                                <li><a href="#"><span>Subject</span></a></li>
-                                <li><a href="#"><span>Syllabus</span></a></li>
-                                <li><a href="#"><span>Class</span></a></li>
-                                <li><a href="#"><span>Class Room</span></a></li>
-                                <li><a href="#"><span>Department</span></a></li>
-                                <li><a href="#"><span>Event Calendar</span></a></li>
-                            </ul>
-                        </li>
+
+                        
                         
 
                     </ul>
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-10 mx-auto">
+                                <h4 class="page-title mb-2"><i class="mdi mdi-monitor-dashboard mr-2"></i>Running Session</h4>
+                                <div class="input-group">
+                                    <select class="form-control js--animations" style="width:auto">
+                                        <optgroup label="Select Running Session">
+                                            <option value="bounce">2017 - 2018</option>
+                                            <option value="flash">2018 - 2019</option>
+                                            <option value="pulse">2019 - 2020</option>
+                                            <option value="rubberBand">2020 - 2021</option>
+                                            <option value="shake">2021 - 2022</option>
+                                            <option value="swing">2022 - 2023</option>
+                                            <option value="tada">2023 - 2024</option>
+                                            <option value="wobble">2024 - 2025</option>
+                                            <option value="jello">2025 - 2026</option>
+                                        </optgroup>
+                                
+                                        
+                                    </select><!--end form-control-->
+                                
+                                    
+                                </div><!--end input group-->
+                            </div><!--emd col-->
+                        </div><!--end row-->
+                    </form><!--end form-->
                 </div>
                 <!-- end left-sidenav-->
 
@@ -431,8 +439,8 @@
                                                 <i class="far fa-smile"></i>
                                             </div>
                                             
-                                            <p class="text-white mb-0 font-16">Attendance</p>  
-                                            <h2 class="font-weight-bold text-white">58</h2>                                          
+                                            <p class="text-white mb-0 font-16">Attendance Today</p>  
+                                            <h2 class="font-weight-bold text-white">458 <i>out of </i>645</h2>                                          
                                         </div>
                                     </div><!--end card-body-->
                                     <div class="card-body dash-info-carousel">                                        
@@ -440,68 +448,38 @@
                                             <div class="carousel-inner">
                                                 <div class="carousel-item">
                                                     <div class="media">
-                                                        <img src="assets/images/flags/us_flag.jpg" class="mr-2 thumb-xs rounded-circle" alt="...">
+                                                        
                                                         <div class="media-body align-self-center">                                                                                                                       
-                                                            <h6 class="m-0">USA Store</h6>
+                                                            <h6 class="m-0">PINS</h6>
                                                         </div>
                                                     </div>
                                                     <div class="text-center">
-                                                        <p class="review-data mb-0">4.8<span>/ 5.0</span></p>
-                                                        <p class="px-4 py-1 bg-soft-success d-inline-block rounded">Very Good</p>
-                                                        <ul class="list-inline mb-1">
-                                                            <li class="list-inline-item mr-0"><i class="mdi mdi-star text-warning font-16"></i></li>
-                                                            <li class="list-inline-item mr-0"><i class="mdi mdi-star text-warning font-16"></i></li>
-                                                            <li class="list-inline-item mr-0"><i class="mdi mdi-star text-warning font-16"></i></li>
-                                                            <li class="list-inline-item mr-0"><i class="mdi mdi-star text-warning font-16"></i></li>
-                                                            <li class="list-inline-item mr-0"><i class="mdi mdi-star text-warning font-16"></i></li>
-                                                        </ul>
-                                                        <p class="mb-1 text-muted">There are many variations of passages of Lorem Ipsum available, 
-                                                            but the majority have suffered alteration in some form, by injected humour, or randomised.
-                                                        </p>
+                                                        <p class="review-data mb-0">49<span>/ 500</span></p>
+                                                        <p class="px-4 py-1 bg-soft-success d-inline-block rounded">Activated / Created</p>
+                                                        
                                                     </div>
                                                 </div>
                                                 <div class="carousel-item">
                                                     <div class="media">
-                                                        <img src="assets/images/flags/spain_flag.jpg" class="mr-2 thumb-xs rounded-circle" alt="...">
+                                                       
                                                         <div class="media-body align-self-center">                                                                                                                       
-                                                            <h6 class="m-0">Spain Store</h6>
+                                                            <h6 class="m-0">Bulk SMS Credit</h6>
                                                         </div>
                                                     </div>
                                                     <div class="text-center">
-                                                        <p class="review-data mb-0">4.6<span>/ 5.0</span></p>
-                                                        <p class="px-4 py-1 bg-soft-success d-inline-block rounded">Very Good</p>
-                                                        <ul class="list-inline mb-1">
-                                                            <li class="list-inline-item mr-0"><i class="mdi mdi-star text-warning font-16"></i></li>
-                                                            <li class="list-inline-item mr-0"><i class="mdi mdi-star text-warning font-16"></i></li>
-                                                            <li class="list-inline-item mr-0"><i class="mdi mdi-star text-warning font-16"></i></li>
-                                                            <li class="list-inline-item mr-0"><i class="mdi mdi-star text-warning font-16"></i></li>
-                                                            <li class="list-inline-item mr-0"><i class="mdi mdi-star text-warning font-16"></i></li>
-                                                        </ul>
-                                                        <p class="mb-1 text-muted">There are many variations of passages of Lorem Ipsum available, 
-                                                            but the majority have suffered alteration in some form, by injected humour, or randomised.
-                                                        </p>
+                                                        <p class="review-data mb-0">500</span></p>
+                                                        <p class="px-4 py-1 bg-soft-success d-inline-block rounded">Naira</p>
+                                                       
+                                        
                                                     </div>
                                                 </div>
                                                 <div class="carousel-item active">
-                                                    <div class="media">
-                                                        <img src="assets/images/flags/russia_flag.jpg" class="mr-2 thumb-xs rounded-circle" alt="...">
-                                                        <div class="media-body align-self-center">                                                                                                                       
-                                                            <h6 class="m-0">Russia Store</h6>
-                                                        </div>
-                                                    </div>
+                                                   
                                                     <div class="text-center">
                                                         <p class="review-data mb-0">5.0<span>/ 5.0</span></p>
                                                         <p class="px-4 py-1 bg-soft-success d-inline-block rounded">Exellent</p>
-                                                        <ul class="list-inline mb-1">
-                                                            <li class="list-inline-item mr-0"><i class="mdi mdi-star text-warning font-16"></i></li>
-                                                            <li class="list-inline-item mr-0"><i class="mdi mdi-star text-warning font-16"></i></li>
-                                                            <li class="list-inline-item mr-0"><i class="mdi mdi-star text-warning font-16"></i></li>
-                                                            <li class="list-inline-item mr-0"><i class="mdi mdi-star text-warning font-16"></i></li>
-                                                            <li class="list-inline-item mr-0"><i class="mdi mdi-star text-warning font-16"></i></li>
-                                                        </ul>
-                                                        <p class="mb-1 text-muted">There are many variations of passages of Lorem Ipsum available, 
-                                                            but the majority have suffered alteration in some form, by injected humour, or randomised.
-                                                        </p>
+                                                        
+                                                       
                                                     </div>
                                                 </div>
                                             </div>
@@ -521,7 +499,7 @@
                     </div><!-- container -->
 
                     <footer class="footer text-center text-sm-left">
-                        &copy; 2020 Command Secondary School, Suleja <span class="text-muted d-none d-sm-inline-block float-right">Powered by 24 Hubs</span>
+                        &copy; 2020 Command Secondary School, Suleja <span class="text-muted d-none d-sm-inline-block float-right">Powered by <a href="https://advancescholar.com">Advance Scholar</a></span>
                     </footer>
                 </div>
                 <!-- end page content -->

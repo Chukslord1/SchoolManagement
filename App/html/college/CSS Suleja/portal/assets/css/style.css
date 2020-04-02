@@ -2526,6 +2526,11 @@ a.bg-secondary:focus, a.bg-secondary:hover, button.bg-secondary:focus, button.bg
 .gradient-theme .tippy-backdrop {
   background: radial-gradient(circle at 67% 60%, #5766da, #00bcd4, #7043c1, #f93b7a);
 }
+.scrollable-menu {
+  height: auto;
+  max-height: 200px;
+  overflow-x: hidden;
+}
 
 .tippy-popper[x-placement^=top] .tippy-tooltip.light-theme .tippy-arrow {
   border-top: 7px solid #ffffff;

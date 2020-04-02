@@ -1,0 +1,1329 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Portal - Command Seconday School Suleja
+  </title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="A premium admin dashboard template by mannatthemes" name="description">
+   <meta content="Mannatthemes" name="author"/>
+   <!-- App favicon -->
+   <link href="{% static 'assets/images/favicon.ico' %}" rel="shortcut icon"/>
+   <!-- App css -->
+   <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"/>
+   <link href="{% static 'assets/css/icons.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'assets/css/metismenu.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" type="text/css"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <!-- Top Bar Start -->
+  <div class="topbar">
+   <!-- Navbar -->
+   <nav class="navbar-custom">
+    <!-- LOGO -->
+    <div class="topbar-left">
+     <a class="logo" href="index.html">
+      <span>
+       <img alt="logo-small" class="logo-sm" src="{% static 'assets/images/logo-sm.png' %}"/>
+      </span>
+      <span>
+       <img alt="logo-large" class="logo-lg" src="{% static 'assets/images/logo-dark.png' %}"/>
+      </span>
+     </a>
+    </div>
+    <ul class="list-unstyled topbar-nav float-right mb-0">
+     <li class="dropdown">
+      <a aria-expanded="false" aria-haspopup="false" class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button">
+       <i class="mdi mdi-bell-outline nav-icon">
+       </i>
+       <span class="badge badge-danger badge-pill noti-icon-badge">
+        2
+       </span>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right dropdown-lg">
+       <!-- item-->
+       <h6 class="dropdown-item-text">
+        Notifications (258)
+       </h6>
+       <div class="slimscroll notification-list">
+        <!-- item-->
+        <a class="dropdown-item notify-item active" href="javascript:void(0);">
+         <div class="notify-icon bg-success">
+          <i class="mdi mdi-cart-outline">
+          </i>
+         </div>
+         <p class="notify-details">
+          Your order is placed
+          <small class="text-muted">
+           Dummy text of the printing and typesetting industry.
+          </small>
+         </p>
+        </a>
+        <!-- item-->
+        <a class="dropdown-item notify-item" href="javascript:void(0);">
+         <div class="notify-icon bg-warning">
+          <i class="mdi mdi-message">
+          </i>
+         </div>
+         <p class="notify-details">
+          New Message received
+          <small class="text-muted">
+           You have 87 unread messages
+          </small>
+         </p>
+        </a>
+        <!-- item-->
+        <a class="dropdown-item notify-item" href="javascript:void(0);">
+         <div class="notify-icon bg-info">
+          <i class="mdi mdi-glass-cocktail">
+          </i>
+         </div>
+         <p class="notify-details">
+          Your item is shipped
+          <small class="text-muted">
+           It is a long established fact that a reader will
+          </small>
+         </p>
+        </a>
+        <!-- item-->
+        <a class="dropdown-item notify-item" href="javascript:void(0);">
+         <div class="notify-icon bg-primary">
+          <i class="mdi mdi-cart-outline">
+          </i>
+         </div>
+         <p class="notify-details">
+          Your order is placed
+          <small class="text-muted">
+           Dummy text of the printing and typesetting industry.
+          </small>
+         </p>
+        </a>
+        <!-- item-->
+        <a class="dropdown-item notify-item" href="javascript:void(0);">
+         <div class="notify-icon bg-danger">
+          <i class="mdi mdi-message">
+          </i>
+         </div>
+         <p class="notify-details">
+          New Message received
+          <small class="text-muted">
+           You have 87 unread messages
+          </small>
+         </p>
+        </a>
+       </div>
+       <!-- All-->
+       <a class="dropdown-item text-center text-primary" href="javascript:void(0);">
+        View all
+        <i class="fi-arrow-right">
+        </i>
+       </a>
+      </div>
+     </li>
+     <li class="dropdown">
+      <a aria-expanded="false" aria-haspopup="false" class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button">
+       <img alt="profile-user" class="rounded-circle" src="{% static 'assets/images/users/user-1.jpg' %}"/>
+       <span class="ml-1 nav-user-name hidden-sm">
+        <i class="mdi mdi-chevron-down">
+        </i>
+       </span>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right">
+       <a class="dropdown-item" href="#">
+        <i class="dripicons-user text-muted mr-2">
+        </i>
+        Profile
+       </a>
+       <a class="dropdown-item" href="#">
+        <i class="dripicons-wallet text-muted mr-2">
+        </i>
+        My Wallet
+       </a>
+       <a class="dropdown-item" href="#">
+        <i class="dripicons-gear text-muted mr-2">
+        </i>
+        Settings
+       </a>
+       <a class="dropdown-item" href="#">
+        <i class="dripicons-lock text-muted mr-2">
+        </i>
+        Lock screen
+       </a>
+       <div class="dropdown-divider">
+       </div>
+       <a class="dropdown-item" href="logout.html">
+        <i class="dripicons-exit text-muted mr-2">
+        </i>
+        Logout
+       </a>
+      </div>
+     </li>
+    </ul>
+    <ul class="list-unstyled topbar-nav mb-0">
+     <li>
+      <button class="button-menu-mobile nav-link waves-effect waves-light">
+       <i class="mdi mdi-menu nav-icon">
+       </i>
+      </button>
+     </li>
+     <li class="hide-phone app-search">
+      <form class="" role="search">
+       <input class="form-control" placeholder="Search Name / Admission Number" type="text"/>
+       <a href="">
+        <i class="fas fa-search">
+        </i>
+       </a>
+      </form>
+     </li>
+    </ul>
+   </nav>
+   <!-- end navbar-->
+  </div>
+  <!-- Top Bar End -->
+  <div class="page-wrapper-img">
+   <div class="page-wrapper-img-inner">
+    <div class="sidebar-user media">
+     <img alt="user" class="rounded-circle img-thumbnail mb-1" src="{% static 'assets/images/users/user-1.jpg' %}"/>
+     <span class="online-icon">
+      <i class="mdi mdi-record text-success">
+      </i>
+     </span>
+     <div class="media-body">
+      <h5 class="text-light">
+       Ochuko Onoja
+      </h5>
+      <ul class="list-unstyled list-inline mb-0 mt-2">
+       <li class="list-inline-item">
+        <a class="" href="#">
+         <i class="mdi mdi-account text-light">
+         </i>
+        </a>
+       </li>
+       <li class="list-inline-item">
+        <a class="" href="#">
+         <i class="mdi mdi-settings text-light">
+         </i>
+        </a>
+       </li>
+       <li class="list-inline-item">
+        <a class="" href="logout.html">
+         <i class="mdi mdi-power text-danger">
+         </i>
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <!-- Page-Title -->
+    <div class="row">
+     <div class="col-sm-12">
+      <div class="page-title-box">
+       <div class="float-right align-item-center mt-2">
+        <button class="btn btn-info px-4 align-self-center report-btn">
+         Report Card
+        </button>
+       </div>
+       <h4 class="page-title mb-2">
+        <i class="mdi mdi-monitor-dashboard mr-2">
+        </i>
+        Dashboard
+       </h4>
+       <div class="">
+        <ol class="breadcrumb">
+         <li class="breadcrumb-item">
+          <a href="javascript:void(0);">
+           Portal
+          </a>
+         </li>
+         <li class="breadcrumb-item active">
+          Dashboard
+         </li>
+        </ol>
+       </div>
+      </div>
+      <!--end page title box-->
+     </div>
+     <!--end col-->
+    </div>
+    <!--end row-->
+    <!-- end page title end breadcrumb -->
+   </div>
+   <!--end page-wrapper-img-inner-->
+  </div>
+  <!--end page-wrapper-img-->
+  <div class="page-wrapper">
+   <div class="page-wrapper-inner">
+    <!-- Left Sidenav -->
+    <div class="left-sidenav">
+     <ul class="metismenu left-sidenav-menu" id="side-nav">
+      <li class="menu-title">
+       Main
+      </li>
+      <li>
+       <a href="index-3.html">
+        <i class="mdi mdi-monitor">
+        </i>
+        <span>
+         Dashboard
+        </span>
+        <span class="badge badge-danger badge-pill float-right">
+         9+
+        </span>
+       </a>
+      </li>
+      <li>
+       <a href="javascript: void(0);">
+        <i class="mdi mdi-account-group">
+        </i>
+        <span>
+         Users
+        </span>
+        <span class="menu-arrow">
+         <i class="mdi mdi-chevron-right">
+         </i>
+        </span>
+       </a>
+       <ul aria-expanded="false" class="nav-second-level">
+        <li>
+         <a href="#">
+          <span>
+           Admin
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Student
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Admission
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Teacher
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Teacher Permission
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Parent
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Accountant
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Libarian
+          </span>
+         </a>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <a href="javascript: void(0);">
+        <i class="mdi mdi-bank">
+        </i>
+        <span>
+         Academic
+        </span>
+        <span class="menu-arrow">
+         <i class="mdi mdi-chevron-right">
+         </i>
+        </span>
+       </a>
+       <ul aria-expanded="false" class="nav-second-level">
+        <li>
+         <a href="#">
+          <span>
+           Daily Attendance
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class Routine
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Subject
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Syllabus
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class Room
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Department
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Event Calendar
+          </span>
+         </a>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <a href="javascript: void(0);">
+        <i class="mdi mdi-bank">
+        </i>
+        <span>
+         Exam
+        </span>
+        <span class="menu-arrow">
+         <i class="mdi mdi-chevron-right">
+         </i>
+        </span>
+       </a>
+       <ul aria-expanded="false" class="nav-second-level">
+        <li>
+         <a href="#">
+          <span>
+           Daily Attendance
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class Routine
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Subject
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Syllabus
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class Room
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Department
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Event Calendar
+          </span>
+         </a>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <a href="javascript: void(0);">
+        <i class="mdi mdi-bank">
+        </i>
+        <span>
+         CBT
+        </span>
+        <span class="menu-arrow">
+         <i class="mdi mdi-chevron-right">
+         </i>
+        </span>
+       </a>
+       <ul aria-expanded="false" class="nav-second-level">
+        <li>
+         <a href="#">
+          <span>
+           Daily Attendance
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class Routine
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Subject
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Syllabus
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class Room
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Department
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Event Calendar
+          </span>
+         </a>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <a href="javascript: void(0);">
+        <i class="mdi mdi-bank">
+        </i>
+        <span>
+         Academices
+        </span>
+        <span class="menu-arrow">
+         <i class="mdi mdi-chevron-right">
+         </i>
+        </span>
+       </a>
+       <ul aria-expanded="false" class="nav-second-level">
+        <li>
+         <a href="#">
+          <span>
+           Daily Attendance
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class Routine
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Subject
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Syllabus
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class Room
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Department
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Event Calendar
+          </span>
+         </a>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <a href="javascript: void(0);">
+        <i class="mdi mdi-bank">
+        </i>
+        <span>
+         Accounting
+        </span>
+        <span class="menu-arrow">
+         <i class="mdi mdi-chevron-right">
+         </i>
+        </span>
+       </a>
+       <ul aria-expanded="false" class="nav-second-level">
+        <li>
+         <a href="#">
+          <span>
+           Daily Attendance
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class Routine
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Subject
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Syllabus
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class Room
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Department
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Event Calendar
+          </span>
+         </a>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <a href="javascript: void(0);">
+        <i class="mdi mdi-bank">
+        </i>
+        <span>
+         Back Office
+        </span>
+        <span class="menu-arrow">
+         <i class="mdi mdi-chevron-right">
+         </i>
+        </span>
+       </a>
+       <ul aria-expanded="false" class="nav-second-level">
+        <li>
+         <a href="#">
+          <span>
+           Daily Attendance
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class Routine
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Subject
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Syllabus
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class Room
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Department
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Event Calendar
+          </span>
+         </a>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <a href="javascript: void(0);">
+        <i class="mdi mdi-bank">
+        </i>
+        <span>
+         Academic
+        </span>
+        <span class="menu-arrow">
+         <i class="mdi mdi-chevron-right">
+         </i>
+        </span>
+       </a>
+       <ul aria-expanded="false" class="nav-second-level">
+        <li>
+         <a href="#">
+          <span>
+           Daily Attendance
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class Routine
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Subject
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Syllabus
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class Room
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Department
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Event Calendar
+          </span>
+         </a>
+        </li>
+       </ul>
+      </li>
+      <li class="menu-title">
+       Settings (Beta)
+      </li>
+      <li>
+       <a href="javascript: void(0);">
+        <i class="mdi mdi-bank">
+        </i>
+        <span>
+         Settings
+        </span>
+        <span class="menu-arrow">
+         <i class="mdi mdi-chevron-right">
+         </i>
+        </span>
+       </a>
+       <ul aria-expanded="false" class="nav-second-level">
+        <li>
+         <a href="#">
+          <span>
+           Daily Attendance
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class Routine
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Subject
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Syllabus
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Class Room
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Department
+          </span>
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          <span>
+           Event Calendar
+          </span>
+         </a>
+        </li>
+       </ul>
+      </li>
+     </ul>
+    </div>
+    <!-- end left-sidenav-->
+    <!-- Page Content-->
+    <div class="page-content">
+     <div class="container-fluid">
+      <div class="row justify-content-center">
+       <div class="col-md-3">
+        <div class="card">
+         <div class="card-body">
+          <div class="float-right">
+           <i class="dripicons-user-group font-24 text-secondary">
+           </i>
+          </div>
+          <span class="badge badge-danger">
+           Students
+          </span>
+          <h3 class="font-weight-bold">
+           2100
+          </h3>
+          <p class="mb-0 text-muted text-truncate">
+           <span class="text-success">
+            <i class="mdi mdi-trending-up">
+            </i>
+            8.5%
+           </span>
+           Up From Last Year
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="col-md-3">
+        <div class="card">
+         <div class="card-body">
+          <div class="float-right">
+           <i class="dripicons-cart font-20 text-secondary">
+           </i>
+          </div>
+          <span class="badge badge-info">
+           Teachers
+          </span>
+          <h3 class="font-weight-bold">
+           56
+          </h3>
+          <p class="mb-0 text-muted text-truncate">
+           <span class="text-success">
+            <i class="mdi mdi-trending-up">
+            </i>
+           </span>
+           Total No of Teachers
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="col-md-3">
+        <div class="card">
+         <div class="card-body">
+          <div class="float-right">
+           <i class="dripicons-jewel font-20 text-secondary">
+           </i>
+          </div>
+          <span class="badge badge-warning">
+           Parents
+          </span>
+          <h3 class="font-weight-bold">
+           84
+          </h3>
+          <p class="mb-0 text-muted text-truncate">
+           <span class="text-danger">
+            <i class="mdi mdi-trending-down">
+            </i>
+           </span>
+           Total No of Parent
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="col-md-3">
+        <div class="card">
+         <div class="card-body">
+          <div class="float-right">
+           <i class="dripicons-wallet font-20 text-secondary">
+           </i>
+          </div>
+          <span class="badge badge-success">
+           Staff
+          </span>
+          <h3 class="font-weight-bold">
+           4
+          </h3>
+          <p class="mb-0 text-muted text-truncate">
+           <span class="text-success">
+            <i class="mdi mdi-trending-up">
+            </i>
+           </span>
+           Total No of Staff
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="row">
+       <div class="col-lg-8">
+        <div class="card">
+         <div class="card-body">
+          <h4 class="header-title mb-0">
+           Upcoming Events
+          </h4>
+         </div>
+         <div class="card-body">
+          <div aria-labelledby="headingOne" class="collapse show" data-parent="#accordionExample" id="collapseOne">
+           <div class="">
+            <div class="tracking-timeline">
+             <ul class="timeline mt-4">
+              <li>
+               <p class="timeline-date">
+                4 March 2019
+               </p>
+               <div class="timeline-content">
+                <div class="track-info">
+                 <div class="text-muted float-right">
+                  <p class="mb-1">
+                   5:15PM
+                  </p>
+                  <span>
+                   Read more
+                  </span>
+                 </div>
+                 <h5 class="mt-0 mb-1">
+                  Inter House Sport
+                 </h5>
+                 <p class="mb-0">
+                  2020/2021 Session Sport
+                 </p>
+                </div>
+                <div class="track-info">
+                 <div class="text-muted float-right">
+                  <p class="mb-1">
+                   9:10AM
+                  </p>
+                  <span>
+                   Read more
+                  </span>
+                 </div>
+                 <h5 class="mt-0 mb-1">
+                  Examination
+                 </h5>
+                 <p class="mb-0">
+                  Third Term Exam
+                 </p>
+                </div>
+               </div>
+              </li>
+              <li>
+               <p class="timeline-date">
+                3 March 2019
+               </p>
+               <div class="timeline-content">
+                <div class="track-info">
+                 <div class="text-muted float-right">
+                  <p class="mb-1">
+                   4:35PM
+                  </p>
+                  <span>
+                   Read more
+                  </span>
+                 </div>
+                 <h5 class="mt-0 mb-1">
+                  Mid Term Break
+                 </h5>
+                 <p class="mb-0">
+                  3rd Term mid term break
+                 </p>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="col-lg-4">
+        <div class="card overflow-hidden">
+         <div class="card-body bg-gradient3">
+          <div class="">
+           <div class="card-icon">
+            <i class="far fa-smile">
+            </i>
+           </div>
+           <p class="text-white mb-0 font-16">
+            Attendance
+           </p>
+           <h2 class="font-weight-bold text-white">
+            58
+           </h2>
+          </div>
+         </div>
+         <!--end card-body-->
+         <div class="card-body dash-info-carousel">
+          <div class="carousel slide" data-ride="carousel" id="carousel_review">
+           <div class="carousel-inner">
+            <div class="carousel-item">
+             <div class="media">
+              <img alt="..." class="mr-2 thumb-xs rounded-circle" src="{% static 'assets/images/flags/us_flag.jpg' %}"/>
+              <div class="media-body align-self-center">
+               <h6 class="m-0">
+                USA Store
+               </h6>
+              </div>
+             </div>
+             <div class="text-center">
+              <p class="review-data mb-0">
+               4.8
+               <span>
+                / 5.0
+               </span>
+              </p>
+              <p class="px-4 py-1 bg-soft-success d-inline-block rounded">
+               Very Good
+              </p>
+              <ul class="list-inline mb-1">
+               <li class="list-inline-item mr-0">
+                <i class="mdi mdi-star text-warning font-16">
+                </i>
+               </li>
+               <li class="list-inline-item mr-0">
+                <i class="mdi mdi-star text-warning font-16">
+                </i>
+               </li>
+               <li class="list-inline-item mr-0">
+                <i class="mdi mdi-star text-warning font-16">
+                </i>
+               </li>
+               <li class="list-inline-item mr-0">
+                <i class="mdi mdi-star text-warning font-16">
+                </i>
+               </li>
+               <li class="list-inline-item mr-0">
+                <i class="mdi mdi-star text-warning font-16">
+                </i>
+               </li>
+              </ul>
+              <p class="mb-1 text-muted">
+               There are many variations of passages of Lorem Ipsum available,
+                                                            but the majority have suffered alteration in some form, by injected humour, or randomised.
+              </p>
+             </div>
+            </div>
+            <div class="carousel-item">
+             <div class="media">
+              <img alt="..." class="mr-2 thumb-xs rounded-circle" src="{% static 'assets/images/flags/spain_flag.jpg' %}"/>
+              <div class="media-body align-self-center">
+               <h6 class="m-0">
+                Spain Store
+               </h6>
+              </div>
+             </div>
+             <div class="text-center">
+              <p class="review-data mb-0">
+               4.6
+               <span>
+                / 5.0
+               </span>
+              </p>
+              <p class="px-4 py-1 bg-soft-success d-inline-block rounded">
+               Very Good
+              </p>
+              <ul class="list-inline mb-1">
+               <li class="list-inline-item mr-0">
+                <i class="mdi mdi-star text-warning font-16">
+                </i>
+               </li>
+               <li class="list-inline-item mr-0">
+                <i class="mdi mdi-star text-warning font-16">
+                </i>
+               </li>
+               <li class="list-inline-item mr-0">
+                <i class="mdi mdi-star text-warning font-16">
+                </i>
+               </li>
+               <li class="list-inline-item mr-0">
+                <i class="mdi mdi-star text-warning font-16">
+                </i>
+               </li>
+               <li class="list-inline-item mr-0">
+                <i class="mdi mdi-star text-warning font-16">
+                </i>
+               </li>
+              </ul>
+              <p class="mb-1 text-muted">
+               There are many variations of passages of Lorem Ipsum available,
+                                                            but the majority have suffered alteration in some form, by injected humour, or randomised.
+              </p>
+             </div>
+            </div>
+            <div class="carousel-item active">
+             <div class="media">
+              <img alt="..." class="mr-2 thumb-xs rounded-circle" src="{% static 'assets/images/flags/russia_flag.jpg' %}"/>
+              <div class="media-body align-self-center">
+               <h6 class="m-0">
+                Russia Store
+               </h6>
+              </div>
+             </div>
+             <div class="text-center">
+              <p class="review-data mb-0">
+               5.0
+               <span>
+                / 5.0
+               </span>
+              </p>
+              <p class="px-4 py-1 bg-soft-success d-inline-block rounded">
+               Exellent
+              </p>
+              <ul class="list-inline mb-1">
+               <li class="list-inline-item mr-0">
+                <i class="mdi mdi-star text-warning font-16">
+                </i>
+               </li>
+               <li class="list-inline-item mr-0">
+                <i class="mdi mdi-star text-warning font-16">
+                </i>
+               </li>
+               <li class="list-inline-item mr-0">
+                <i class="mdi mdi-star text-warning font-16">
+                </i>
+               </li>
+               <li class="list-inline-item mr-0">
+                <i class="mdi mdi-star text-warning font-16">
+                </i>
+               </li>
+               <li class="list-inline-item mr-0">
+                <i class="mdi mdi-star text-warning font-16">
+                </i>
+               </li>
+              </ul>
+              <p class="mb-1 text-muted">
+               There are many variations of passages of Lorem Ipsum available,
+                                                            but the majority have suffered alteration in some form, by injected humour, or randomised.
+              </p>
+             </div>
+            </div>
+           </div>
+           <a class="carousel-control-prev" data-slide="prev" href="#carousel_review" role="button">
+            <span aria-hidden="true" class="carousel-control-prev-icon">
+            </span>
+            <span class="sr-only">
+             Previous
+            </span>
+           </a>
+           <a class="carousel-control-next" data-slide="next" href="#carousel_review" role="button">
+            <span aria-hidden="true" class="carousel-control-next-icon">
+            </span>
+            <span class="sr-only">
+             Next
+            </span>
+           </a>
+          </div>
+         </div>
+         <!--end card-body-->
+        </div>
+       </div>
+       <!--end col-->
+      </div>
+      <!--end row-->
+     </div>
+     <!-- container -->
+     <footer class="footer text-center text-sm-left">
+      © 2020 Command Secondary School, Suleja
+      <span class="text-muted d-none d-sm-inline-block float-right">
+       Powered by 24 Hubs
+      </span>
+     </footer>
+    </div>
+    <!-- end page content -->
+   </div>
+   <!--end page-wrapper-inner -->
+  </div>
+  <!-- end page-wrapper -->
+  <!-- jQuery  -->
+  <script src="{% static 'assets/js/jquery.min.js' %}">
+  </script>
+  <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}">
+  </script>
+  <script src="{% static 'assets/js/metisMenu.min.js' %}">
+  </script>
+  <script src="{% static 'assets/js/waves.min.js' %}">
+  </script>
+  <script src="{% static 'assets/js/jquery.slimscroll.min.js' %}">
+  </script>
+  <script src="{% static 'assets/plugins/moment/moment.js' %}">
+  </script>
+  <script src="{% static 'assets/plugins/apexcharts/apexcharts.min.js' %}">
+  </script>
+  <script src="https://apexcharts.com/samples/assets/irregular-data-series.js">
+  </script>
+  <script src="https://apexcharts.com/samples/assets/series1000.js">
+  </script>
+  <script src="https://apexcharts.com/samples/assets/ohlc.js">
+  </script>
+  <script src="{% static 'assets/pages/jquery.dashboard-3.init.js' %}">
+  </script>
+  <!-- App js -->
+  <script src="{% static 'assets/js/app.js' %}">
+  </script>
+ </body>
+</html>
