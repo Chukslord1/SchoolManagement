@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Manage Admin - Command Seconday School Suleja</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="School Management System Portal" name="description" />
+        <meta content="Advance Scholar" name="author" />
+
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link href="assets/plugins/custombox/custombox.min.css" rel="stylesheet" type="text/css">
+        <link href="assets/plugins/dropify/css/dropify.min.css" rel="stylesheet">
+        <!-- App css -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/metismenu.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+
+    </head>
+
+    <body>
+
+        <!-- Top Bar Start -->
+        <div class="topbar">
+             <!-- Navbar -->
+             <nav class="navbar-custom">
+
+                <!-- LOGO -->
+                <div class="topbar-left">
+                    <a href="index.html" class="logo">
+                        <span>
+                            <img src="assets/images/logo-sm.png" alt="logo-small" class="logo-sm">
+                        </span>
+                        <span>
+                            <img src="assets/images/logo-dark.png" alt="logo-large" class="logo-lg">
+                        </span>
+                    </a>
+                </div>
+    
+                <ul class="list-unstyled topbar-nav float-right mb-0">
+
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="false" aria-expanded="false">
+                            <i class="mdi mdi-bell-outline nav-icon"></i>
+                            <span class="badge badge-danger badge-pill noti-icon-badge">2</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-lg">
+                            <!-- item-->
+                            <h6 class="dropdown-item-text">
+                                Notifications (258)
+                            </h6>
+                            <div class="slimscroll notification-list">
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item active">
+                                    <div class="notify-icon bg-success"><i class="mdi mdi-cart-outline"></i></div>
+                                    <p class="notify-details">Your order is placed<small class="text-muted">Dummy text of the printing and typesetting industry.</small></p>
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-warning"><i class="mdi mdi-message"></i></div>
+                                    <p class="notify-details">New Message received<small class="text-muted">You have 87 unread messages</small></p>
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-info"><i class="mdi mdi-glass-cocktail"></i></div>
+                                    <p class="notify-details">Your item is shipped<small class="text-muted">It is a long established fact that a reader will</small></p>
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-primary"><i class="mdi mdi-cart-outline"></i></div>
+                                    <p class="notify-details">Your order is placed<small class="text-muted">Dummy text of the printing and typesetting industry.</small></p>
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-danger"><i class="mdi mdi-message"></i></div>
+                                    <p class="notify-details">New Message received<small class="text-muted">You have 87 unread messages</small></p>
+                                </a>
+                            </div>
+                            <!-- All-->
+                            <a href="javascript:void(0);" class="dropdown-item text-center text-primary">
+                                View all <i class="fi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="false" aria-expanded="false">
+                            <img src="assets/images/users/user-1.jpg" alt="profile-user" class="rounded-circle" /> 
+                            <span class="ml-1 nav-user-name hidden-sm"> <i class="mdi mdi-chevron-down"></i> </span>
+                          
+                        </a>
+                     
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="profile.html"><i class="dripicons-user text-muted mr-2"></i> Profile</a>
+                            <a class="dropdown-item" href="payment.html"><i class="dripicons-wallet text-muted mr-2"></i> Payment</a>
+                            <a class="dropdown-item" href="website-setting.html"><i class="dripicons-gear text-muted mr-2"></i> Settings</a>
+                            <a class="dropdown-item" href="http://adavancescholar.com/gen.html"><i class="dripicons-lock text-muted mr-2"></i> Pin</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="logout.html"><i class="dripicons-exit text-muted mr-2"></i> Logout</a>
+                        </div>
+                    </li>
+                </ul>
+    
+                <ul class="list-unstyled topbar-nav mb-0">
+                        
+                    <li>
+                        <button class="button-menu-mobile nav-link waves-effect waves-light">
+                            <i class="mdi mdi-menu nav-icon"></i>
+                        </button>
+                    </li>
+
+                    <li class="hide-phone app-search">
+                        <form role="search" class="">
+                            <input type="text" placeholder="Search Name / Admission Number" class="form-control">
+                            <a href=""><i class="fas fa-search"></i></a>
+                        </form>
+                    </li>
+                    
+                </ul>
+
+            </nav>
+            <!-- end navbar-->
+        </div>
+        <!-- Top Bar End -->
+        <div class="page-wrapper-img">
+            <div class="page-wrapper-img-inner">
+                <div class="sidebar-user media">                    
+                    <img src="assets/images/users/user-1.jpg" alt="user" class="rounded-circle img-thumbnail mb-1">
+                    <span class="online-icon"><i class="mdi mdi-record text-success"></i></span>
+                    <div class="media-body">
+                        <h5 class="text-light">Ochuko Onoja </h5>
+                        <ul class="list-unstyled list-inline mb-0 mt-2">
+                            <li class="list-inline-item">
+                                <a href="profile.html" class=""><i class="mdi mdi-account text-light"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="website-setting.html" class=""><i class="mdi mdi-settings text-light"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="logout.html" class=""><i class="mdi mdi-power text-danger"></i></a>
+                            </li>
+                        </ul>
+                    </div>                    
+                </div>
+                <!-- Page-Title -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <div class="float-right align-item-center mt-2">
+                                <button class="btn btn-info px-4 align-self-center report-btn">Visit Website</button>
+                            </div>
+                            &nbsp;&nbsp;
+                            <div class="float-right align-item-center mt-2">
+                                <button class="btn btn-info px-4 align-self-center report-btn">View Report Card</button>
+                            </div>
+                            <h4 class="page-title mb-2"><i class="mdi mdi-monitor-dashboard mr-2"></i>Dashboard</h4>  
+                            <div class="">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="javascript:void(0);">Admin</a></li>
+                                    <li class="breadcrumb-item active">Manage Admin</li>
+                                </ol>
+                            </div>                                      
+                        </div><!--end page title box-->
+                    </div><!--end col-->
+                </div><!--end row-->
+                <!-- end page title end breadcrumb -->
+            </div><!--end page-wrapper-img-inner-->
+        </div><!--end page-wrapper-img-->
+        
+        <div class="page-wrapper">
+            <div class="page-wrapper-inner">
+
+                <!-- Left Sidenav -->
+                <div class="left-sidenav">
+                    
+                    <ul class="metismenu left-sidenav-menu" id="side-nav">
+
+                        <li class="menu-title">Main</li>
+
+                        <li>
+                            <a href="index.html"><i class="mdi mdi-monitor"></i><span>Dashboard</span><span class="badge badge-danger badge-pill float-right">9+ Unread</span></a>
+                           
+                        </li>
+
+                        <li>
+                            <a href="javascript: void(0);"><i class="mdi mdi-account-group"></i><span>Users</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="nav-second-level" aria-expanded="false">
+                                <li><a href="manage-admin.html"><span>Admin</span></a></li>
+                                <li><a href="student.html"><span>Student</span></a></li>      
+                                <li><a href="manage-teacher.html"><span>Teacher</span></a></li>
+                                <li><a href="manage-parent.html"><span>Parent</span></a></li>
+                                <li><a href="manage-accountant.html"><span>Accountant</span></a></li>
+                                <li><a href="manage-libarian.html"><span>Libarian</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="admission.html"><i class="mdi mdi-monitor"></i><span>Admission</span><span class="badge badge-danger badge-pill float-right">8 New</span></a>
+                            
+                        </li>
+
+                        <li>
+                            <a href="javascript: void(0);"><i class="mdi mdi-bank"></i><span>Academic</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="nav-second-level" aria-expanded="false">
+                                <li><a href="daily-attendance.html"><span>Daily Attendance</span></a></li>
+                                <li><a href="time-table.html"><span>Time Table</span></a></li>
+                                <li><a href="subject.html"><span>Subject</span></a></li>
+                                <li><a href="syllabus.html"><span>Syllabus</span></a></li>
+                                <li><a href="class.html"><span>Class</span></a></li>
+                                <li><a href="department.html"><span>Department</span></a></li>
+                                <li><a href="calendar.html"><span>Calendar</span></a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="javascript: void(0);"><i class="mdi mdi-cards-outline"></i><span>Exam</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="nav-second-level" aria-expanded="false">
+                                <li><a href="#"><span>Marks</span></a></li>
+                                <li><a href="#"><span>Exam</span></a></li>
+                                <li><a href="#"><span>Grades</span></a></li>
+                                <li><a href="#"><span>Promotion</span></a></li>
+                                <li><a href="#"><span>Tabulation Sheet</span></a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="javascript: void(0);"><i class="mdi mdi-cards-variant"></i><span>CBT</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="nav-second-level" aria-expanded="false">
+                                <li><a href="#"><span>Create Online Exam</span></a></li>
+                                <li><a href="#"><span>Manage Online Exam</span></a></li>
+                                <li><a href="#"><span>WAEC Past Questions</span></a></li>
+                                <li><a href="#"><span>NECO Past Questions</span></a></li>
+                                <li><a href="#"><span>Jamb Past Questions</span></a></li>
+                                </ul>
+                        </li>
+                        
+                        <li>
+                            <a href="sms.html"><i class="mdi mdi-cellphone-message"></i><span>SMS</span><span class="badge badge-danger badge-pill float-right">8 New</span></a>
+                            
+                        </li>
+                        
+                        <li>
+                            <a href="javascript: void(0);"><i class="mdi mdi-chat"></i><span>Messaging</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="nav-second-level" aria-expanded="false">
+                                <li><a href="chat.html"><span>Chat</span></a></li>
+                                <li><a href="email-inbox.html"><span>Email</span></a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="javascript: void(0);"><i class="mdi mdi-account-card-details"></i><span>ID CARDS</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="nav-second-level" aria-expanded="false">
+                                <li><a href="#"><span>Student ID</span></a></li>
+                                <li><a href="#"><span>Staff ID</span></a></li>
+                                <li><a href="https://advancescholar.com/gen.html"><span>PINS</span></a></li>
+                               
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="javascript: void(0);"><i class="mdi mdi-account-details"></i><span>Accounting</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="nav-second-level" aria-expanded="false">
+                                <li><a href="#"><span>Student Fee Manager</span></a></li>
+                                <li><a href="#"><span>Expense Category</span></a></li>
+                                <li><a href="#"><span>Expense Manager</span></a></li>
+                                
+                            </ul>
+                        </li>
+
+                       
+                       
+
+                        <li>
+                            <a href="javascript: void(0);"><i class=" mdi mdi-flip-to-front"></i><span>Back Office</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="nav-second-level" aria-expanded="false">
+                                <li><a href="website-setting.html"><span>Website Setting</span></a></li>
+                                <li><a href="event.html"><span>Noticeboard</span></a></li>
+                                <li><a href="school-setting.html"><span>School Setting</span></a></li>
+                                <li><a href="load-credit.html"><span>Load Credit</span></a></li>
+                                <li><a href="library.html"><span>Library</span></a></li>
+                                <li><a href="dormitory.html"><span>Dormitory (day/boarder)</span></a></li>
+                            </ul>
+                        </li>
+
+
+                        
+                        
+
+                    </ul>
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-10 mx-auto">
+                                <h4 class="page-title mb-2"><i class="mdi mdi-monitor-dashboard mr-2"></i>Running Session</h4>
+                                <div class="input-group">
+                                    <select class="form-control js--animations" style="width:auto">
+                                        <optgroup label="Select Running Session">
+                                            <option value="bounce">2017 - 2018</option>
+                                            <option value="flash">2018 - 2019</option>
+                                            <option value="pulse">2019 - 2020</option>
+                                            <option value="rubberBand">2020 - 2021</option>
+                                            <option value="shake">2021 - 2022</option>
+                                            <option value="swing">2022 - 2023</option>
+                                            <option value="tada">2023 - 2024</option>
+                                            <option value="wobble">2024 - 2025</option>
+                                            <option value="jello">2025 - 2026</option>
+                                        </optgroup>
+                                
+                                        
+                                    </select><!--end form-control-->
+                                
+                                    
+                                </div><!--end input group-->
+                            </div><!--emd col-->
+                        </div><!--end row-->
+                    </form><!--end form-->
+                </div>
+                <!-- end left-sidenav-->
+
+                <!-- Page Content-->
+                <div class="page-content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+        
+                                        <h4 class="mt-0 header-title">Manage Admin</h4>
+                                        <p class="text-muted mb-4 font-13">
+                                            All Administrators.
+                                        </p>
+                                        
+                                                    
+                                                <div class="animation-modal">
+                                                            <a href="#custom-modal" class="btn btn-primary waves-effect" data-animation="fadein" data-plugin="custommodal" data-overlayColor="#38414a">Create Admin</a>
+                                                            
+                                                        </div><!--end animation modal-->  
+                                                            <!-- Custom Modal -->
+                                                        <div id="custom-modal" class="modal-demo">
+                                                            <button type="button" class="close" onclick="Custombox.modal.close();">
+                                                                <span>&times;</span><span class="sr-only">Close</span>
+                                                            </button>
+                                                            <h4 class="custom-modal-title">Create Admin</h4>
+                                                            
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <div class="card">
+                                                                        <div class="card-body">
+                                                                    <div class="form-group row">
+                                                                        <label for="example-text-input" class="col-sm-2 col-form-label text-right">Name</label>
+                                                                        <div class="col-sm-9">
+                                                                            <input class="form-control" type="text" value="" id="example-text-input">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label for="example-text-input" class="col-sm-2 col-form-label text-right">Username</label>
+                                                                        <div class="col-sm-9">
+                                                                            <input class="form-control" type="text" value="" id="example-text-input">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label for="example-email-input" class="col-sm-2 col-form-label text-right">Email</label>
+                                                                        <div class="col-sm-9">
+                                                                            <input class="form-control" type="email" value="" id="example-email-input">
+                                                                        </div>
+                                                                    </div> 
+                                                                    <div class="form-group row">
+                                                                        <label for="example-tel-input" class="col-sm-2 col-form-label text-right">Phone Number</label>
+                                                                        <div class="col-sm-9">
+                                                                            <input class="form-control" type="tel" value="" id="example-tel-input">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label for="example-password-input" class="col-sm-2 col-form-label text-right">Password</label>
+                                                                        <div class="col-sm-9">
+                                                                            <input class="form-control" type="password" value="" id="example-password-input">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-sm-2 col-form-label text-right">Gender</label>
+                                                                        <div class="col-sm-9">
+                                                                            <select class="form-control">
+                                                                                <option>Select</option>
+                                                                                <option>Male</option>
+                                                                                <option>Female</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-sm-2 col-form-label text-right">Address</label>
+                                                                        <div class="col-sm-9">
+                                                                            <textarea class="form-control" rows="5"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-sm-2 col-form-label text-right">Admin Profile Image</label>                          
+                                                                        <div class="col-sm-4">
+                                                                            
+                                                                         <input type="file" id="input-file-now-custom-1" class="dropify" data-default-file="assets/plugins/dropify/images/1.jpg" />
+                                                                        </div><!--end col-->
+                                                                    </div><!--end row-->
+                                                                    <div class="row">
+                                                                        <div class="col-sm-9 text-right">
+                                                                            <button type="submit" class="btn btn-primary px-5 py-2">Submit</button>
+                                                                        </div>
+                                                                    </div>   
+                                                                    </div>
+                                                                    </div>                             
+                                                                </div>
+                    
+                    
+                                                                
+                                                            </div> 
+                                                                
+                                                            
+                                                        </div> <!--end custom modal-->  
+                                                          <!--Begin custom populated modal-->  
+                                                        <div id="custom-modal-edit" class="modal-demo">
+                                                            <button type="button" class="close" onclick="Custombox.modal.close();">
+                                                                <span>&times;</span><span class="sr-only">Close</span>
+                                                            </button>
+                                                            <h4 class="custom-modal-title">Edit Admin</h4>
+                                                            
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <div class="card">
+                                                                        <div class="card-body">
+                                                                    <div class="form-group row">
+                                                                        <label for="example-text-input" class="col-sm-2 col-form-label text-right">Name</label>
+                                                                        <div class="col-sm-9">
+                                                                            <input class="form-control" type="text" value="" id="example-text-input">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label for="example-text-input" class="col-sm-2 col-form-label text-right">Username</label>
+                                                                        <div class="col-sm-9">
+                                                                            <input class="form-control" type="text" value="" id="example-text-input">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label for="example-email-input" class="col-sm-2 col-form-label text-right">Email</label>
+                                                                        <div class="col-sm-9">
+                                                                            <input class="form-control" type="email" value="" id="example-email-input">
+                                                                        </div>
+                                                                    </div> 
+                                                                    <div class="form-group row">
+                                                                        <label for="example-tel-input" class="col-sm-2 col-form-label text-right">Phone Number</label>
+                                                                        <div class="col-sm-9">
+                                                                            <input class="form-control" type="tel" value="" id="example-tel-input">
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    <div class="form-group row">
+                                                                        <label class="col-sm-2 col-form-label text-right">Gender</label>
+                                                                        <div class="col-sm-9">
+                                                                            <select class="form-control">
+                                                                                <option>Select</option>
+                                                                                <option>Male</option>
+                                                                                <option>Female</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-sm-2 col-form-label text-right">Address</label>
+                                                                        <div class="col-sm-9">
+                                                                            <textarea class="form-control" rows="5"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    <div class="row">
+                                                                        <div class="col-sm-9 text-right">
+                                                                            <button type="submit" class="btn btn-primary px-5 py-2">Update</button>
+                                                                        </div>
+                                                                    </div>   
+                                                                    </div>
+                                                                    </div>                             
+                                                                </div>
+                    
+                    
+                                                                
+                                                            </div> 
+                                                                
+                                                            
+                                                        </div>            
+                                               
+                                        <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                            
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Photo</th>
+                                                <th>Name</th>
+                                                <th>Username/Email</th>
+                                                <th>Phone</th>
+                                                <th>Address</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+        
+        
+                                            <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>
+                                                    <img src="assets/images/products/img-2.png" alt="" height="52">
+                                                </td>   
+                                                <td> <p class="d-inline-block align-middle mb-0">
+                                                    <a href="" class="d-inline-block align-middle mb-0 product-name">Adebowale Adeolu</a> 
+                                                    <br>
+                                                    <span class="text-muted font-13">Admin of CSS Suleja</span> 
+                                                </p></td>
+                                                <td> <p class="d-inline-block align-middle mb-0">
+                                                    <a href="" class="d-inline-block align-middle mb-0 product-name">administrator</a> 
+                                                    <br>
+                                                    <span class="text-muted font-13">admin@csssuleja.org</span> 
+                                                </p></td>
+                                                <td>08036856999</td>
+                                                <td>Dame Patience Jonathan Drive, Opposite Shehu Musa Yar’adua Barracks, Behind NAF Holdings, Asokoro, Abuja.</td>
+                                                <td>
+                                                    <div class="btn-group">
+                                                        <div class="animation-modal">
+                                                            <a href="#custom-modal-edit" data-plugin="custommodal"><button type="button" class="btn btn-outline-secondary btn-sm"><i class="far fa-edit"></i></button></a>
+                                                            
+                                                        </div><!--end animation modal--> 
+                                                        
+                                                        <button type="button" class="btn btn-outline-secondary btn-sm"><i class="far fa-trash-alt"></i></button>
+                                                    </div>
+
+                                                    
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>1</td>
+                                                <td>
+                                                    <img src="assets/images/products/img-2.png" alt="" height="52">
+                                                </td>   
+                                                <td> <p class="d-inline-block align-middle mb-0">
+                                                    <a href="" class="d-inline-block align-middle mb-0 product-name">Ochuko Onoja</a> 
+                                                    <br>
+                                                    <span class="text-muted font-13">Admin of CSS Suleja</span> 
+                                                </p></td>
+                                                <td> <p class="d-inline-block align-middle mb-0">
+                                                    <a href="" class="d-inline-block align-middle mb-0 product-name">administrator</a> 
+                                                    <br>
+                                                    <span class="text-muted font-13">admin@csssuleja.org</span> 
+                                                </p></td>
+                                                <td>08036856999</td>
+                                                <td>Dame Patience Jonathan Drive, Opposite Shehu Musa Yar’adua Barracks, Behind NAF Holdings, Asokoro, Abuja.</td>
+                                                <td>
+                                                    <div class="btn-group">
+                                                        <div class="animation-modal">
+                                                            <a href="#custom-modal-edit" data-plugin="custommodal"><button type="button" class="btn btn-outline-secondary btn-sm"><i class="far fa-edit"></i></button></a>
+                                                            
+                                                        </div><!--end animation modal--> 
+                                                        
+                                                        <button type="button" class="btn btn-outline-secondary btn-sm"><i class="far fa-trash-alt"></i></button>
+                                                    </div>
+
+                                                    
+                                                </td>
+                                            </tr>
+                                            
+                                            </tbody>
+                                        </table>
+        
+                                    </div>
+                                </div>
+                            </div> <!-- end col -->
+                        </div> <!-- end row -->        
+                    </div><!-- container -->
+
+                    <footer class="footer text-center text-sm-left">
+                        &copy; 2020 Command Secondary School, Suleja <span class="text-muted d-none d-sm-inline-block float-right">Powered by <a href="https://advancescholar.com">Advance Scholar</a></span>
+                    </footer>
+                </div>
+                <!-- end page content -->
+            </div>
+            <!--end page-wrapper-inner -->
+        </div>
+        <!-- end page-wrapper -->
+
+        <!-- jQuery  -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/metisMenu.min.js"></script>
+        <script src="assets/js/waves.min.js"></script>
+        <script src="assets/js/jquery.slimscroll.min.js"></script>
+        <script src="assets/plugins/dropify/js/dropify.min.js"></script>
+        <script src="assets/pages/jquery.form-upload.init.js"></script>
+
+        <!-- Required datatable js -->
+        <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="assets/plugins/datatables/dataTables.bootstrap4.min.js"></script>
+         <!-- Required jquery modal -->
+        <script src="assets/plugins/custombox/custombox.min.js"></script>
+        <script src="assets/plugins/custombox/custombox.legacy.min.js"></script>
+        
+        <script src="assets/pages/jquery.modal-animation.js"></script>
+        <!-- App js -->
+        <script src="assets/js/app.js"></script>
+        <script>
+            $('#datatable').DataTable();
+        </script>
+
+    </body>
+</html>
