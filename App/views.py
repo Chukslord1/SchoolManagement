@@ -99,3 +99,58 @@ def generate(request):
     else:
         return render(request,"gen.html")
 #so create a database for used and unused and delete used ones from unused and add to used and assign the current used to user
+def addStudent(request):
+    return render(request, "add-student.html")
+
+def Student(request):
+    return render(request, "student.html")
+def timeTable(request):
+    return render(request, "time-table.html")
+
+def syllabus(request):
+    return render(request, "syllabus.html")
+
+def subject(request):
+    return render(request, "subject.html")
+
+def sms(request):
+    return render(request, "sms.html")
+
+def profile(request):
+    return render(request, "profile.html")
+
+def manageTeacher(request):
+    return render(request, "manage-teacher.html")
+
+def manageStudent(request):
+    return render(request, "manage-student.html")
+
+def manageParent(request):
+    return render(request, "manage-parent.html")
+
+def manageLibarian(request):
+    return render(request, "manage-libarian.html")
+
+def manageAdmin(request):
+    return render(request, "manage-admin.html")
+
+def manageAccountant(request):
+    return render(request, "manage-accountant.html")
+
+def Dept(request):
+    return render(request, "department.html")
+
+def Attend(request):
+    return render(request, "daily-attendance.html")
+
+def Class(request):
+    return render(request, "class.html")
+
+def Chat(request):
+    return render(request, "chat.html")
+
+def Calendar(request):
+    return render(request, "calendar.html")
+
+def Admission(request):
+    return render(request, "admission.html")

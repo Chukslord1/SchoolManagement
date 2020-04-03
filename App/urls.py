@@ -12,6 +12,26 @@ urlpatterns = [
     path("auth-lock-screen.html", views.verify, name="verify"),
     path("logout.html", views.logout, name="logout"),
     path("gen.html", views.generate, name="gen"),
+    path("add-student.html", views.addStudent, name="addStudent"),
+    path("student.html", views.Student, name="Student"),
+    path("time-table.html", views.timeTable, name="timeTable"),
+    path("syllabus.html", views.syllabus, name="syllabus"),
+    path("subject.html", views.subject, name="subject"),
+    path("sms.html", views.sms, name="sms"),
+    path("profile.html", views.profile, name="profile"),
+    path("manage-teacher.html", views.manageTeacher, name="manage-teacher"),
+    path("manage-student.html", views.manageStudent, name="manage-student"),
+    path("manage-parent.html", views.manageParent, name="manage-parent"),
+    path("manage-libarian.html", views.manageLibarian, name="manage-libarian"),
+    path("manage-admin.html", views.manageAdmin, name="manage-admin"),
+    path("manage-accountant.html", views.manageAccountant, name="manage-accountant"),
+    path("department.html", views.Dept, name="department"),
+    path("daily-attendance.html", views.Attend, name="daily-attendance"),
+    path("class.html", views.Class, name="class"),
+    path("chat.html", views.Chat, name="chat"),
+    path("calendar.html", views.Calendar, name="calendar"),
+    path("admission.html", views.Admission, name="admission"),
+
 
 
 
