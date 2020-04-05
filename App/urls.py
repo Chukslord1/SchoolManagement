@@ -13,6 +13,7 @@ urlpatterns = [
     path("logout.html", views.logout, name="logout"),
     path("gen.html", views.generate, name="gen"),
     path("add-student.html", views.addStudent, name="addStudent"),
+    path("add-student/bulkstudent.html", views.BulkStudent, name="BulkStudent"),
     path("student.html", views.Student, name="Student"),
     path("time-table.html", views.timeTable, name="timeTable"),
     path("syllabus.html", views.syllabus, name="syllabus"),

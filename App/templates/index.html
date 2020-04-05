@@ -5,11 +5,11 @@
  <head>
   <meta charset="utf-8"/>
   <title>
-   Portal - Command Seconday School Suleja
+   Admin Dashboard - Command Seconday School Suleja
   </title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <meta content="A premium admin dashboard template by mannatthemes" name="description">
-   <meta content="Mannatthemes" name="author"/>
+  <meta content="School Management System Portal" name="description">
+   <meta content="Advance Scholar" name="author"/>
    <!-- App favicon -->
    <link href="{% static 'assets/images/favicon.ico' %}" rel="shortcut icon"/>
    <!-- App css -->
@@ -134,25 +134,25 @@
        </span>
       </a>
       <div class="dropdown-menu dropdown-menu-right">
-       <a class="dropdown-item" href="#">
+       <a class="dropdown-item" href="profile.html">
         <i class="dripicons-user text-muted mr-2">
         </i>
         Profile
        </a>
-       <a class="dropdown-item" href="#">
+       <a class="dropdown-item" href="payment.html">
         <i class="dripicons-wallet text-muted mr-2">
         </i>
-        My Wallet
+        Payment
        </a>
-       <a class="dropdown-item" href="#">
+       <a class="dropdown-item" href="website-setting.html">
         <i class="dripicons-gear text-muted mr-2">
         </i>
         Settings
        </a>
-       <a class="dropdown-item" href="#">
+       <a class="dropdown-item" href="http://adavancescholar.com/gen.html">
         <i class="dripicons-lock text-muted mr-2">
         </i>
-        Lock screen
+        Pin
        </a>
        <div class="dropdown-divider">
        </div>
@@ -199,13 +199,13 @@
       </h5>
       <ul class="list-unstyled list-inline mb-0 mt-2">
        <li class="list-inline-item">
-        <a class="" href="#">
+        <a class="" href="profile.html">
          <i class="mdi mdi-account text-light">
          </i>
         </a>
        </li>
        <li class="list-inline-item">
-        <a class="" href="#">
+        <a class="" href="website-setting.html">
          <i class="mdi mdi-settings text-light">
          </i>
         </a>
@@ -225,7 +225,12 @@
       <div class="page-title-box">
        <div class="float-right align-item-center mt-2">
         <button class="btn btn-info px-4 align-self-center report-btn">
-         Report Card
+         Visit Website
+        </button>
+       </div>
+       <div class="float-right align-item-center mt-2">
+        <button class="btn btn-info px-4 align-self-center report-btn">
+         View Report Card
         </button>
        </div>
        <h4 class="page-title mb-2">
@@ -265,14 +270,14 @@
        Main
       </li>
       <li>
-       <a href="index-3.html">
+       <a href="index.html">
         <i class="mdi mdi-monitor">
         </i>
         <span>
          Dashboard
         </span>
         <span class="badge badge-danger badge-pill float-right">
-         9+
+         9+ Unread
         </span>
        </a>
       </li>
@@ -290,62 +295,60 @@
        </a>
        <ul aria-expanded="false" class="nav-second-level">
         <li>
-         <a href="#">
+         <a href="manage-admin.html">
           <span>
            Admin
           </span>
          </a>
         </li>
         <li>
-         <a href="#">
+         <a href="manage-student.html">
           <span>
            Student
           </span>
          </a>
         </li>
         <li>
-         <a href="#">
-          <span>
-           Admission
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
+         <a href="manage-teacher.html">
           <span>
            Teacher
           </span>
          </a>
         </li>
         <li>
-         <a href="#">
-          <span>
-           Teacher Permission
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
+         <a href="manage-parent.html">
           <span>
            Parent
           </span>
          </a>
         </li>
         <li>
-         <a href="#">
+         <a href="manage-accountant.html">
           <span>
            Accountant
           </span>
          </a>
         </li>
         <li>
-         <a href="#">
+         <a href="manage-libarian.html">
           <span>
            Libarian
           </span>
          </a>
         </li>
        </ul>
+      </li>
+      <li>
+       <a href="admission.html">
+        <i class="mdi mdi-monitor">
+        </i>
+        <span>
+         Admission
+        </span>
+        <span class="badge badge-danger badge-pill float-right">
+         8 New
+        </span>
+       </a>
       </li>
       <li>
        <a href="javascript: void(0);">
@@ -361,58 +364,51 @@
        </a>
        <ul aria-expanded="false" class="nav-second-level">
         <li>
-         <a href="#">
+         <a href="daily-attendance.html">
           <span>
            Daily Attendance
           </span>
          </a>
         </li>
         <li>
-         <a href="#">
+         <a href="time-table.html">
           <span>
-           Class Routine
+           Time Table
           </span>
          </a>
         </li>
         <li>
-         <a href="#">
+         <a href="subject.html">
           <span>
            Subject
           </span>
          </a>
         </li>
         <li>
-         <a href="#">
+         <a href="syllabus.html">
           <span>
            Syllabus
           </span>
          </a>
         </li>
         <li>
-         <a href="#">
+         <a href="class.html">
           <span>
            Class
           </span>
          </a>
         </li>
         <li>
-         <a href="#">
-          <span>
-           Class Room
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
+         <a href="department.html">
           <span>
            Department
           </span>
          </a>
         </li>
         <li>
-         <a href="#">
+         <a href="calendar.html">
           <span>
-           Event Calendar
+           Calendar
           </span>
          </a>
         </li>
@@ -420,7 +416,7 @@
       </li>
       <li>
        <a href="javascript: void(0);">
-        <i class="mdi mdi-bank">
+        <i class="mdi mdi-cards-outline">
         </i>
         <span>
          Exam
@@ -434,56 +430,35 @@
         <li>
          <a href="#">
           <span>
-           Daily Attendance
+           Marks
           </span>
          </a>
         </li>
         <li>
          <a href="#">
           <span>
-           Class Routine
+           Exam
           </span>
          </a>
         </li>
         <li>
          <a href="#">
           <span>
-           Subject
+           Grades
           </span>
          </a>
         </li>
         <li>
          <a href="#">
           <span>
-           Syllabus
+           Promotion
           </span>
          </a>
         </li>
         <li>
          <a href="#">
           <span>
-           Class
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Class Room
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Department
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Event Calendar
+           Tabulation Sheet
           </span>
          </a>
         </li>
@@ -491,7 +466,7 @@
       </li>
       <li>
        <a href="javascript: void(0);">
-        <i class="mdi mdi-bank">
+        <i class="mdi mdi-cards-variant">
         </i>
         <span>
          CBT
@@ -505,56 +480,76 @@
         <li>
          <a href="#">
           <span>
-           Daily Attendance
+           Create Online Exam
           </span>
          </a>
         </li>
         <li>
          <a href="#">
           <span>
-           Class Routine
+           Manage Online Exam
           </span>
          </a>
         </li>
         <li>
          <a href="#">
           <span>
-           Subject
+           WAEC Past Questions
           </span>
          </a>
         </li>
         <li>
          <a href="#">
           <span>
-           Syllabus
+           NECO Past Questions
           </span>
          </a>
         </li>
         <li>
          <a href="#">
           <span>
-           Class
+           Jamb Past Questions
+          </span>
+         </a>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <a href="sms.html">
+        <i class="mdi mdi-cellphone-message">
+        </i>
+        <span>
+         SMS
+        </span>
+        <span class="badge badge-danger badge-pill float-right">
+         8 New
+        </span>
+       </a>
+      </li>
+      <li>
+       <a href="javascript: void(0);">
+        <i class="mdi mdi-chat">
+        </i>
+        <span>
+         Messaging
+        </span>
+        <span class="menu-arrow">
+         <i class="mdi mdi-chevron-right">
+         </i>
+        </span>
+       </a>
+       <ul aria-expanded="false" class="nav-second-level">
+        <li>
+         <a href="chat.html">
+          <span>
+           Chat
           </span>
          </a>
         </li>
         <li>
-         <a href="#">
+         <a href="email-inbox.html">
           <span>
-           Class Room
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Department
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Event Calendar
+           Email
           </span>
          </a>
         </li>
@@ -562,10 +557,10 @@
       </li>
       <li>
        <a href="javascript: void(0);">
-        <i class="mdi mdi-bank">
+        <i class="mdi mdi-account-card-details">
         </i>
         <span>
-         Academices
+         ID CARDS
         </span>
         <span class="menu-arrow">
          <i class="mdi mdi-chevron-right">
@@ -576,56 +571,21 @@
         <li>
          <a href="#">
           <span>
-           Daily Attendance
+           Student ID
           </span>
          </a>
         </li>
         <li>
          <a href="#">
           <span>
-           Class Routine
+           Staff ID
           </span>
          </a>
         </li>
         <li>
-         <a href="#">
+         <a href="https://advancescholar.com/gen.html">
           <span>
-           Subject
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Syllabus
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Class
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Class Room
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Department
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Event Calendar
+           PINS
           </span>
          </a>
         </li>
@@ -633,7 +593,7 @@
       </li>
       <li>
        <a href="javascript: void(0);">
-        <i class="mdi mdi-bank">
+        <i class="mdi mdi-account-details">
         </i>
         <span>
          Accounting
@@ -647,56 +607,21 @@
         <li>
          <a href="#">
           <span>
-           Daily Attendance
+           Student Fee Manager
           </span>
          </a>
         </li>
         <li>
          <a href="#">
           <span>
-           Class Routine
+           Expense Category
           </span>
          </a>
         </li>
         <li>
          <a href="#">
           <span>
-           Subject
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Syllabus
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Class
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Class Room
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Department
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Event Calendar
+           Expense Manager
           </span>
          </a>
         </li>
@@ -704,7 +629,7 @@
       </li>
       <li>
        <a href="javascript: void(0);">
-        <i class="mdi mdi-bank">
+        <i class="mdi mdi-flip-to-front">
         </i>
         <span>
          Back Office
@@ -716,209 +641,99 @@
        </a>
        <ul aria-expanded="false" class="nav-second-level">
         <li>
-         <a href="#">
+         <a href="website-setting.html">
           <span>
-           Daily Attendance
+           Website Setting
           </span>
          </a>
         </li>
         <li>
-         <a href="#">
+         <a href="event.html">
           <span>
-           Class Routine
+           Noticeboard
           </span>
          </a>
         </li>
         <li>
-         <a href="#">
+         <a href="school-setting.html">
           <span>
-           Subject
+           School Setting
           </span>
          </a>
         </li>
         <li>
-         <a href="#">
+         <a href="load-credit.html">
           <span>
-           Syllabus
+           Load Credit
           </span>
          </a>
         </li>
         <li>
-         <a href="#">
+         <a href="library.html">
           <span>
-           Class
+           Library
           </span>
          </a>
         </li>
         <li>
-         <a href="#">
+         <a href="dormitory.html">
           <span>
-           Class Room
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Department
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Event Calendar
-          </span>
-         </a>
-        </li>
-       </ul>
-      </li>
-      <li>
-       <a href="javascript: void(0);">
-        <i class="mdi mdi-bank">
-        </i>
-        <span>
-         Academic
-        </span>
-        <span class="menu-arrow">
-         <i class="mdi mdi-chevron-right">
-         </i>
-        </span>
-       </a>
-       <ul aria-expanded="false" class="nav-second-level">
-        <li>
-         <a href="#">
-          <span>
-           Daily Attendance
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Class Routine
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Subject
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Syllabus
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Class
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Class Room
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Department
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Event Calendar
-          </span>
-         </a>
-        </li>
-       </ul>
-      </li>
-      <li class="menu-title">
-       Settings (Beta)
-      </li>
-      <li>
-       <a href="javascript: void(0);">
-        <i class="mdi mdi-bank">
-        </i>
-        <span>
-         Settings
-        </span>
-        <span class="menu-arrow">
-         <i class="mdi mdi-chevron-right">
-         </i>
-        </span>
-       </a>
-       <ul aria-expanded="false" class="nav-second-level">
-        <li>
-         <a href="#">
-          <span>
-           Daily Attendance
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Class Routine
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Subject
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Syllabus
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Class
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Class Room
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Department
-          </span>
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span>
-           Event Calendar
+           Dormitory (day/boarder)
           </span>
          </a>
         </li>
        </ul>
       </li>
      </ul>
+     <form>
+      <div class="row">
+       <div class="col-sm-10 mx-auto">
+        <h4 class="page-title mb-2">
+         <i class="mdi mdi-monitor-dashboard mr-2">
+         </i>
+         Running Session
+        </h4>
+        <div class="input-group">
+         <select class="form-control js--animations" style="width:auto">
+          <optgroup label="Select Running Session">
+           <option value="bounce">
+            2017 - 2018
+           </option>
+           <option value="flash">
+            2018 - 2019
+           </option>
+           <option value="pulse">
+            2019 - 2020
+           </option>
+           <option value="rubberBand">
+            2020 - 2021
+           </option>
+           <option value="shake">
+            2021 - 2022
+           </option>
+           <option value="swing">
+            2022 - 2023
+           </option>
+           <option value="tada">
+            2023 - 2024
+           </option>
+           <option value="wobble">
+            2024 - 2025
+           </option>
+           <option value="jello">
+            2025 - 2026
+           </option>
+          </optgroup>
+         </select>
+         <!--end form-control-->
+        </div>
+        <!--end input group-->
+       </div>
+       <!--emd col-->
+      </div>
+      <!--end row-->
+     </form>
+     <!--end form-->
     </div>
     <!-- end left-sidenav-->
     <!-- Page Content-->
@@ -1110,10 +925,14 @@
             </i>
            </div>
            <p class="text-white mb-0 font-16">
-            Attendance
+            Attendance Today
            </p>
            <h2 class="font-weight-bold text-white">
-            58
+            458
+            <i>
+             out of
+            </i>
+            645
            </h2>
           </div>
          </div>
@@ -1123,207 +942,119 @@
            <div class="carousel-inner">
             <div class="carousel-item">
              <div class="media">
-              <img alt="..." class="mr-2 thumb-xs rounded-circle" src="{% static 'assets/images/flags/us_flag.jpg' %}"/>
               <div class="media-body align-self-center">
                <h6 class="m-0">
-                USA Store
+                PINS
                </h6>
               </div>
              </div>
              <div class="text-center">
               <p class="review-data mb-0">
-               4.8
+               49
                <span>
-                / 5.0
+                / 500
                </span>
               </p>
               <p class="px-4 py-1 bg-soft-success d-inline-block rounded">
-               Very Good
-              </p>
-              <ul class="list-inline mb-1">
-               <li class="list-inline-item mr-0">
-                <i class="mdi mdi-star text-warning font-16">
-                </i>
-               </li>
-               <li class="list-inline-item mr-0">
-                <i class="mdi mdi-star text-warning font-16">
-                </i>
-               </li>
-               <li class="list-inline-item mr-0">
-                <i class="mdi mdi-star text-warning font-16">
-                </i>
-               </li>
-               <li class="list-inline-item mr-0">
-                <i class="mdi mdi-star text-warning font-16">
-                </i>
-               </li>
-               <li class="list-inline-item mr-0">
-                <i class="mdi mdi-star text-warning font-16">
-                </i>
-               </li>
-              </ul>
-              <p class="mb-1 text-muted">
-               There are many variations of passages of Lorem Ipsum available,
-                                                            but the majority have suffered alteration in some form, by injected humour, or randomised.
+               Activated / Created
               </p>
              </div>
             </div>
             <div class="carousel-item">
              <div class="media">
-              <img alt="..." class="mr-2 thumb-xs rounded-circle" src="{% static 'assets/images/flags/spain_flag.jpg' %}"/>
               <div class="media-body align-self-center">
                <h6 class="m-0">
-                Spain Store
+                Bulk SMS Credit
                </h6>
               </div>
              </div>
              <div class="text-center">
               <p class="review-data mb-0">
-               4.6
-               <span>
-                / 5.0
-               </span>
-              </p>
-              <p class="px-4 py-1 bg-soft-success d-inline-block rounded">
-               Very Good
-              </p>
-              <ul class="list-inline mb-1">
-               <li class="list-inline-item mr-0">
-                <i class="mdi mdi-star text-warning font-16">
-                </i>
-               </li>
-               <li class="list-inline-item mr-0">
-                <i class="mdi mdi-star text-warning font-16">
-                </i>
-               </li>
-               <li class="list-inline-item mr-0">
-                <i class="mdi mdi-star text-warning font-16">
-                </i>
-               </li>
-               <li class="list-inline-item mr-0">
-                <i class="mdi mdi-star text-warning font-16">
-                </i>
-               </li>
-               <li class="list-inline-item mr-0">
-                <i class="mdi mdi-star text-warning font-16">
-                </i>
-               </li>
-              </ul>
-              <p class="mb-1 text-muted">
-               There are many variations of passages of Lorem Ipsum available,
-                                                            but the majority have suffered alteration in some form, by injected humour, or randomised.
-              </p>
-             </div>
-            </div>
-            <div class="carousel-item active">
-             <div class="media">
-              <img alt="..." class="mr-2 thumb-xs rounded-circle" src="{% static 'assets/images/flags/russia_flag.jpg' %}"/>
-              <div class="media-body align-self-center">
-               <h6 class="m-0">
-                Russia Store
-               </h6>
-              </div>
-             </div>
-             <div class="text-center">
-              <p class="review-data mb-0">
-               5.0
-               <span>
-                / 5.0
-               </span>
-              </p>
-              <p class="px-4 py-1 bg-soft-success d-inline-block rounded">
-               Exellent
-              </p>
-              <ul class="list-inline mb-1">
-               <li class="list-inline-item mr-0">
-                <i class="mdi mdi-star text-warning font-16">
-                </i>
-               </li>
-               <li class="list-inline-item mr-0">
-                <i class="mdi mdi-star text-warning font-16">
-                </i>
-               </li>
-               <li class="list-inline-item mr-0">
-                <i class="mdi mdi-star text-warning font-16">
-                </i>
-               </li>
-               <li class="list-inline-item mr-0">
-                <i class="mdi mdi-star text-warning font-16">
-                </i>
-               </li>
-               <li class="list-inline-item mr-0">
-                <i class="mdi mdi-star text-warning font-16">
-                </i>
-               </li>
-              </ul>
-              <p class="mb-1 text-muted">
-               There are many variations of passages of Lorem Ipsum available,
-                                                            but the majority have suffered alteration in some form, by injected humour, or randomised.
+               500
               </p>
              </div>
             </div>
            </div>
-           <a class="carousel-control-prev" data-slide="prev" href="#carousel_review" role="button">
-            <span aria-hidden="true" class="carousel-control-prev-icon">
-            </span>
-            <span class="sr-only">
-             Previous
-            </span>
-           </a>
-           <a class="carousel-control-next" data-slide="next" href="#carousel_review" role="button">
-            <span aria-hidden="true" class="carousel-control-next-icon">
-            </span>
-            <span class="sr-only">
-             Next
-            </span>
-           </a>
           </div>
          </div>
-         <!--end card-body-->
         </div>
        </div>
-       <!--end col-->
       </div>
-      <!--end row-->
      </div>
-     <!-- container -->
-     <footer class="footer text-center text-sm-left">
-      © 2020 Command Secondary School, Suleja
-      <span class="text-muted d-none d-sm-inline-block float-right">
-       Powered by 24 Hubs
-      </span>
-     </footer>
     </div>
-    <!-- end page content -->
    </div>
-   <!--end page-wrapper-inner -->
   </div>
-  <!-- end page-wrapper -->
-  <!-- jQuery  -->
-  <script src="{% static 'assets/js/jquery.min.js' %}">
-  </script>
-  <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}">
-  </script>
-  <script src="{% static 'assets/js/metisMenu.min.js' %}">
-  </script>
-  <script src="{% static 'assets/js/waves.min.js' %}">
-  </script>
-  <script src="{% static 'assets/js/jquery.slimscroll.min.js' %}">
-  </script>
-  <script src="{% static 'assets/plugins/moment/moment.js' %}">
-  </script>
-  <script src="{% static 'assets/plugins/apexcharts/apexcharts.min.js' %}">
-  </script>
-  <script src="https://apexcharts.com/samples/assets/irregular-data-series.js">
-  </script>
-  <script src="https://apexcharts.com/samples/assets/series1000.js">
-  </script>
-  <script src="https://apexcharts.com/samples/assets/ohlc.js">
-  </script>
-  <script src="{% static 'assets/pages/jquery.dashboard-3.init.js' %}">
-  </script>
-  <!-- App js -->
-  <script src="{% static 'assets/js/app.js' %}">
-  </script>
  </body>
 </html>
+<p class="px-4 py-1 bg-soft-success d-inline-block rounded">
+ Naira
+</p>
+<div class="carousel-item active">
+ <div class="text-center">
+  <p class="review-data mb-0">
+   5.0
+   <span>
+    / 5.0
+   </span>
+  </p>
+  <p class="px-4 py-1 bg-soft-success d-inline-block rounded">
+   Exellent
+  </p>
+ </div>
+</div>
+<a class="carousel-control-prev" data-slide="prev" href="#carousel_review" role="button">
+ <span aria-hidden="true" class="carousel-control-prev-icon">
+ </span>
+ <span class="sr-only">
+  Previous
+ </span>
+</a>
+<a class="carousel-control-next" data-slide="next" href="#carousel_review" role="button">
+ <span aria-hidden="true" class="carousel-control-next-icon">
+ </span>
+ <span class="sr-only">
+  Next
+ </span>
+</a>
+<!--end card-body-->
+<!--end col-->
+<!--end row-->
+<!-- container -->
+<footer class="footer text-center text-sm-left">
+ © 2020 Command Secondary School, Suleja
+ <span class="text-muted d-none d-sm-inline-block float-right">
+  Powered by
+  <a href="https://advancescholar.com">
+   Advance Scholar
+  </a>
+ </span>
+</footer>
+<!-- end page content -->
+<!--end page-wrapper-inner -->
+<!-- end page-wrapper -->
+<!-- jQuery  -->
+<script src="{% static 'assets/js/jquery.min.js' %}">
+</script>
+<script src="{% static 'assets/js/bootstrap.bundle.min.js' %}">
+</script>
+<script src="{% static 'assets/js/metisMenu.min.js' %}">
+</script>
+<script src="{% static 'assets/js/waves.min.js' %}">
+</script>
+<script src="{% static 'assets/js/jquery.slimscroll.min.js' %}">
+</script>
+<script src="{% static 'assets/plugins/moment/moment.js' %}">
+</script>
+<script src="{% static 'assets/plugins/apexcharts/apexcharts.min.js' %}">
+</script>
+<script src="{% static 'https://apexcharts.com/samples/assets/irregular-data-series.js' %}">
+</script>
+<script src="{% static 'https://apexcharts.com/samples/assets/series1000.js' %}">
+</script>
+<script src="{% static 'https://apexcharts.com/samples/assets/ohlc.js' %}">
+</script>
+<script src="{% static 'assets/pages/jquery.dashboard-3.init.js' %}">
+</script>
+<!-- App js -->
+<script src="{% static 'assets/js/app.js' %}">
+</script>

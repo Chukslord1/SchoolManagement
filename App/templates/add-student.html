@@ -755,7 +755,7 @@
              Single Student Admission
             </a>
            </li>
-           <li class="nav-item waves-effect waves-light">
+           <li class="nav-item waves-effect waves-light" >
             <a class="nav-link" data-toggle="tab" href="#bulkstudent" role="tab">
              Bulk Student Admission
             </a>
@@ -767,8 +767,10 @@
            </li>
           </ul>
           <!-- Tab panes -->
+          <form method="POST" name="add_student">
+          {% csrf_token %}
           <div class="tab-content">
-           <div class="tab-pane active p-3" id="singlestudent" role="tabpanel">
+           <div class="tab-pane active p-3" id="singlestudent"  role="tabpanel">
             <div class="row">
              <div class="col-lg-12">
               <div class="card">
@@ -778,7 +780,7 @@
                   Name
                  </label>
                  <div class="col-sm-9">
-                  <input class="form-control" id="example-text-input" type="text" value=""/>
+                  <input class="form-control" id="example-text-input" type="text" name="name" value=""/>
                  </div>
                 </div>
                 <div class="form-group row">
@@ -786,7 +788,7 @@
                   Reg No/Username
                  </label>
                  <div class="col-sm-9">
-                  <input class="form-control" id="example-text-input" type="text" value=""/>
+                  <input class="form-control" id="example-text-input" type="text" name="username" value=""/>
                  </div>
                 </div>
                 <div class="form-group row">
@@ -794,24 +796,23 @@
                   Email
                  </label>
                  <div class="col-sm-9">
-                  <input class="form-control" id="example-email-input" type="email" value=""/>
+                  <input class="form-control" id="example-email-input" name="email" type="email" value=""/>
                  </div>
-                </div>
+               </div>
                 <div class="form-group row">
                  <label class="col-sm-2 col-form-label text-right">
                   Parent
                  </label>
                  <div class="col-sm-9">
-                  <select class="form-control">
+                  <select class="form-control" name="parent">
+                    <option>
+                     Select A Parent
+                    </option>
+                    {% for parent in parents %}
                    <option>
-                    Select A Parent
+                    {{ parent.name }}
                    </option>
-                   <option>
-                    Adeolu Adebowale
-                   </option>
-                   <option>
-                    Epono Cosmas
-                   </option>
+                   {% endfor %}
                   </select>
                  </div>
                 </div>
@@ -820,7 +821,7 @@
                   Class
                  </label>
                  <div class="col-sm-9">
-                  <select class="form-control">
+                  <select class="form-control" name="class_room">
                    <option>
                     Select A Class
                    </option>
@@ -830,7 +831,20 @@
                    <option>
                     Jss2
                    </option>
+                   <option>
+                    Jss3
+                   </option>
+                   <option>
+                    SS1
+                   </option>
+                   <option>
+                    SS2
+                   </option>
+                   <option>
+                    SS3
+                   </option>
                   </select>
+
                  </div>
                 </div>
                 <div class="form-group row">
@@ -838,7 +852,7 @@
                   Section
                  </label>
                  <div class="col-sm-9">
-                  <select class="form-control">
+                  <select class="form-control" name="section">
                    <option>
                     Select A Section
                    </option>
@@ -856,7 +870,7 @@
                   Gender
                  </label>
                  <div class="col-sm-9">
-                  <select class="form-control">
+                  <select class="form-control" name="gender">
                    <option>
                     Select
                    </option>
@@ -874,7 +888,7 @@
                   Day or Boarding
                  </label>
                  <div class="col-sm-9">
-                  <select class="form-control">
+                  <select class="form-control" name="school_type">
                    <option>
                     Day or Boarding Student
                    </option>
@@ -892,7 +906,7 @@
                   Birthday
                  </label>
                  <div class="col-sm-9">
-                  <input class="form-control" id="example-datetime-local-input" type="datetime-local" value="2011-08-19T13:45:00"/>
+                  <input class="form-control" id="example-datetime-local-input" type="datetime-local" name="birthday" value="2011-08-19T13:45:00"/>
                  </div>
                 </div>
                 <div class="form-group row">
@@ -900,7 +914,7 @@
                   Phone Number
                  </label>
                  <div class="col-sm-9">
-                  <input class="form-control" id="example-tel-input" type="tel" value=""/>
+                  <input class="form-control" id="example-tel-input" type="tel" name="phone_number" value=""/>
                  </div>
                 </div>
                 <div class="form-group row">
@@ -908,7 +922,15 @@
                   Password
                  </label>
                  <div class="col-sm-9">
-                  <input class="form-control" id="example-password-input" type="password" value=""/>
+                  <input class="form-control" id="example-password-input" type="password" name="password1" value=""/>
+                 </div>
+                </div>
+                <div class="form-group row">
+                 <label class="col-sm-2 col-form-label text-right" for="example-password-input">
+                  Confirm Password
+                 </label>
+                 <div class="col-sm-9">
+                  <input class="form-control" id="example-password-input" type="password" name="password2" value=""/>
                  </div>
                 </div>
                 <div class="form-group row">
@@ -916,7 +938,7 @@
                   Address
                  </label>
                  <div class="col-sm-9">
-                  <textarea class="form-control" rows="5"></textarea>
+                  <textarea class="form-control" rows="5" name="address"></textarea>
                  </div>
                 </div>
                 <div class="form-group row">
@@ -924,7 +946,7 @@
                   Student Profile Image
                  </label>
                  <div class="col-sm-4">
-                  <input class="dropify" data-default-file="{% static 'assets/plugins/dropify/images/1.jpg' %}" id="input-file-now-custom-1" type="file">
+                  <input class="dropify" data-default-file="{% static 'assets/plugins/dropify/images/1.jpg' %}" name="image" id="input-file-now-custom-1" type="file">
                   </input>
                  </div>
                  <!--end col-->
@@ -942,14 +964,16 @@
              </div>
             </div>
            </div>
+         </form>
+           {% csrf_token %}
            <div class="tab-pane p-3" id="bulkstudent" role="tabpanel">
             <div class="row">
              <div class="card-body">
-              <form class="form-horizontal well" method="POST" role="form">
+              <form class="form-horizontal well" method="POST" name="bulk_student" role="form">
                <div class="row">
                 <div class="col-sm-4">
                  <div class="dropdown mb-2 mb-md-0">
-                  <button aria-expanded="false" aria-haspopup="true" class="btn btn-secondary dropdown-toggle scrollable-menu" data-toggle="dropdown" id="dropdownMenuButton" type="button">
+                  <button aria-expanded="false" aria-haspopup="true" class="btn btn-secondary dropdown-toggle scrollable-menu" name="class_room" data-toggle="dropdown" id="dropdownMenuButton" type="button">
                    Select Class
                    <i class="mdi mdi-chevron-down">
                    </i>
@@ -979,7 +1003,7 @@
                 <!--emd col-->
                 <div class="col-sm-4">
                  <div class="dropdown mb-2 mb-md-0">
-                  <a aria-expanded="false" aria-haspopup="true" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" href="#" id="dropdownMenuLink" role="button">
+                  <a aria-expanded="false" aria-haspopup="true" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" name="session" href="#" id="dropdownMenuLink" role="button">
                    Select Session
                    <i class="mdi mdi-chevron-down">
                    </i>
@@ -1006,21 +1030,27 @@
                      <label class="control-label">
                       Name
                      </label>
-                     <input class="form-control" name="" type="text" value="Ochuko Onoja"/>
+                     <input class="form-control" name="" type="text" name="name" value="Ochuko Onoja"/>
                     </div>
                     <!--end col-->
                     <div class="col-sm-2">
                      <label class="control-label">
                       Email
                      </label>
-                     <input class="form-control" email="" type="text" value=""/>
+                     <input class="form-control" email="" name="email" type="text" value=""/>
                     </div>
                     <!--end col-->
                     <div class="col-sm-2">
                      <label class="control-label">
                       Password
                      </label>
-                     <input class="form-control" name="" type="text" value="*********"/>
+                     <input class="form-control" name="password1" type="text" value="*********"/>
+                    </div>
+                    <div class="col-sm-2">
+                     <label class="control-label">
+                      Confirm Password
+                     </label>
+                     <input class="form-control" name="password2" type="text" value="*********"/>
                     </div>
                     <!--end col-->
                     <div class="col-sm-2">
@@ -1042,12 +1072,14 @@
                       Select Parent
                      </label>
                      <select class="form-control" name="parent">
-                      <option selected="" value="">
-                       Mr Kosoko
+                       <option>
+                        Select A Parent
+                       </option>
+                       {% for parent in parents %}
+                      <option>
+                       {{ parent.name }}
                       </option>
-                      <option selected="" value="">
-                       Mr Chinedu
-                      </option>
+                      {% endfor %}
                      </select>
                     </div>
                     <!--end col-->
@@ -1087,14 +1119,16 @@
              <!--end card-body-->
             </div>
            </div>
+
+
            <div class="tab-pane p-3" id="excelupload" role="tabpanel">
             <div class="row">
              <div class="card-body">
-              <form class="form-horizontal well" method="POST" role="form">
+              <form class="form-horizontal well" method="POST" role="form" name="csv">{% csrf_token %}
                <div class="row">
                 <div class="col-sm-4">
                  <div class="dropdown mb-2 mb-md-0">
-                  <button aria-expanded="false" aria-haspopup="true" class="btn btn-secondary dropdown-toggle scrollable-menu" data-toggle="dropdown" id="dropdownMenuButton" type="button">
+                  <button aria-expanded="false" aria-haspopup="true" class="btn btn-secondary dropdown-toggle scrollable-menu" name="class_room" data-toggle="dropdown" id="dropdownMenuButton" type="button">
                    Select Class
                    <i class="mdi mdi-chevron-down">
                    </i>
@@ -1124,7 +1158,7 @@
                 <!--emd col-->
                 <div class="col-sm-4">
                  <div class="dropdown mb-2 mb-md-0">
-                  <a aria-expanded="false" aria-haspopup="true" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" href="#" id="dropdownMenuLink" role="button">
+                  <a aria-expanded="false" aria-haspopup="true" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" name="session" href="#" id="dropdownMenuLink" role="button">
                    Select Session
                    <i class="mdi mdi-chevron-down">
                    </i>
@@ -1169,8 +1203,10 @@
         </div>
        </div>
       </div>
+
       <!-- Collapse -->
      </div>
+
      <!-- container -->
      <footer class="footer text-center text-sm-left">
       © 2020 Command Secondary School, Suleja

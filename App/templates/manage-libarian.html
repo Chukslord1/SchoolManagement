@@ -749,7 +749,7 @@
            Manage Libarian
           </h4>
           <p class="text-muted mb-4 font-13">
-           All Libarianistrators.
+           All Libarians.
           </p>
           <div class="animation-modal">
            <a class="btn btn-primary waves-effect" data-animation="fadein" data-overlaycolor="#38414a" data-plugin="custommodal" href="#custom-modal">
@@ -771,6 +771,7 @@
             Create Libarian
            </h4>
            <div class="row">
+             <form method="POST" name="create">{% csrf_token %}
             <div class="col-lg-12">
              <div class="card">
               <div class="card-body">
@@ -779,7 +780,7 @@
                  Name
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-text-input" type="text" value=""/>
+                 <input class="form-control" id="example-text-input" type="text" name="name" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -787,7 +788,7 @@
                  Username
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-text-input" type="text" value=""/>
+                 <input class="form-control" id="example-text-input" type="text" name="username" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -795,7 +796,7 @@
                  Email
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-email-input" type="email" value=""/>
+                 <input class="form-control" id="example-email-input" type="email" name="email" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -803,7 +804,7 @@
                  Phone Number
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-tel-input" type="tel" value=""/>
+                 <input class="form-control" id="example-tel-input" type="tel" name="phone_number" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -811,7 +812,15 @@
                  Password
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-password-input" type="password" value=""/>
+                 <input class="form-control" id="example-password-input" type="password1" name="password" value=""/>
+                </div>
+               </div>
+               <div class="form-group row">
+                <label class="col-sm-2 col-form-label text-right" for="example-password-input">
+                Confirm  Password
+                </label>
+                <div class="col-sm-9">
+                 <input class="form-control" id="example-password-input" type="password" name="password2" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -819,7 +828,7 @@
                  Gender
                 </label>
                 <div class="col-sm-9">
-                 <select class="form-control">
+                 <select class="form-control" name="gender">
                   <option>
                    Select
                   </option>
@@ -837,7 +846,7 @@
                  Address
                 </label>
                 <div class="col-sm-9">
-                 <textarea class="form-control" rows="5"></textarea>
+                 <textarea class="form-control" rows="5" name="address"></textarea>
                 </div>
                </div>
                <div class="form-group row">
@@ -845,9 +854,9 @@
                  Libarian Profile Image
                 </label>
                 <div class="col-sm-4">
-                 <input class="dropify" data-default-file="assets/plugins/dropify/images/1.jpg" id="input-file-now-custom-1" type="file">
+                 <input class="dropify" data-default-file="assets/plugins/dropify/images/1.jpg" id="input-file-now-custom-1" name="image" type="file">
                  </input>
-                </div>
+               </div>
                 <!--end col-->
                </div>
                <!--end row-->
@@ -862,10 +871,12 @@
              </div>
             </div>
            </div>
+         </form>
           </div>
           <!--end custom modal-->
           <!--Begin custom populated modal-->
           <div class="modal-demo" id="custom-modal-edit">
+
            <button class="close" onclick="Custombox.modal.close();" type="button">
             <span>
              ×
@@ -878,6 +889,7 @@
             Edit Libarian
            </h4>
            <div class="row">
+             <form method="POST" name="edit">{% csrf_token %}
             <div class="col-lg-12">
              <div class="card">
               <div class="card-body">
@@ -886,7 +898,7 @@
                  Name
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-text-input" type="text" value=""/>
+                 <input class="form-control" id="example-text-input" name="name" type="text" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -894,7 +906,7 @@
                  Username
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-text-input" type="text" value=""/>
+                 <input class="form-control" id="example-text-input" name="username" type="text" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -902,7 +914,7 @@
                  Email
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-email-input" type="email" value=""/>
+                 <input class="form-control" id="example-email-input" type="email" name="email" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -910,7 +922,7 @@
                  Phone Number
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-tel-input" type="tel" value=""/>
+                 <input class="form-control" id="example-tel-input" type="tel" name="phone_number" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -918,7 +930,7 @@
                  Gender
                 </label>
                 <div class="col-sm-9">
-                 <select class="form-control">
+                 <select class="form-control" name="gender">
                   <option>
                    Select
                   </option>
@@ -936,7 +948,7 @@
                  Address
                 </label>
                 <div class="col-sm-9">
-                 <textarea class="form-control" rows="5"></textarea>
+                 <textarea class="form-control" name="address" rows="5"></textarea>
                 </div>
                </div>
                <div class="row">
@@ -949,7 +961,9 @@
               </div>
              </div>
             </div>
+            </form>
            </div>
+
           </div>
           <table class="table table-bordered dt-responsive nowrap" id="datatable" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
            <thead>
@@ -979,6 +993,7 @@
            </thead>
            <tbody>
             <tr>
+              {% for libarian in libarians %}
              <td>
               1
              </td>
@@ -988,30 +1003,30 @@
              <td>
               <p class="d-inline-block align-middle mb-0">
                <a class="d-inline-block align-middle mb-0 product-name" href="">
-                Adebowale Adeolu
+                {{libarian.name}}
                </a>
                <br/>
                <span class="text-muted font-13">
-                Libarian of CSS Suleja
+
                </span>
               </p>
              </td>
              <td>
               <p class="d-inline-block align-middle mb-0">
                <a class="d-inline-block align-middle mb-0 product-name" href="">
-                Libarianistrator
+                {{ libarian.username }}
                </a>
                <br/>
                <span class="text-muted font-13">
-                Libarian@csssuleja.org
+                {{libarian.email}}
                </span>
               </p>
              </td>
              <td>
-              08036856999
+              {{libarian.phone_number}}
              </td>
              <td>
-              Dame Patience Jonathan Drive, Opposite Shehu Musa Yarâ€™adua Barracks, Behind NAF Holdings, Asokoro, Abuja.
+              {{libarian.address}}
              </td>
              <td>
               <div class="btn-group">
@@ -1031,59 +1046,7 @@
               </div>
              </td>
             </tr>
-            <tr>
-             <td>
-              1
-             </td>
-             <td>
-              <img alt="" height="52" src="{% static 'assets/images/products/img-2.png' %}"/>
-             </td>
-             <td>
-              <p class="d-inline-block align-middle mb-0">
-               <a class="d-inline-block align-middle mb-0 product-name" href="">
-                Ochuko Onoja
-               </a>
-               <br/>
-               <span class="text-muted font-13">
-                Libarian of CSS Suleja
-               </span>
-              </p>
-             </td>
-             <td>
-              <p class="d-inline-block align-middle mb-0">
-               <a class="d-inline-block align-middle mb-0 product-name" href="">
-                Libarianistrator
-               </a>
-               <br/>
-               <span class="text-muted font-13">
-                Libarian@csssuleja.org
-               </span>
-              </p>
-             </td>
-             <td>
-              08036856999
-             </td>
-             <td>
-              Dame Patience Jonathan Drive, Opposite Shehu Musa Yarâ€™adua Barracks, Behind NAF Holdings, Asokoro, Abuja.
-             </td>
-             <td>
-              <div class="btn-group">
-               <div class="animation-modal">
-                <a data-plugin="custommodal" href="#custom-modal-edit">
-                 <button class="btn btn-outline-secondary btn-sm" type="button">
-                  <i class="far fa-edit">
-                  </i>
-                 </button>
-                </a>
-               </div>
-               <!--end animation modal-->
-               <button class="btn btn-outline-secondary btn-sm" type="button">
-                <i class="far fa-trash-alt">
-                </i>
-               </button>
-              </div>
-             </td>
-            </tr>
+            {% endfor %}
            </tbody>
           </table>
          </div>

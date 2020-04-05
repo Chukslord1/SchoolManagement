@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.views.generic import ListView, DetailView, View
 from django.contrib.auth.models import User, auth
-from .models import UserProfile, UnusedPins, UsedPins
+from .models import UserProfile, UnusedPins, UsedPins, BulkStudent
 from django.contrib.auth.decorators import login_required
 import random
 import string
@@ -100,7 +100,72 @@ def generate(request):
         return render(request,"gen.html")
 #so create a database for used and unused and delete used ones from unused and add to used and assign the current used to user
 def addStudent(request):
-    return render(request, "add-student.html")
+    context = {"parents":UserProfile.objects.all().filter(user_type="Parent")}
+    if request.method == 'POST':
+        add_student = add_student(request.POST)
+        bulk_student = bulk_student(request.POST)
+        csv= csv(request.POST)
+        if add_student.is_valid():
+            name = request.POST['name']
+            username= request.POST['username']
+            parent = request.POST['parent']
+            class_room = request.POST['class_room']
+            section = request.POST['section']
+            gender = request.POST['gender']
+            school_type = request.POST['school_type']
+            birthday = request.POST['birthday']
+            phone_number = request.POST['phone_number']
+            address = request.POST['address']
+            image = request.POST['image']
+
+
+            email = request.POST['email']
+            password1 = request.POST['password1']
+            password2 = request.POST['password2']
+            UserProfile_id=username
+
+            if password1==password2:
+                if User.objects.filter(email=email).exists():
+                        return render(request, 'add-student.html', {"message": "The user is already registered"})
+                else:
+                    user = User.objects.create(username=username, password=password1, email=email )
+                    user.set_password(user.password)
+                    user.save()
+                    profile = UserProfile.objects.create(user=user, name=name, user_type='Student', parent=parent, class_room=class_room, section=section, gender=gender, school_type=school_type, birthday=birthday, phone_number=phone_number, address=address, image=image)
+                    profile.save()
+                    return render(request, 'add-student.html', {"message": "Student Added"}, context)
+            else:
+                return render(request, 'add-student.html', {"message": "The passwords don't match"}, context)
+        elif bulk_student.is_valid():
+            name = request.POST['name']
+            parent = request.POST['parent']
+            class_room = request.POST['class_room']
+            session = request.POST['session']
+            gender = request.POST['gender']
+
+            email = request.POST['email']
+            password1 = request.POST['password1']
+            password2 = request.POST['password2']
+            BulkStudent_id=name
+
+            if password1==password2:
+                if User.objects.filter(email=email).exists():
+                     return render(request, "add-student.html", {"message": "The user is already registered"})
+                else:
+                    profile = BulkStudent.objects.create(name=name, parent=parent, class_room=class_room, session=session, gender=gender, email=email, password=password1)
+                    profile.set_password(profile.password)
+                    profile.save()
+                    return render(request, "add-student.html", {"message": "Student Added"}, context)
+            else:
+                return render(request, "add-student.html", {"message": "The passwords don't match"}, context)
+
+        else:
+            class_room = request.POST['class_room']
+            session = request.POST['session']
+
+    else:
+        return render(request, "add-student.html", context)
+
 
 def Student(request):
     return render(request, "student.html")
@@ -120,22 +185,263 @@ def profile(request):
     return render(request, "profile.html")
 
 def manageTeacher(request):
-    return render(request, "manage-teacher.html")
+    context = {"teachers":UserProfile.objects.all().filter(user_type="Teacher")}
+    if request.method == 'POST':
+        create = create(request.POST)
+        edit = edit(request.POST)
+        if create.is_valid():
+            name = request.POST['name']
+            username= request.POST['username']
+            gender = request.POST['gender']
+            birthday = request.POST['birthday']
+            phone_number = request.POST['phone_number']
+            address = request.POST['address']
+            image = request.POST['image']
+
+
+            email = request.POST['email']
+            password1 = request.POST['password1']
+            password2 = request.POST['password2']
+            UserProfile_id=username
+
+            if password1==password2:
+                if User.objects.filter(email=email).exists():
+                        return render(request, 'manage-teacher.html', {"message": "The user is already registered"})
+                else:
+                    user = User.objects.create(username=username, password=password1, email=email )
+                    user.set_password(user.password)
+                    user.save()
+                    profile = UserProfile.objects.create(user=user, name=name, user_type='Accountant', gender=gender,birthday=birthday, phone_number=phone_number, address=address, image=image)
+                    profile.save()
+                    return render(request, 'manage-teacher.html', {"message": "Student Added"}, context)
+            else:
+                return render(request, 'manage-teacher.html', {"message": "The passwords don't match"}, context)
+        else:
+            user.profile.name = request.POST['name']
+            user.profile.username = request.POST['username']
+            user.profile.gender = request.POST['gender']
+            user.profile.address = request.POST['address']
+
+            user.profile.email = request.POST['email']
+            email= user.profile.email
+            user.profile.password = request.POST['passoword']
+            profile.set_password(profile.password)
+            if User.objects.filter(email=email).exists():
+                return render(request, "manage-teacher.html", {"message": "The user is already registered"}, context)
+            else:
+                user.profile.save()
+
+    else:
+        return render(request, "manage-teacher.html", context)
+
 
 def manageStudent(request):
     return render(request, "manage-student.html")
 
 def manageParent(request):
-    return render(request, "manage-parent.html")
+    context = {"parents":UserProfile.objects.all().filter(user_type="Parent")}
+    if request.method == 'POST':
+        create = create(request.POST)
+        edit = edit(request.POST)
+        if create.is_valid():
+            name = request.POST['name']
+            username= request.POST['username']
+            gender = request.POST['gender']
+            birthday = request.POST['birthday']
+            phone_number = request.POST['phone_number']
+            address = request.POST['address']
+            image = request.POST['image']
+
+
+            email = request.POST['email']
+            password1 = request.POST['password1']
+            password2 = request.POST['password2']
+            UserProfile_id=username
+
+            if password1==password2:
+                if User.objects.filter(email=email).exists():
+                        return render(request, 'manage-parent.html', {"message": "The user is already registered"})
+                else:
+                    user = User.objects.create(username=username, password=password1, email=email )
+                    user.set_password(user.password)
+                    user.save()
+                    profile = UserProfile.objects.create(user=user, name=name, user_type='Accountant', gender=gender,birthday=birthday, phone_number=phone_number, address=address, image=image)
+                    profile.save()
+                    return render(request, 'manage-parent.html', {"message": "Student Added"}, context)
+            else:
+                return render(request, 'manage-parent.html', {"message": "The passwords don't match"}, context)
+        else:
+            user.profile.name = request.POST['name']
+            user.profile.username = request.POST['username']
+            user.profile.gender = request.POST['gender']
+            user.profile.address = request.POST['address']
+
+            user.profile.email = request.POST['email']
+            email= user.profile.email
+            user.profile.password = request.POST['passoword']
+            profile.set_password(profile.password)
+            if User.objects.filter(email=email).exists():
+                return render(request, "manage-parent.html", {"message": "The user is already registered"}, context)
+            else:
+                user.profile.save()
+
+    else:
+        return render(request, "manage-parent.html", context)
+
 
 def manageLibarian(request):
-    return render(request, "manage-libarian.html")
+    context = {"libarians":UserProfile.objects.all().filter(user_type="Liberian")}
+    if request.method == 'POST':
+        create = create(request.POST)
+        edit = edit(request.POST)
+        if create.is_valid():
+            name = request.POST['name']
+            username= request.POST['username']
+            gender = request.POST['gender']
+            birthday = request.POST['birthday']
+            phone_number = request.POST['phone_number']
+            address = request.POST['address']
+            image = request.POST['image']
+
+
+            email = request.POST['email']
+            password1 = request.POST['password1']
+            password2 = request.POST['password2']
+            UserProfile_id=username
+
+            if password1==password2:
+                if User.objects.filter(email=email).exists():
+                        return render(request, 'manage-libarian.html', {"message": "The user is already registered"})
+                else:
+                    user = User.objects.create(username=username, password=password1, email=email )
+                    user.set_password(user.password)
+                    user.save()
+                    profile = UserProfile.objects.create(user=user, name=name, user_type='Accountant', gender=gender,birthday=birthday, phone_number=phone_number, address=address, image=image)
+                    profile.save()
+                    return render(request, 'manage-libarian.html', {"message": "Student Added"}, context)
+            else:
+                return render(request, 'manage-libarian.html', {"message": "The passwords don't match"}, context)
+        else:
+            user.profile.name = request.POST['name']
+            user.profile.username = request.POST['username']
+            user.profile.gender = request.POST['gender']
+            user.profile.address = request.POST['address']
+
+            user.profile.email = request.POST['email']
+            email= user.profile.email
+            user.profile.password = request.POST['passoword']
+            profile.set_password(profile.password)
+            if User.objects.filter(email=email).exists():
+                return render(request, "manage-libarian.html", {"message": "The user is already registered"}, context)
+            else:
+                user.profile.save()
+
+    else:
+        return render(request, "manage-libarian.html", context)
+
 
 def manageAdmin(request):
-    return render(request, "manage-admin.html")
+    context = {"admins":UserProfile.objects.all().filter(user_type="Admin")}
+    if request.method == 'POST':
+        create = create(request.POST)
+        edit = edit(request.POST)
+        if create.is_valid():
+            name = request.POST['name']
+            username= request.POST['username']
+            gender = request.POST['gender']
+            birthday = request.POST['birthday']
+            phone_number = request.POST['phone_number']
+            address = request.POST['address']
+            image = request.POST['image']
+
+
+            email = request.POST['email']
+            password1 = request.POST['password1']
+            password2 = request.POST['password2']
+            UserProfile_id=username
+
+            if password1==password2:
+                if User.objects.filter(email=email).exists():
+                        return render(request, 'manage-admin.html', {"message": "The user is already registered"})
+                else:
+                    user = User.objects.create(username=username, password=password1, email=email )
+                    user.set_password(user.password)
+                    user.save()
+                    profile = UserProfile.objects.create(user=user, name=name, user_type='Accountant', gender=gender,birthday=birthday, phone_number=phone_number, address=address, image=image)
+                    profile.save()
+                    return render(request, 'manage-admin.html', {"message": "Student Added"}, context)
+            else:
+                return render(request, 'manage-admin.html', {"message": "The passwords don't match"}, context)
+        else:
+            user.profile.name = request.POST['name']
+            user.profile.username = request.POST['username']
+            user.profile.gender = request.POST['gender']
+            user.profile.address = request.POST['address']
+
+            user.profile.email = request.POST['email']
+            email= user.profile.email
+            user.profile.password = request.POST['passoword']
+            profile.set_password(profile.password)
+            if User.objects.filter(email=email).exists():
+                return render(request, "manage-admin.html", {"message": "The user is already registered"}, context)
+            else:
+                user.profile.save()
+
+    else:
+        return render(request, "manage-admin.html", context)
+
+
 
 def manageAccountant(request):
-    return render(request, "manage-accountant.html")
+    context = {"accountants":UserProfile.objects.all().filter(user_type="Accountant")}
+    if request.method == 'POST':
+        create = create(request.POST)
+        edit = edit(request.POST)
+        if create.is_valid():
+            name = request.POST['name']
+            username= request.POST['username']
+            gender = request.POST['gender']
+            birthday = request.POST['birthday']
+            phone_number = request.POST['phone_number']
+            address = request.POST['address']
+            image = request.POST['image']
+
+
+            email = request.POST['email']
+            password1 = request.POST['password1']
+            password2 = request.POST['password2']
+            UserProfile_id=username
+
+            if password1==password2:
+                if User.objects.filter(email=email).exists():
+                        return render(request, 'manage-accountant', {"message": "The user is already registered"})
+                else:
+                    user = User.objects.create(username=username, password=password1, email=email )
+                    user.set_password(user.password)
+                    user.save()
+                    profile = UserProfile.objects.create(user=user, name=name, user_type='Accountant', gender=gender,birthday=birthday, phone_number=phone_number, address=address, image=image)
+                    profile.save()
+                    return render(request, 'manage-accountant.html', {"message": "Student Added"}, context)
+            else:
+                return render(request, 'manage-accountant.html', {"message": "The passwords don't match"}, context)
+        else:
+            user.profile.name = request.POST['name']
+            user.profile.username = request.POST['username']
+            user.profile.gender = request.POST['gender']
+            user.profile.address = request.POST['address']
+
+            user.profile.email = request.POST['email']
+            email= user.profile.email
+            user.profile.password = request.POST['passoword']
+            profile.set_password(profile.password)
+            if User.objects.filter(email=email).exists():
+                return render(request, "manage-accountant.html", {"message": "The user is already registered"}, context)
+            else:
+                user.profile.save()
+
+    else:
+        return render(request, "manage-accountant.html", context)
+
 
 def Dept(request):
     return render(request, "department.html")

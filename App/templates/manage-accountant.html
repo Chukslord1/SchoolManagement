@@ -771,6 +771,7 @@
             Create Accountant
            </h4>
            <div class="row">
+             <form method="POST" name="create">{% csrf_token %}
             <div class="col-lg-12">
              <div class="card">
               <div class="card-body">
@@ -779,7 +780,7 @@
                  Name
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-text-input" type="text" value=""/>
+                 <input class="form-control" id="example-text-input" type="text" name="name" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -787,7 +788,7 @@
                  Username
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-text-input" type="text" value=""/>
+                 <input class="form-control" id="example-text-input" type="text" name="username" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -795,7 +796,7 @@
                  Email
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-email-input" type="email" value=""/>
+                 <input class="form-control" id="example-email-input" type="email" name="email" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -803,7 +804,7 @@
                  Phone Number
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-tel-input" type="tel" value=""/>
+                 <input class="form-control" id="example-tel-input" type="tel" name="phone_number" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -811,7 +812,15 @@
                  Password
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-password-input" type="password" value=""/>
+                 <input class="form-control" id="example-password-input" type="password" name="passoword1" value=""/>
+                </div>
+               </div>
+               <div class="form-group row">
+                <label class="col-sm-2 col-form-label text-right" for="example-password-input">
+                Confirm Password
+                </label>
+                <div class="col-sm-9">
+                 <input class="form-control" id="example-password-input" type="password" name="passoword2" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -819,7 +828,7 @@
                  Gender
                 </label>
                 <div class="col-sm-9">
-                 <select class="form-control">
+                 <select class="form-control" name="gender">
                   <option>
                    Select
                   </option>
@@ -837,7 +846,7 @@
                  Address
                 </label>
                 <div class="col-sm-9">
-                 <textarea class="form-control" rows="5"></textarea>
+                 <textarea class="form-control" name="address" rows="5"></textarea>
                 </div>
                </div>
                <div class="form-group row">
@@ -845,9 +854,10 @@
                  Accountant Profile Image
                 </label>
                 <div class="col-sm-4">
-                 <input class="dropify" data-default-file="assets/plugins/dropify/images/1.jpg" id="input-file-now-custom-1" type="file">
+                 <input class="dropify" data-default-file="assets/plugins/dropify/images/1.jpg"  name="image" id="input-file-now-custom-1" type="file">
                  </input>
                 </div>
+              </form>
                 <!--end col-->
                </div>
                <!--end row-->
@@ -878,6 +888,7 @@
             Edit Accountant
            </h4>
            <div class="row">
+             <form method="POST" name="edit">{% csrf_token %}
             <div class="col-lg-12">
              <div class="card">
               <div class="card-body">
@@ -886,7 +897,7 @@
                  Name
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-text-input" type="text" value=""/>
+                 <input class="form-control" id="example-text-input" type="text" name="name" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -894,7 +905,7 @@
                  Username
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-text-input" type="text" value=""/>
+                 <input class="form-control" id="example-text-input" type="text" name="username" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -902,7 +913,7 @@
                  Email
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-email-input" type="email" value=""/>
+                 <input class="form-control" id="example-email-input" type="email" name="email" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -910,7 +921,7 @@
                  Phone Number
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-tel-input" type="tel" value=""/>
+                 <input class="form-control" id="example-tel-input" type="tel" name="phone_number" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -918,7 +929,7 @@
                  Gender
                 </label>
                 <div class="col-sm-9">
-                 <select class="form-control">
+                 <select class="form-control" name="gender">
                   <option>
                    Select
                   </option>
@@ -936,7 +947,7 @@
                  Address
                 </label>
                 <div class="col-sm-9">
-                 <textarea class="form-control" rows="5"></textarea>
+                 <textarea class="form-control" name="address" rows="5"></textarea>
                 </div>
                </div>
                <div class="row">
@@ -947,6 +958,7 @@
                 </div>
                </div>
               </div>
+            </form>
              </div>
             </div>
            </div>
@@ -977,7 +989,9 @@
              </th>
             </tr>
            </thead>
+
            <tbody>
+          {% for accountant in accountants %}
             <tr>
              <td>
               1
@@ -988,30 +1002,30 @@
              <td>
               <p class="d-inline-block align-middle mb-0">
                <a class="d-inline-block align-middle mb-0 product-name" href="">
-                Adebowale Adeolu
+                {{accountant.name}}
                </a>
                <br/>
                <span class="text-muted font-13">
-                Accountant of CSS Suleja
+
                </span>
               </p>
              </td>
              <td>
               <p class="d-inline-block align-middle mb-0">
                <a class="d-inline-block align-middle mb-0 product-name" href="">
-                Accountantistrator
+                {{accountant.username}}
                </a>
                <br/>
                <span class="text-muted font-13">
-                Accountant@csssuleja.org
+                {{accountant.email}}
                </span>
               </p>
              </td>
              <td>
-              08036856999
+              {{accountant.phone_number}}
              </td>
              <td>
-              Dame Patience Jonathan Drive, Opposite Shehu Musa Yarâ€™adua Barracks, Behind NAF Holdings, Asokoro, Abuja.
+              {{accountant.address}}
              </td>
              <td>
               <div class="btn-group">
@@ -1032,61 +1046,11 @@
              </td>
             </tr>
             <tr>
-             <td>
-              1
-             </td>
-             <td>
-              <img alt="" height="52" src="{% static 'assets/images/products/img-2.png' %}"/>
-             </td>
-             <td>
-              <p class="d-inline-block align-middle mb-0">
-               <a class="d-inline-block align-middle mb-0 product-name" href="">
-                Ochuko Onoja
-               </a>
-               <br/>
-               <span class="text-muted font-13">
-                Accountant of CSS Suleja
-               </span>
-              </p>
-             </td>
-             <td>
-              <p class="d-inline-block align-middle mb-0">
-               <a class="d-inline-block align-middle mb-0 product-name" href="">
-                Accountantistrator
-               </a>
-               <br/>
-               <span class="text-muted font-13">
-                Accountant@csssuleja.org
-               </span>
-              </p>
-             </td>
-             <td>
-              08036856999
-             </td>
-             <td>
-              Dame Patience Jonathan Drive, Opposite Shehu Musa Yarâ€™adua Barracks, Behind NAF Holdings, Asokoro, Abuja.
-             </td>
-             <td>
-              <div class="btn-group">
-               <div class="animation-modal">
-                <a data-plugin="custommodal" href="#custom-modal-edit">
-                 <button class="btn btn-outline-secondary btn-sm" type="button">
-                  <i class="far fa-edit">
-                  </i>
-                 </button>
-                </a>
-               </div>
-               <!--end animation modal-->
-               <button class="btn btn-outline-secondary btn-sm" type="button">
-                <i class="far fa-trash-alt">
-                </i>
-               </button>
-              </div>
-             </td>
-            </tr>
+            {% endfor %}
+
            </tbody>
-          </table>
          </div>
+       </table>
         </div>
        </div>
        <!-- end col -->

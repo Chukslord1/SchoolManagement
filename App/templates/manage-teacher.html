@@ -757,10 +757,10 @@
         <div class="card">
          <div class="card-body">
           <h4 class="mt-0 header-title">
-           Manage Teachers
+           Manage Teacher
           </h4>
           <p class="text-muted mb-4 font-13">
-           All Teachers.
+           All Teacher.
           </p>
           <div class="animation-modal">
            <a class="btn btn-primary waves-effect" data-animation="fadein" data-overlaycolor="#38414a" data-plugin="custommodal" href="#custom-modal">
@@ -782,6 +782,7 @@
             Create Teacher
            </h4>
            <div class="row">
+             <form method="POST" name="create">{% csrf_token %}
             <div class="col-lg-12">
              <div class="card">
               <div class="card-body">
@@ -790,7 +791,7 @@
                  Name
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-text-input" type="text" value=""/>
+                 <input class="form-control" id="example-text-input" type="text" name="name" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -798,7 +799,7 @@
                  Username
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-text-input" type="text" value=""/>
+                 <input class="form-control" id="example-text-input" type="text" name="username" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -806,7 +807,7 @@
                  Email
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-email-input" type="email" value=""/>
+                 <input class="form-control" id="example-email-input" type="email" name="email" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -814,39 +815,7 @@
                  Phone Number
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-tel-input" type="tel" value=""/>
-                </div>
-               </div>
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right" for="example-tel-input">
-                 Designation
-                </label>
-                <div class="col-sm-9">
-                 <input class="form-control" id="example-tel-input" type="tel" value="Biology Teacher"/>
-                </div>
-               </div>
-               <div class="col-sm-9">
-                <div class="form-group">
-                 <label for="exampleFormControlSelect2">
-                  Assign Subject (multiple selection allowed)
-                 </label>
-                 <select class="form-control" id="exampleFormControlSelect2" multiple="">
-                  <option>
-                   Agricultural Science
-                  </option>
-                  <option>
-                   English
-                  </option>
-                  <option>
-                   Mathematics
-                  </option>
-                  <option>
-                   Arabic
-                  </option>
-                  <option>
-                   French
-                  </option>
-                 </select>
+                 <input class="form-control" id="example-tel-input" type="tel" name="phone_number" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -854,7 +823,15 @@
                  Password
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-password-input" type="password" value=""/>
+                 <input class="form-control" id="example-password-input" type="password1" name="password" value=""/>
+                </div>
+               </div>
+               <div class="form-group row">
+                <label class="col-sm-2 col-form-label text-right" for="example-password-input">
+                Confirm  Password
+                </label>
+                <div class="col-sm-9">
+                 <input class="form-control" id="example-password-input" type="password" name="password2" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -862,7 +839,7 @@
                  Gender
                 </label>
                 <div class="col-sm-9">
-                 <select class="form-control">
+                 <select class="form-control" name="gender">
                   <option>
                    Select
                   </option>
@@ -880,7 +857,7 @@
                  Address
                 </label>
                 <div class="col-sm-9">
-                 <textarea class="form-control" rows="5"></textarea>
+                 <textarea class="form-control" rows="5" name="address"></textarea>
                 </div>
                </div>
                <div class="form-group row">
@@ -888,9 +865,9 @@
                  Teacher Profile Image
                 </label>
                 <div class="col-sm-4">
-                 <input class="dropify" data-default-file="assets/plugins/dropify/images/1.jpg" id="input-file-now-custom-1" type="file">
+                 <input class="dropify" data-default-file="assets/plugins/dropify/images/1.jpg" id="input-file-now-custom-1" name="image" type="file">
                  </input>
-                </div>
+               </div>
                 <!--end col-->
                </div>
                <!--end row-->
@@ -905,10 +882,12 @@
              </div>
             </div>
            </div>
+         </form>
           </div>
           <!--end custom modal-->
           <!--Begin custom populated modal-->
           <div class="modal-demo" id="custom-modal-edit">
+
            <button class="close" onclick="Custombox.modal.close();" type="button">
             <span>
              ×
@@ -921,6 +900,7 @@
             Edit Teacher
            </h4>
            <div class="row">
+             <form method="POST" name="edit">{% csrf_token %}
             <div class="col-lg-12">
              <div class="card">
               <div class="card-body">
@@ -929,7 +909,7 @@
                  Name
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-text-input" type="text" value=""/>
+                 <input class="form-control" id="example-text-input" name="name" type="text" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -937,7 +917,7 @@
                  Username
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-text-input" type="text" value=""/>
+                 <input class="form-control" id="example-text-input" name="username" type="text" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -945,7 +925,7 @@
                  Email
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-email-input" type="email" value=""/>
+                 <input class="form-control" id="example-email-input" type="email" name="email" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -953,7 +933,7 @@
                  Phone Number
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-tel-input" type="tel" value=""/>
+                 <input class="form-control" id="example-tel-input" type="tel" name="phone_number" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -961,7 +941,7 @@
                  Gender
                 </label>
                 <div class="col-sm-9">
-                 <select class="form-control">
+                 <select class="form-control" name="gender">
                   <option>
                    Select
                   </option>
@@ -979,7 +959,7 @@
                  Address
                 </label>
                 <div class="col-sm-9">
-                 <textarea class="form-control" rows="5"></textarea>
+                 <textarea class="form-control" name="address" rows="5"></textarea>
                 </div>
                </div>
                <div class="row">
@@ -992,7 +972,9 @@
               </div>
              </div>
             </div>
+            </form>
            </div>
+
           </div>
           <table class="table table-bordered dt-responsive nowrap" id="datatable" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
            <thead>
@@ -1022,6 +1004,7 @@
            </thead>
            <tbody>
             <tr>
+              {% for teacher in teachers %}
              <td>
               1
              </td>
@@ -1031,30 +1014,30 @@
              <td>
               <p class="d-inline-block align-middle mb-0">
                <a class="d-inline-block align-middle mb-0 product-name" href="">
-                Adebowale Adeolu
+                {{teacher.name}}
                </a>
                <br/>
                <span class="text-muted font-13">
-                Form Tutor JSS1
+
                </span>
               </p>
              </td>
              <td>
               <p class="d-inline-block align-middle mb-0">
                <a class="d-inline-block align-middle mb-0 product-name" href="">
-                administrator
+                {{ teacher.username }}
                </a>
                <br/>
                <span class="text-muted font-13">
-                admin@csssuleja.org
+                {{teacher.email}}
                </span>
               </p>
              </td>
              <td>
-              08036856999
+              {{teacher.phone_number}}
              </td>
              <td>
-              Dame Patience Jonathan Drive, Opposite Shehu Musa Yarâ€™adua Barracks, Behind NAF Holdings, Asokoro, Abuja.
+              {{teacher.address}}
              </td>
              <td>
               <div class="btn-group">
@@ -1074,59 +1057,7 @@
               </div>
              </td>
             </tr>
-            <tr>
-             <td>
-              1
-             </td>
-             <td>
-              <img alt="" height="52" src="{% static 'assets/images/products/img-2.png' %}"/>
-             </td>
-             <td>
-              <p class="d-inline-block align-middle mb-0">
-               <a class="d-inline-block align-middle mb-0 product-name" href="">
-                Ochuko Onoja
-               </a>
-               <br/>
-               <span class="text-muted font-13">
-                Form Tutor JSS1
-               </span>
-              </p>
-             </td>
-             <td>
-              <p class="d-inline-block align-middle mb-0">
-               <a class="d-inline-block align-middle mb-0 product-name" href="">
-                administrator
-               </a>
-               <br/>
-               <span class="text-muted font-13">
-                admin@csssuleja.org
-               </span>
-              </p>
-             </td>
-             <td>
-              08036856999
-             </td>
-             <td>
-              Dame Patience Jonathan Drive, Opposite Shehu Musa Yarâ€™adua Barracks, Behind NAF Holdings, Asokoro, Abuja.
-             </td>
-             <td>
-              <div class="btn-group">
-               <div class="animation-modal">
-                <a data-plugin="custommodal" href="#custom-modal-edit">
-                 <button class="btn btn-outline-secondary btn-sm" type="button">
-                  <i class="far fa-edit">
-                  </i>
-                 </button>
-                </a>
-               </div>
-               <!--end animation modal-->
-               <button class="btn btn-outline-secondary btn-sm" type="button">
-                <i class="far fa-trash-alt">
-                </i>
-               </button>
-              </div>
-             </td>
-            </tr>
+            {% endfor %}
            </tbody>
           </table>
          </div>
