@@ -102,10 +102,7 @@ def generate(request):
 def addStudent(request):
     context = {"parents":UserProfile.objects.all().filter(user_type="Parent")}
     if request.method == 'POST':
-        add_student = add_student(request.POST)
-        bulk_student = bulk_student(request.POST)
-        csv= csv(request.POST)
-        if add_student.is_valid():
+        if request.POST.get('form_type')=="addstudent":
             name = request.POST['name']
             username= request.POST['username']
             parent = request.POST['parent']
@@ -126,17 +123,17 @@ def addStudent(request):
 
             if password1==password2:
                 if User.objects.filter(email=email).exists():
-                        return render(request, 'add-student.html', {"message": "The user is already registered"})
+                        return render(request, 'add-student.html', {"message": "The user is already registered"}, context)
                 else:
                     user = User.objects.create(username=username, password=password1, email=email )
                     user.set_password(user.password)
                     user.save()
                     profile = UserProfile.objects.create(user=user, name=name, user_type='Student', parent=parent, class_room=class_room, section=section, gender=gender, school_type=school_type, birthday=birthday, phone_number=phone_number, address=address, image=image)
                     profile.save()
-                    return render(request, 'add-student.html', {"message": "Student Added"}, context)
+                    return redirect('add-student.html', {"message": "Student Added"}, context)
             else:
                 return render(request, 'add-student.html', {"message": "The passwords don't match"}, context)
-        elif bulk_student.is_valid():
+        elif request.POST.get('form_type')=="bulkstudent":
             name = request.POST['name']
             parent = request.POST['parent']
             class_room = request.POST['class_room']
@@ -159,10 +156,11 @@ def addStudent(request):
             else:
                 return render(request, "add-student.html", {"message": "The passwords don't match"}, context)
 
-        else:
+        elif request.POST.get("form_type")=="csv":
             class_room = request.POST['class_room']
             session = request.POST['session']
-
+        else:
+            return render(request, "add-student.html", context)
     else:
         return render(request, "add-student.html", context)
 
@@ -187,9 +185,7 @@ def profile(request):
 def manageTeacher(request):
     context = {"teachers":UserProfile.objects.all().filter(user_type="Teacher")}
     if request.method == 'POST':
-        create = create(request.POST)
-        edit = edit(request.POST)
-        if create.is_valid():
+        if request.POST.get('form_type')=="create":
             name = request.POST['name']
             username= request.POST['username']
             gender = request.POST['gender']
@@ -216,7 +212,7 @@ def manageTeacher(request):
                     return render(request, 'manage-teacher.html', {"message": "Student Added"}, context)
             else:
                 return render(request, 'manage-teacher.html', {"message": "The passwords don't match"}, context)
-        else:
+        elif request.POST.get('form_type')=="edit":
             user.profile.name = request.POST['name']
             user.profile.username = request.POST['username']
             user.profile.gender = request.POST['gender']
@@ -230,7 +226,8 @@ def manageTeacher(request):
                 return render(request, "manage-teacher.html", {"message": "The user is already registered"}, context)
             else:
                 user.profile.save()
-
+        else:
+            return render(request, "manage-teacher.html", context)
     else:
         return render(request, "manage-teacher.html", context)
 
@@ -241,9 +238,7 @@ def manageStudent(request):
 def manageParent(request):
     context = {"parents":UserProfile.objects.all().filter(user_type="Parent")}
     if request.method == 'POST':
-        create = create(request.POST)
-        edit = edit(request.POST)
-        if create.is_valid():
+        if request.POST.get('form_type')=="create":
             name = request.POST['name']
             username= request.POST['username']
             gender = request.POST['gender']
@@ -270,7 +265,7 @@ def manageParent(request):
                     return render(request, 'manage-parent.html', {"message": "Student Added"}, context)
             else:
                 return render(request, 'manage-parent.html', {"message": "The passwords don't match"}, context)
-        else:
+        elif request.POST.get('form_type')=="edit":
             user.profile.name = request.POST['name']
             user.profile.username = request.POST['username']
             user.profile.gender = request.POST['gender']
@@ -284,7 +279,8 @@ def manageParent(request):
                 return render(request, "manage-parent.html", {"message": "The user is already registered"}, context)
             else:
                 user.profile.save()
-
+        else:
+            return render(request, "manage-parent.html", context)
     else:
         return render(request, "manage-parent.html", context)
 
@@ -292,9 +288,7 @@ def manageParent(request):
 def manageLibarian(request):
     context = {"libarians":UserProfile.objects.all().filter(user_type="Liberian")}
     if request.method == 'POST':
-        create = create(request.POST)
-        edit = edit(request.POST)
-        if create.is_valid():
+        if request.POST.get('form_type')=="create":
             name = request.POST['name']
             username= request.POST['username']
             gender = request.POST['gender']
@@ -321,7 +315,7 @@ def manageLibarian(request):
                     return render(request, 'manage-libarian.html', {"message": "Student Added"}, context)
             else:
                 return render(request, 'manage-libarian.html', {"message": "The passwords don't match"}, context)
-        else:
+        elif request.POST.get('form_type')=="edit":
             user.profile.name = request.POST['name']
             user.profile.username = request.POST['username']
             user.profile.gender = request.POST['gender']
@@ -335,7 +329,8 @@ def manageLibarian(request):
                 return render(request, "manage-libarian.html", {"message": "The user is already registered"}, context)
             else:
                 user.profile.save()
-
+        else:
+            return render(request, "manage-libarian.html", context)
     else:
         return render(request, "manage-libarian.html", context)
 
@@ -343,9 +338,7 @@ def manageLibarian(request):
 def manageAdmin(request):
     context = {"admins":UserProfile.objects.all().filter(user_type="Admin")}
     if request.method == 'POST':
-        create = create(request.POST)
-        edit = edit(request.POST)
-        if create.is_valid():
+        if request.POST.get('form_type')=="create":
             name = request.POST['name']
             username= request.POST['username']
             gender = request.POST['gender']
@@ -372,7 +365,7 @@ def manageAdmin(request):
                     return render(request, 'manage-admin.html', {"message": "Student Added"}, context)
             else:
                 return render(request, 'manage-admin.html', {"message": "The passwords don't match"}, context)
-        else:
+        elif request.POST.get('form_type')=="edit":
             user.profile.name = request.POST['name']
             user.profile.username = request.POST['username']
             user.profile.gender = request.POST['gender']
@@ -386,6 +379,8 @@ def manageAdmin(request):
                 return render(request, "manage-admin.html", {"message": "The user is already registered"}, context)
             else:
                 user.profile.save()
+        else:
+            return render(request, "manage-admin.html", context)
 
     else:
         return render(request, "manage-admin.html", context)
@@ -395,9 +390,7 @@ def manageAdmin(request):
 def manageAccountant(request):
     context = {"accountants":UserProfile.objects.all().filter(user_type="Accountant")}
     if request.method == 'POST':
-        create = create(request.POST)
-        edit = edit(request.POST)
-        if create.is_valid():
+        if request.POST.get('form_type')=="create":
             name = request.POST['name']
             username= request.POST['username']
             gender = request.POST['gender']
@@ -424,7 +417,7 @@ def manageAccountant(request):
                     return render(request, 'manage-accountant.html', {"message": "Student Added"}, context)
             else:
                 return render(request, 'manage-accountant.html', {"message": "The passwords don't match"}, context)
-        else:
+        elif request.POST.get('form_type')=="edit":
             user.profile.name = request.POST['name']
             user.profile.username = request.POST['username']
             user.profile.gender = request.POST['gender']
@@ -438,6 +431,8 @@ def manageAccountant(request):
                 return render(request, "manage-accountant.html", {"message": "The user is already registered"}, context)
             else:
                 user.profile.save()
+        else:
+            return render(request, "manage-accountant.html", context)
 
     else:
         return render(request, "manage-accountant.html", context)

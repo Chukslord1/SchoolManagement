@@ -775,6 +775,14 @@
              <div class="col-lg-12">
               <div class="card">
                <div class="card-body">
+                 <div class="form-group row">
+                  <label class="col-sm-2 col-form-label text-right" for="example-text-input">
+                   Add Student
+                  </label>
+                  <div class="col-sm-9">
+                   <input class="form-control" id="example-text-input" type="hidden" name="form_type" value="addstudent"/>
+                  </div>
+                 </div>
                 <div class="form-group row">
                  <label class="col-sm-2 col-form-label text-right" for="example-text-input">
                   Name
@@ -963,15 +971,26 @@
               </div>
              </div>
             </div>
+            {% if message %}
+          <span style="color:red">**{{ message }}**</span> </br>
+          {% endif %}
            </div>
          </form>
-           {% csrf_token %}
+
            <div class="tab-pane p-3" id="bulkstudent" role="tabpanel">
             <div class="row">
              <div class="card-body">
-              <form class="form-horizontal well" method="POST" name="bulk_student" role="form">
-               <div class="row">
+              <form class="form-horizontal well" method="POST" role="form">
+                {% csrf_token %}
                 <div class="col-sm-4">
+
+                  <div class="row">
+                    <div class="col-sm-2">
+                     <label class="control-label">
+                      Bulk Student
+                     </label>
+                     <input class="form-control"  type="hidden" name="form_type" value="bulkstudent"/>
+                    </div>
                  <div class="dropdown mb-2 mb-md-0">
                   <button aria-expanded="false" aria-haspopup="true" class="btn btn-secondary dropdown-toggle scrollable-menu" name="class_room" data-toggle="dropdown" id="dropdownMenuButton" type="button">
                    Select Class
@@ -1030,7 +1049,7 @@
                      <label class="control-label">
                       Name
                      </label>
-                     <input class="form-control" name="" type="text" name="name" value="Ochuko Onoja"/>
+                     <input class="form-control"  type="text" name="name" value="Ochuko Onoja"/>
                     </div>
                     <!--end col-->
                     <div class="col-sm-2">
@@ -1124,8 +1143,14 @@
            <div class="tab-pane p-3" id="excelupload" role="tabpanel">
             <div class="row">
              <div class="card-body">
-              <form class="form-horizontal well" method="POST" role="form" name="csv">{% csrf_token %}
+              <form class="form-horizontal well" method="POST" role="form">{% csrf_token %}
                <div class="row">
+                 <div class="col-sm-2">
+                  <label class="control-label">
+                   Gen Excel
+                  </label>
+                  <input class="form-control" type="hidden" name="form_type" value="csv"/>
+                 </div>
                 <div class="col-sm-4">
                  <div class="dropdown mb-2 mb-md-0">
                   <button aria-expanded="false" aria-haspopup="true" class="btn btn-secondary dropdown-toggle scrollable-menu" name="class_room" data-toggle="dropdown" id="dropdownMenuButton" type="button">
