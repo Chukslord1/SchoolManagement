@@ -5,9 +5,20 @@ from .models import UserProfile, UnusedPins, UsedPins, BulkStudent
 from django.contrib.auth.decorators import login_required
 import random
 import string
+import xlwt
+from django.http import HttpResponse
 
 @login_required
 def index(request):
+    items = ["stats"]
+    stats = {
+        "stats":{"students":UserProfile.objects.all().filter(user_type="Students").count(), "teachers":UserProfile.objects.all().filter(user_type="Students").count(), "parents":UserProfile.objects.all().filter(user_type="Students").count(), "staffs":UserProfile.objects.all().filter(user_type="Students").count() }
+
+    }
+    params = {"items": []}
+    for item in items:
+        new_params = stats[item]
+        params["items"].append(new_params)
     global user_type
     user=request.user
     account_type = user.profile.user_type
@@ -18,7 +29,7 @@ def index(request):
     elif(account_type=="Teacher"):
         return render(request,"dashboard.html")
     elif(account_type=="Admin"):
-        return render(request,"dashboard5.html")
+        return render(request,"index.html", params)
     elif(account_type=="Liberian"):
         return render(request,"dashboard4.html")
     elif(account_type=="Accountant"):
@@ -157,8 +168,24 @@ def addStudent(request):
                 return render(request, "add-student.html", {"message": "The passwords don't match"}, context)
 
         elif request.POST.get("form_type")=="csv":
-            class_room = request.POST['class_room']
-            session = request.POST['session']
+            response = HttpResponse(content_type='application/ms-excel')
+            response['Content-Disposition'] = 'attachment; filename="students.xls"'
+            wb = xlwt.Workbook(encoding='utf-8')
+            ws = wb.add_sheet('Students Data')
+            row_num = 0
+            font_style = xlwt.XFStyle()
+            font_style.font.bold = True
+            columns = ['Name', 'Username', 'Parent', 'Class', 'Section','Gender', 'School Type', 'Birthday', 'Phone Number', 'Address' ]
+            for col_num in range(len(columns)):
+                ws.write(row_num, col_num, columns[col_num], font_style)
+            rows = UserProfile.objects.filter(user_type="Student").values_list('user','name','parent','class_room', 'section','gender', 'school_type', 'birthday','phone_number', 'address')
+            for row in rows:
+                row_num += 1
+                for col_num in range(len(row)):
+                     ws.write(row_num, col_num, row[col_num], font_style)
+            wb.save(response)
+            return response
+            return redirect("add-student.html", context)
         else:
             return render(request, "add-student.html", context)
     else:
