@@ -5,20 +5,18 @@
  <head>
   <meta charset="utf-8"/>
   <title>
-   Manage Libarian - Command Seconday School Suleja
+   Admin Dashboard - Command Seconday School Suleja
   </title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <meta content="School Management System Portal" name="description">
    <meta content="Advance Scholar" name="author"/>
    <!-- App favicon -->
    <link href="{% static 'assets/images/favicon.ico' %}" rel="shortcut icon"/>
-   <link href="{% static 'assets/plugins/custombox/custombox.min.css' %}" rel="stylesheet" type="text/css"/>
-   <link href="{% static 'assets/plugins/dropify/css/dropify.min.css' %}" rel="stylesheet"/>
    <!-- App css -->
    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"/>
-   <link href="{% static 'assets/css/icons.css' %}" rel="stylesheet" type="text/css"/>
-   <link href="{% static 'assets/css/metismenu.min.css' %}" rel="stylesheet" type="text/css"/>
-   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" type="text/css">
+   <link href="{% static 'assets/css/icons.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'assets/css/metismenu.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" type="text/css"/>
    </link>
   </meta>
  </head>
@@ -244,11 +242,11 @@
         <ol class="breadcrumb">
          <li class="breadcrumb-item">
           <a href="javascript:void(0);">
-           Libarian
+           Portal
           </a>
          </li>
          <li class="breadcrumb-item active">
-          Manage Libarian
+          Dashboard
          </li>
         </ol>
        </div>
@@ -304,7 +302,7 @@
          </a>
         </li>
         <li>
-         <a href="student.html">
+         <a href="manage-student.html">
           <span>
            Student
           </span>
@@ -341,7 +339,7 @@
        </ul>
       </li>
       <li>
-       <a href="admission.html">
+       <a href="add-student.html">
         <i class="mdi mdi-monitor">
         </i>
         <span>
@@ -696,7 +694,7 @@
          Running Session
         </h4>
         <div class="input-group">
-         <select class="form-control js--animations" style="width:auto">
+         <select class="form-control js--animations" name="session" style="width:auto">
           <optgroup label="Select Running Session">
            <option value="bounce">
             2017 - 2018
@@ -729,6 +727,11 @@
          </select>
          <!--end form-control-->
         </div>
+        <div class="col-sm-9 text-right">
+         <button class="btn btn-primary px-5 py-2" type="submit">
+          Submit
+         </button>
+        </div>
         <!--end input group-->
        </div>
        <!--emd col-->
@@ -741,385 +744,295 @@
     <!-- Page Content-->
     <div class="page-content">
      <div class="container-fluid">
-      <div class="row">
-       <div class="col-12">
+      <div class="row justify-content-center">
+          {% for i in items %}
+       <div class="col-md-3">
         <div class="card">
          <div class="card-body">
-          <h4 class="mt-0 header-title">
-           Manage Libarian
-          </h4>
-          <p class="text-muted mb-4 font-13">
-           All Libarians.
+          <div class="float-right">
+           <i class="dripicons-user-group font-24 text-secondary">
+           </i>
+          </div>
+          <span class="badge badge-danger">
+           Students
+          </span>
+          <h3 class="font-weight-bold">
+           {{i.students}}
+          </h3>
+          <p class="mb-0 text-muted text-truncate">
+           <span class="text-success">
+            <i class="mdi mdi-trending-up">
+            </i>
+            8.5%
+           </span>
+           Up From Last Year
           </p>
-          <div class="animation-modal">
-           <a class="btn btn-primary waves-effect" data-animation="fadein" data-overlaycolor="#38414a" data-plugin="custommodal" href="#custom-modal">
-            Create Libarian
-           </a>
-          </div>
-          <!--end animation modal-->
-          <!-- Custom Modal -->
-          <div class="modal-demo" id="custom-modal">
-           <button class="close" onclick="Custombox.modal.close();" type="button">
-            <span>
-             ×
-            </span>
-            <span class="sr-only">
-             Close
-            </span>
-           </button>
-           <h4 class="custom-modal-title">
-            Create Libarian
-           </h4>
-           <div class="row">
-             <form method="POST" name="create">{% csrf_token %}
-            <div class="col-lg-12">
-             <div class="card">
-              <div class="card-body">
-                <div class="form-group row">
-                 <label class="col-sm-2 col-form-label text-right" for="example-text-input">
-                  Create
-                 </label>
-                 <div class="col-sm-9">
-                  <input class="form-control" id="example-text-input" name="form_type" type="hidden" value="create"/>
-                 </div>
-                </div>
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right" for="example-text-input">
-                 Name
-                </label>
-                <div class="col-sm-9">
-                 <input class="form-control" id="example-text-input" type="text" name="name" value=""/>
-                </div>
-               </div>
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right" for="example-text-input">
-                 Username
-                </label>
-                <div class="col-sm-9">
-                 <input class="form-control" id="example-text-input" type="text" name="username" value=""/>
-                </div>
-               </div>
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right" for="example-email-input">
-                 Email
-                </label>
-                <div class="col-sm-9">
-                 <input class="form-control" id="example-email-input" type="email" name="email" value=""/>
-                </div>
-               </div>
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right" for="example-tel-input">
-                 Phone Number
-                </label>
-                <div class="col-sm-9">
-                 <input class="form-control" id="example-tel-input" type="tel" name="phone_number" value=""/>
-                </div>
-               </div>
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right" for="example-password-input">
-                 Password
-                </label>
-                <div class="col-sm-9">
-                 <input class="form-control" id="example-password-input" type="password" name="password1" value=""/>
-                </div>
-               </div>
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right" for="example-password-input">
-                Confirm  Password
-                </label>
-                <div class="col-sm-9">
-                 <input class="form-control" id="example-password-input" type="password" name="password2" value=""/>
-                </div>
-               </div>
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right">
-                 Gender
-                </label>
-                <div class="col-sm-9">
-                 <select class="form-control" name="gender">
-                  <option>
-                   Select
-                  </option>
-                  <option>
-                   Male
-                  </option>
-                  <option>
-                   Female
-                  </option>
-                 </select>
-                </div>
-               </div>
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right">
-                 Address
-                </label>
-                <div class="col-sm-9">
-                 <textarea class="form-control" rows="5" name="address"></textarea>
-                </div>
-               </div>
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right">
-                 Libarian Profile Image
-                </label>
-                <div class="col-sm-4">
-                 <input class="dropify" data-default-file="assets/plugins/dropify/images/1.jpg" id="input-file-now-custom-1" name="image" type="file">
-                 </input>
-               </div>
-                <!--end col-->
-               </div>
-               <!--end row-->
-               <div class="row">
-                <div class="col-sm-9 text-right">
-                 <button class="btn btn-primary px-5 py-2" type="submit">
-                  Submit
-                 </button>
-                </div>
-               </div>
-              </div>
-             </div>
-            </div>
-           </div>
-         </form>
-          </div>
-          <!--end custom modal-->
-          <!--Begin custom populated modal-->
-          <div class="modal-demo" id="custom-modal-edit">
-
-           <button class="close" onclick="Custombox.modal.close();" type="button">
-            <span>
-             ×
-            </span>
-            <span class="sr-only">
-             Close
-            </span>
-           </button>
-           <h4 class="custom-modal-title">
-            Edit Libarian
-           </h4>
-           <div class="row">
-             <form method="POST" name="edit">{% csrf_token %}
-            <div class="col-lg-12">
-             <div class="card">
-              <div class="card-body">
-                <div class="form-group row">
-                 <label class="col-sm-2 col-form-label text-right" for="example-text-input">
-                  Edit
-                 </label>
-                 <div class="col-sm-9">
-                  <input class="form-control" id="example-text-input" name="form_type" type="hidden" value="edit"/>
-                 </div>
-                </div>
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right" for="example-text-input">
-                 Name
-                </label>
-                <div class="col-sm-9">
-                 <input class="form-control" id="example-text-input" name="name" type="text" value=""/>
-                </div>
-               </div>
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right" for="example-text-input">
-                 Username
-                </label>
-                <div class="col-sm-9">
-                 <input class="form-control" id="example-text-input" name="username" type="text" value=""/>
-                </div>
-               </div>
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right" for="example-email-input">
-                 Email
-                </label>
-                <div class="col-sm-9">
-                 <input class="form-control" id="example-email-input" type="email" name="email" value=""/>
-                </div>
-               </div>
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right" for="example-tel-input">
-                 Phone Number
-                </label>
-                <div class="col-sm-9">
-                 <input class="form-control" id="example-tel-input" type="tel" name="phone_number" value=""/>
-                </div>
-               </div>
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right">
-                 Gender
-                </label>
-                <div class="col-sm-9">
-                 <select class="form-control" name="gender">
-                  <option>
-                   Select
-                  </option>
-                  <option>
-                   Male
-                  </option>
-                  <option>
-                   Female
-                  </option>
-                 </select>
-                </div>
-               </div>
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right">
-                 Address
-                </label>
-                <div class="col-sm-9">
-                 <textarea class="form-control" name="address" rows="5"></textarea>
-                </div>
-               </div>
-               <div class="row">
-                <div class="col-sm-9 text-right">
-                 <button class="btn btn-primary px-5 py-2" type="submit">
-                  Update
-                 </button>
-                </div>
-               </div>
-              </div>
-             </div>
-            </div>
-            </form>
-           </div>
-
-          </div>
-          <table class="table table-bordered dt-responsive nowrap" id="datatable" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-           <thead>
-            <tr>
-             <th>
-              #
-             </th>
-             <th>
-              Photo
-             </th>
-             <th>
-              Name
-             </th>
-             <th>
-              Username/Email
-             </th>
-             <th>
-              Phone
-             </th>
-             <th>
-              Address
-             </th>
-             <th>
-              Action
-             </th>
-            </tr>
-           </thead>
-           <tbody>
-            <tr>
-              {% for libarian in libarians %}
-             <td>
-              1
-             </td>
-             <td>
-              <img alt="" height="52" src="{% static 'assets/images/products/img-2.png' %}"/>
-             </td>
-             <td>
-              <p class="d-inline-block align-middle mb-0">
-               <a class="d-inline-block align-middle mb-0 product-name" href="">
-                {{libarian.name}}
-               </a>
-               <br/>
-               <span class="text-muted font-13">
-
-               </span>
-              </p>
-             </td>
-             <td>
-              <p class="d-inline-block align-middle mb-0">
-               <a class="d-inline-block align-middle mb-0 product-name" href="">
-                {{ libarian.username }}
-               </a>
-               <br/>
-               <span class="text-muted font-13">
-                {{libarian.email}}
-               </span>
-              </p>
-             </td>
-             <td>
-              {{libarian.phone_number}}
-             </td>
-             <td>
-              {{libarian.address}}
-             </td>
-             <td>
-              <div class="btn-group">
-               <div class="animation-modal">
-                <a data-plugin="custommodal" href="#custom-modal-edit">
-                 <button class="btn btn-outline-secondary btn-sm" type="button">
-                  <i class="far fa-edit">
-                  </i>
-                 </button>
-                </a>
-               </div>
-               <!--end animation modal-->
-               <button class="btn btn-outline-secondary btn-sm" type="button">
-                <i class="far fa-trash-alt">
-                </i>
-               </button>
-              </div>
-             </td>
-            </tr>
-            {% endfor %}
-           </tbody>
-          </table>
          </div>
         </div>
        </div>
-       <!-- end col -->
+       {% endfor %}
+       {% for i in items %}
+       <div class="col-md-3">
+        <div class="card">
+         <div class="card-body">
+          <div class="float-right">
+           <i class="dripicons-cart font-20 text-secondary">
+           </i>
+          </div>
+          <span class="badge badge-info">
+           Teachers
+          </span>
+          <h3 class="font-weight-bold">
+           {{i.teachers}}
+          </h3>
+          <p class="mb-0 text-muted text-truncate">
+           <span class="text-success">
+            <i class="mdi mdi-trending-up">
+            </i>
+           </span>
+           Total No of Teachers
+          </p>
+         </div>
+        </div>
+       </div>
+       {% endfor %}
+       {% for i in items %}
+       <div class="col-md-3">
+        <div class="card">
+         <div class="card-body">
+          <div class="float-right">
+           <i class="dripicons-jewel font-20 text-secondary">
+           </i>
+          </div>
+          <span class="badge badge-warning">
+           Parents
+          </span>
+          <h3 class="font-weight-bold">
+           {{i.parents}}
+          </h3>
+          <p class="mb-0 text-muted text-truncate">
+           <span class="text-danger">
+            <i class="mdi mdi-trending-down">
+            </i>
+           </span>
+           Total No of Parent
+          </p>
+         </div>
+        </div>
+       </div>
+       {% endfor %}
+       <div class="col-md-3">
+        <div class="card">
+         <div class="card-body">
+          <div class="float-right">
+           <i class="dripicons-wallet font-20 text-secondary">
+           </i>
+          </div>
+          <span class="badge badge-success">
+           Staff
+          </span>
+          <h3 class="font-weight-bold">
+           4
+          </h3>
+          <p class="mb-0 text-muted text-truncate">
+           <span class="text-success">
+            <i class="mdi mdi-trending-up">
+            </i>
+           </span>
+           Total No of Staff
+          </p>
+         </div>
+        </div>
+       </div>
       </div>
-      <!-- end row -->
-     </div>
-     <!-- container -->
-     <footer class="footer text-center text-sm-left">
-      © 2020 Command Secondary School, Suleja
-      <span class="text-muted d-none d-sm-inline-block float-right">
-       Powered by
-       <a href="https://advancescholar.com">
-        Advance Scholar
-       </a>
-      </span>
-     </footer>
-    </div>
-    <!-- end page content -->
-   </div>
-   <!--end page-wrapper-inner -->
-  </div>
-  <!-- end page-wrapper -->
-  <!-- jQuery  -->
-  <script src="{% static 'assets/js/jquery.min.js' %}">
-  </script>
-  <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}">
-  </script>
-  <script src="{% static 'assets/js/metisMenu.min.js' %}">
-  </script>
-  <script src="{% static 'assets/js/waves.min.js' %}">
-  </script>
-  <script src="{% static 'assets/js/jquery.slimscroll.min.js' %}">
-  </script>
-  <script src="{% static 'assets/plugins/dropify/js/dropify.min.js' %}">
-  </script>
-  <script src="{% static 'assets/pages/jquery.form-upload.init.js' %}">
-  </script>
-  <!-- Required datatable js -->
-  <script src="{% static 'assets/plugins/datatables/jquery.dataTables.min.js' %}">
-  </script>
-  <script src="{% static 'assets/plugins/datatables/dataTables.bootstrap4.min.js' %}">
-  </script>
-  <!-- Required jquery modal -->
-  <script src="{% static 'assets/plugins/custombox/custombox.min.js' %}">
-  </script>
-  <script src="{% static 'assets/plugins/custombox/custombox.legacy.min.js' %}">
-  </script>
-  <script src="{% static 'assets/pages/jquery.modal-animation.js' %}">
-  </script>
-  <!-- App js -->
-  <script src="{% static 'assets/js/app.js' %}">
-  </script>
-  <script>
-   $('#datatable').DataTable();
-  </script>
- </body>
-</html>
+      <div class="row">
+       <div class="col-lg-8">
+        <div class="card">
+         <div class="card-body">
+          <h4 class="header-title mb-0">
+           Upcoming Events
+          </h4>
+         </div>
+         <div class="card-body">
+          <div aria-labelledby="headingOne" class="collapse show" data-parent="#accordionExample" id="collapseOne">
+           <div class="">
+            <div class="tracking-timeline">
+             <ul class="timeline mt-4">
+              <li>
+               <p class="timeline-date">
+                4 March 2019
+               </p>
+               <div class="timeline-content">
+                <div class="track-info">
+                 <div class="text-muted float-right">
+                  <p class="mb-1">
+                   5:15PM
+                  </p>
+                  <span>
+                   Read more
+                  </span>
+                 </div>
+                 <h5 class="mt-0 mb-1">
+                  Inter House Sport
+                 </h5>
+                 <p class="mb-0">
+                  2020/2021 Session Sport
+                 </p>
+                </div>
+                <div class="track-info">
+                 <div class="text-muted float-right">
+                  <p class="mb-1">
+                   9:10AM
+                  </p>
+                  <span>
+                   Read more
+                  </span>
+                 </div>
+                 <h5 class="mt-0 mb-1">
+                  Examination
+                 </h5>
+                 <p class="mb-0">
+                  Third Term Exam
+                 </p>
+                </div>
+               </div>
+              </li>
+              <li>
+               <p class="timeline-date">
+                3 March 2019
+               </p>
+               <div class="timeline-content">
+                <div class="track-info">
+                 <div class="text-muted float-right">
+                  <p class="mb-1">
+                   4:35PM
+                  </p>
+                  <span>
+                   Read more
+                  </span>
+                 </div>
+                 <h5 class="mt-0 mb-1">
+                  Mid Term Break
+                 </h5>
+                 <p class="mb-0">
+                  3rd Term mid term break
+                 </p>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="col-lg-4">
+
+
+
+           <div class="card overflow-hidden">
+               <div class="card-body bg-gradient3">
+                   <div class="">
+                       <div class="card-icon">
+                           <i class="far fa-smile"></i>
+                       </div>
+
+                       <p class="text-white mb-0 font-16">Attendance Today</p>
+                       <h2 class="font-weight-bold text-white">458 <i>out of </i>645</h2>
+                   </div>
+               </div><!--end card-body-->
+               <div class="card-body dash-info-carousel">
+                   <div id="carousel_review" class="carousel slide" data-ride="carousel">
+                       <div class="carousel-inner">
+                           <div class="carousel-item">
+                               <div class="media">
+
+                                   <div class="media-body align-self-center">
+                                       <h6 class="m-0">PINS</h6>
+                                   </div>
+                               </div>
+                               <div class="text-center">
+                                   <p class="review-data mb-0">49<span>/ 500</span></p>
+                                   <p class="px-4 py-1 bg-soft-success d-inline-block rounded">Activated / Created</p>
+
+                               </div>
+                           </div>
+                           <div class="carousel-item">
+                               <div class="media">
+
+                                   <div class="media-body align-self-center">
+                                       <h6 class="m-0">Bulk SMS Credit</h6>
+                                   </div>
+                               </div>
+                               <div class="text-center">
+                                   <p class="review-data mb-0">500</span></p>
+                                   <p class="px-4 py-1 bg-soft-success d-inline-block rounded">Naira</p>
+
+
+                               </div>
+                           </div>
+                           <div class="carousel-item active">
+
+                               <div class="text-center">
+                                   <p class="review-data mb-0">5.0<span>/ 5.0</span></p>
+                                   <p class="px-4 py-1 bg-soft-success d-inline-block rounded">Exellent</p>
+
+
+                               </div>
+                           </div>
+                       </div>
+                       <a class="carousel-control-prev" href="#carousel_review" role="button" data-slide="prev">
+                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                       <span class="sr-only">Previous</span>
+                       </a>
+                       <a class="carousel-control-next" href="#carousel_review" role="button" data-slide="next">
+                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                       <span class="sr-only">Next</span>
+                       </a>
+                   </div>
+               </div><!--end card-body-->
+           </div>
+       </div>
+<!--end card-body-->
+<!--end col-->
+<!--end row-->
+<!-- container -->
+<footer class="footer text-center text-sm-left">
+ © 2020 Command Secondary School, Suleja
+ <span class="text-muted d-none d-sm-inline-block float-right">
+  Powered by
+  <a href="https://advancescholar.com">
+   Advance Scholar
+  </a>
+ </span>
+</footer>
+<!-- end page content -->
+<!--end page-wrapper-inner -->
+<!-- end page-wrapper -->
+<!-- jQuery  -->
+<script src="{% static 'assets/js/jquery.min.js' %}">
+</script>
+<script src="{% static 'assets/js/bootstrap.bundle.min.js' %}">
+</script>
+<script src="{% static 'assets/js/metisMenu.min.js' %}">
+</script>
+<script src="{% static 'assets/js/waves.min.js' %}">
+</script>
+<script src="{% static 'assets/js/jquery.slimscroll.min.js' %}">
+</script>
+<script src="{% static 'assets/plugins/moment/moment.js' %}">
+</script>
+<script src="{% static 'assets/plugins/apexcharts/apexcharts.min.js' %}">
+</script>
+<script src="{% static 'https://apexcharts.com/samples/assets/irregular-data-series.js' %}">
+</script>
+<script src="{% static 'https://apexcharts.com/samples/assets/series1000.js' %}">
+</script>
+<script src="{% static 'https://apexcharts.com/samples/assets/ohlc.js' %}">
+</script>
+<script src="{% static 'assets/pages/jquery.dashboard-3.init.js' %}">
+</script>
+<!-- App js -->
+<script src="{% static 'assets/js/app.js' %}">
+</script>

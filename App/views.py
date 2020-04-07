@@ -12,7 +12,7 @@ from django.http import HttpResponse
 def index(request):
     items = ["stats"]
     stats = {
-        "stats":{"students":UserProfile.objects.all().filter(user_type="Students").count(), "teachers":UserProfile.objects.all().filter(user_type="Students").count(), "parents":UserProfile.objects.all().filter(user_type="Students").count(), "staffs":UserProfile.objects.all().filter(user_type="Students").count() }
+        "stats":{"students":UserProfile.objects.all().filter(user_type="Student").count(),"pins":UnusedPins.objects.all().count(), "teachers":UserProfile.objects.all().filter(user_type="Teacher").count(), "parents":UserProfile.objects.all().filter(user_type="Parent").count(), "staffs":UserProfile.objects.all().filter(user_type="Students").count() }
 
     }
     params = {"items": []}
@@ -23,17 +23,20 @@ def index(request):
     user=request.user
     account_type = user.profile.user_type
     if (account_type=="Student"):
-        return redirect("auth-lock-screen.html")
+        return redirect("auth-lock-screen.html", params, context)
     elif(account_type=="Parent"):
-        return render(request,"index.html")
+        return render(request,"index.html", params, context)
     elif(account_type=="Teacher"):
         return render(request,"dashboard.html")
     elif(account_type=="Admin"):
-        return render(request,"index.html", params)
+        if user.profile.session=="":
+            user.profile.session = request.POST.get('session')
+            user.profile.save()
+        return render(request, "index1.html", params)
     elif(account_type=="Liberian"):
-        return render(request,"dashboard4.html")
+        return render(request,"index.html")
     elif(account_type=="Accountant"):
-        return render(request,"dashboard6.html")
+        return render(request,"index.html")
     else:
         return render(request, 'auth-login.html')
 # Create your views here.
@@ -111,6 +114,8 @@ def generate(request):
         return render(request,"gen.html")
 #so create a database for used and unused and delete used ones from unused and add to used and assign the current used to user
 def addStudent(request):
+    account_type = UserProfile.objects.all().filter(user_type="Admin")
+    account=account_type.values('session')
     context = {"parents":UserProfile.objects.all().filter(user_type="Parent")}
     if request.method == 'POST':
         if request.POST.get('form_type')=="addstudent":
@@ -139,7 +144,7 @@ def addStudent(request):
                     user = User.objects.create(username=username, password=password1, email=email )
                     user.set_password(user.password)
                     user.save()
-                    profile = UserProfile.objects.create(user=user, name=name, user_type='Student', parent=parent, class_room=class_room, section=section, gender=gender, school_type=school_type, birthday=birthday, phone_number=phone_number, address=address, image=image)
+                    profile = UserProfile.objects.create(user=user, name=name, user_type='Student', session=account, parent=parent, class_room=class_room, section=section, gender=gender, school_type=school_type, birthday=birthday, phone_number=phone_number, address=address, image=image)
                     profile.save()
                     return redirect('add-student.html', {"message": "Student Added"}, context)
             else:
@@ -210,13 +215,14 @@ def profile(request):
     return render(request, "profile.html")
 
 def manageTeacher(request):
+    account_type = UserProfile.objects.all().filter(user_type="Admin")
+    account=account_type.values('session')
     context = {"teachers":UserProfile.objects.all().filter(user_type="Teacher")}
     if request.method == 'POST':
         if request.POST.get('form_type')=="create":
             name = request.POST['name']
             username= request.POST['username']
             gender = request.POST['gender']
-            birthday = request.POST['birthday']
             phone_number = request.POST['phone_number']
             address = request.POST['address']
             image = request.POST['image']
@@ -234,9 +240,9 @@ def manageTeacher(request):
                     user = User.objects.create(username=username, password=password1, email=email )
                     user.set_password(user.password)
                     user.save()
-                    profile = UserProfile.objects.create(user=user, name=name, user_type='Accountant', gender=gender,birthday=birthday, phone_number=phone_number, address=address, image=image)
+                    profile = UserProfile.objects.create(user=user, name=name, user_type='Teacher', session=account, gender=gender,phone_number=phone_number, address=address, image=image)
                     profile.save()
-                    return render(request, 'manage-teacher.html', {"message": "Student Added"}, context)
+                    return redirect('manage-teacher.html', {"message": "Student Added"}, context)
             else:
                 return render(request, 'manage-teacher.html', {"message": "The passwords don't match"}, context)
         elif request.POST.get('form_type')=="edit":
@@ -244,17 +250,17 @@ def manageTeacher(request):
             user.profile.username = request.POST['username']
             user.profile.gender = request.POST['gender']
             user.profile.address = request.POST['address']
+            user.profile.phone_number = request.POST['phone_number']
 
             user.profile.email = request.POST['email']
             email= user.profile.email
-            user.profile.password = request.POST['passoword']
-            profile.set_password(profile.password)
             if User.objects.filter(email=email).exists():
                 return render(request, "manage-teacher.html", {"message": "The user is already registered"}, context)
             else:
                 user.profile.save()
+                return redirect("manage-teacher.html", {"message": "Edited"}, context)
         else:
-            return render(request, "manage-teacher.html", context)
+            return redirect("manage-teacher.html", context)
     else:
         return render(request, "manage-teacher.html", context)
 
@@ -263,13 +269,14 @@ def manageStudent(request):
     return render(request, "manage-student.html")
 
 def manageParent(request):
+    account_type = UserProfile.objects.all().filter(user_type="Admin")
+    account=account_type.values('session')
     context = {"parents":UserProfile.objects.all().filter(user_type="Parent")}
     if request.method == 'POST':
         if request.POST.get('form_type')=="create":
             name = request.POST['name']
             username= request.POST['username']
             gender = request.POST['gender']
-            birthday = request.POST['birthday']
             phone_number = request.POST['phone_number']
             address = request.POST['address']
             image = request.POST['image']
@@ -287,9 +294,9 @@ def manageParent(request):
                     user = User.objects.create(username=username, password=password1, email=email )
                     user.set_password(user.password)
                     user.save()
-                    profile = UserProfile.objects.create(user=user, name=name, user_type='Accountant', gender=gender,birthday=birthday, phone_number=phone_number, address=address, image=image)
+                    profile = UserProfile.objects.create(user=user, name=name, user_type='Teacher', session=account, gender=gender, phone_number=phone_number, address=address, image=image)
                     profile.save()
-                    return render(request, 'manage-parent.html', {"message": "Student Added"}, context)
+                    return redirect('manage-parent.html', {"message": "Student Added"}, context)
             else:
                 return render(request, 'manage-parent.html', {"message": "The passwords don't match"}, context)
         elif request.POST.get('form_type')=="edit":
@@ -297,29 +304,30 @@ def manageParent(request):
             user.profile.username = request.POST['username']
             user.profile.gender = request.POST['gender']
             user.profile.address = request.POST['address']
+            user.profile.phone_number = request.POST['phone_number']
 
             user.profile.email = request.POST['email']
             email= user.profile.email
-            user.profile.password = request.POST['passoword']
-            profile.set_password(profile.password)
             if User.objects.filter(email=email).exists():
                 return render(request, "manage-parent.html", {"message": "The user is already registered"}, context)
             else:
                 user.profile.save()
+                return redirect(request, "manage-parent.html", {"message": "Edited"}, context)
         else:
-            return render(request, "manage-parent.html", context)
+            return redirect("manage-parent.html", context)
     else:
         return render(request, "manage-parent.html", context)
 
 
 def manageLibarian(request):
+    account_type = UserProfile.objects.all().filter(user_type="Admin")
+    account=account_type.values('session')
     context = {"libarians":UserProfile.objects.all().filter(user_type="Liberian")}
     if request.method == 'POST':
         if request.POST.get('form_type')=="create":
             name = request.POST['name']
             username= request.POST['username']
             gender = request.POST['gender']
-            birthday = request.POST['birthday']
             phone_number = request.POST['phone_number']
             address = request.POST['address']
             image = request.POST['image']
@@ -337,25 +345,26 @@ def manageLibarian(request):
                     user = User.objects.create(username=username, password=password1, email=email )
                     user.set_password(user.password)
                     user.save()
-                    profile = UserProfile.objects.create(user=user, name=name, user_type='Accountant', gender=gender,birthday=birthday, phone_number=phone_number, address=address, image=image)
+                    profile = UserProfile.objects.create(user=user, name=name, user_type='Liberian', session=account, gender=gender, phone_number=phone_number, address=address, image=image)
                     profile.save()
-                    return render(request, 'manage-libarian.html', {"message": "Student Added"}, context)
+                    return redirect('manage-libarian.html', {"message": "Student Added"}, context)
             else:
                 return render(request, 'manage-libarian.html', {"message": "The passwords don't match"}, context)
         elif request.POST.get('form_type')=="edit":
+            user=request.user
             user.profile.name = request.POST['name']
             user.profile.username = request.POST['username']
             user.profile.gender = request.POST['gender']
             user.profile.address = request.POST['address']
+            user.profile.phone_number = request.POST['phone_number']
 
             user.profile.email = request.POST['email']
             email= user.profile.email
-            user.profile.password = request.POST['passoword']
-            profile.set_password(profile.password)
             if User.objects.filter(email=email).exists():
-                return render(request, "manage-libarian.html", {"message": "The user is already registered"}, context)
+                return redirect("manage-libarian.html", {"message": "The user is already registered"}, context)
             else:
-                user.profile.save()
+                user.profile.save
+                return redirect("manage-libarian.html", {"message": "Edited"}, context)
         else:
             return render(request, "manage-libarian.html", context)
     else:
@@ -369,7 +378,6 @@ def manageAdmin(request):
             name = request.POST['name']
             username= request.POST['username']
             gender = request.POST['gender']
-            birthday = request.POST['birthday']
             phone_number = request.POST['phone_number']
             address = request.POST['address']
             image = request.POST['image']
@@ -387,9 +395,9 @@ def manageAdmin(request):
                     user = User.objects.create(username=username, password=password1, email=email )
                     user.set_password(user.password)
                     user.save()
-                    profile = UserProfile.objects.create(user=user, name=name, user_type='Accountant', gender=gender,birthday=birthday, phone_number=phone_number, address=address, image=image)
+                    profile = UserProfile.objects.create(user=user, name=name, user_type='Admin', gender=gender, phone_number=phone_number, address=address, image=image)
                     profile.save()
-                    return render(request, 'manage-admin.html', {"message": "Student Added"}, context)
+                    return redirect('manage-admin.html', {"message": "Admin Added"}, context)
             else:
                 return render(request, 'manage-admin.html', {"message": "The passwords don't match"}, context)
         elif request.POST.get('form_type')=="edit":
@@ -397,17 +405,17 @@ def manageAdmin(request):
             user.profile.username = request.POST['username']
             user.profile.gender = request.POST['gender']
             user.profile.address = request.POST['address']
+            user.profile.phone_number = request.POST['phone_number']
 
             user.profile.email = request.POST['email']
             email= user.profile.email
-            user.profile.password = request.POST['passoword']
-            profile.set_password(profile.password)
             if User.objects.filter(email=email).exists():
                 return render(request, "manage-admin.html", {"message": "The user is already registered"}, context)
             else:
                 user.profile.save()
+                return redirect("manage-admin.html", {"message": "Edited"}, context)
         else:
-            return render(request, "manage-admin.html", context)
+            return redirect("manage-admin.html", context)
 
     else:
         return render(request, "manage-admin.html", context)
@@ -415,13 +423,14 @@ def manageAdmin(request):
 
 
 def manageAccountant(request):
+    account_type = UserProfile.objects.all().filter(user_type="Admin")
+    account=account_type.values('session')
     context = {"accountants":UserProfile.objects.all().filter(user_type="Accountant")}
     if request.method == 'POST':
         if request.POST.get('form_type')=="create":
             name = request.POST['name']
             username= request.POST['username']
             gender = request.POST['gender']
-            birthday = request.POST['birthday']
             phone_number = request.POST['phone_number']
             address = request.POST['address']
             image = request.POST['image']
@@ -439,7 +448,7 @@ def manageAccountant(request):
                     user = User.objects.create(username=username, password=password1, email=email )
                     user.set_password(user.password)
                     user.save()
-                    profile = UserProfile.objects.create(user=user, name=name, user_type='Accountant', gender=gender,birthday=birthday, phone_number=phone_number, address=address, image=image)
+                    profile = UserProfile.objects.create(user=user, name=name, user_type='Accountant', session=account, gender=gender, phone_number=phone_number, address=address, image=image)
                     profile.save()
                     return render(request, 'manage-accountant.html', {"message": "Student Added"}, context)
             else:
@@ -449,17 +458,17 @@ def manageAccountant(request):
             user.profile.username = request.POST['username']
             user.profile.gender = request.POST['gender']
             user.profile.address = request.POST['address']
+            user.profile.phone_number = request.POST['phone_number']
 
             user.profile.email = request.POST['email']
             email= user.profile.email
-            user.profile.password = request.POST['passoword']
-            profile.set_password(profile.password)
             if User.objects.filter(email=email).exists():
                 return render(request, "manage-accountant.html", {"message": "The user is already registered"}, context)
             else:
                 user.profile.save()
+                return redirect("manage-accountant.html", {"message": "Edited"}, context)
         else:
-            return render(request, "manage-accountant.html", context)
+            return redirect("manage-accountant.html", context)
 
     else:
         return render(request, "manage-accountant.html", context)

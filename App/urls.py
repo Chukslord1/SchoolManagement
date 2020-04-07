@@ -7,6 +7,7 @@ app_name = "APP"
 urlpatterns = [
     path("", views.login, name="login"),
     path("index.html", views.index, name="index"),
+    path("index1.html", views.index, name="index1"),
     path("auth-login.html", views.login, name="login"),
     path("pages-recoverpw-2.html", views.recover, name="recover"),
     path("auth-lock-screen.html", views.verify, name="verify"),
