@@ -5,7 +5,7 @@
  <head>
   <meta charset="utf-8"/>
   <title>
-   Manage Accountant - Command Seconday School Suleja
+   Manage Libarian - Command Seconday School Suleja
   </title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <meta content="School Management System Portal" name="description">
@@ -244,11 +244,11 @@
         <ol class="breadcrumb">
          <li class="breadcrumb-item">
           <a href="javascript:void(0);">
-           Accountant
+           Libarian
           </a>
          </li>
          <li class="breadcrumb-item active">
-          Manage Accountant
+          Manage Libarian
          </li>
         </ol>
        </div>
@@ -341,7 +341,7 @@
        </ul>
       </li>
       <li>
-       <a href="admission.html">
+       <a href="add-student.html">
         <i class="mdi mdi-monitor">
         </i>
         <span>
@@ -746,10 +746,10 @@
         <div class="card">
          <div class="card-body">
           <h4 class="mt-0 header-title">
-           Manage Accountant
+           Manage Accountants
           </h4>
           <p class="text-muted mb-4 font-13">
-           All Accountantistrators.
+           All Accountants.
           </p>
           <div class="animation-modal">
            <a class="btn btn-primary waves-effect" data-animation="fadein" data-overlaycolor="#38414a" data-plugin="custommodal" href="#custom-modal">
@@ -820,15 +820,15 @@
                  Password
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-password-input" type="password" name="passoword1" value=""/>
+                 <input class="form-control" id="example-password-input" type="password" name="password1" value=""/>
                 </div>
                </div>
                <div class="form-group row">
                 <label class="col-sm-2 col-form-label text-right" for="example-password-input">
-                Confirm Password
+                Confirm  Password
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-password-input" type="password" name="passoword2" value=""/>
+                 <input class="form-control" id="example-password-input" type="password" name="password2" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -854,7 +854,7 @@
                  Address
                 </label>
                 <div class="col-sm-9">
-                 <textarea class="form-control" name="address" rows="5"></textarea>
+                 <textarea class="form-control" rows="5" name="address"></textarea>
                 </div>
                </div>
                <div class="form-group row">
@@ -862,10 +862,9 @@
                  Accountant Profile Image
                 </label>
                 <div class="col-sm-4">
-                 <input class="dropify" data-default-file="assets/plugins/dropify/images/1.jpg"  name="image" id="input-file-now-custom-1" type="file">
+                 <input class="dropify" data-default-file="assets/plugins/dropify/images/1.jpg" id="input-file-now-custom-1" name="image" type="file">
                  </input>
-                </div>
-              </form>
+               </div>
                 <!--end col-->
                </div>
                <!--end row-->
@@ -880,10 +879,12 @@
              </div>
             </div>
            </div>
+         </form>
           </div>
           <!--end custom modal-->
           <!--Begin custom populated modal-->
           <div class="modal-demo" id="custom-modal-edit">
+
            <button class="close" onclick="Custombox.modal.close();" type="button">
             <span>
              ×
@@ -908,12 +909,20 @@
                   <input class="form-control" id="example-text-input" name="form_type" type="hidden" value="edit"/>
                  </div>
                 </div>
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label text-right" for="example-text-input">
+                 Name of User To Be Edited
+                </label>
+                <div class="col-sm-9">
+                 <input class="form-control" id="example-text-input" name="previous_name" type="text" value=""/>
+                </div>
+               </div>
                <div class="form-group row">
                 <label class="col-sm-2 col-form-label text-right" for="example-text-input">
                  Name
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-text-input" type="text" name="name" value=""/>
+                 <input class="form-control" id="example-text-input" name="name" type="text" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -921,7 +930,7 @@
                  Username
                 </label>
                 <div class="col-sm-9">
-                 <input class="form-control" id="example-text-input" type="text" name="username" value=""/>
+                 <input class="form-control" id="example-text-input" name="username" type="text" value=""/>
                 </div>
                </div>
                <div class="form-group row">
@@ -974,10 +983,11 @@
                 </div>
                </div>
               </div>
-            </form>
              </div>
             </div>
+            </form>
            </div>
+
           </div>
           <table class="table table-bordered dt-responsive nowrap" id="datatable" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
            <thead>
@@ -1005,10 +1015,9 @@
              </th>
             </tr>
            </thead>
-
            <tbody>
-          {% for accountant in accountants %}
             <tr>
+              {% for accountant in accountants %}
              <td>
               1
              </td>
@@ -1029,7 +1038,7 @@
              <td>
               <p class="d-inline-block align-middle mb-0">
                <a class="d-inline-block align-middle mb-0 product-name" href="">
-                {{accountant.username}}
+                {{ accountant.username }}
                </a>
                <br/>
                <span class="text-muted font-13">
@@ -1061,12 +1070,10 @@
               </div>
              </td>
             </tr>
-            <tr>
             {% endfor %}
-
            </tbody>
+          </table>
          </div>
-       </table>
         </div>
        </div>
        <!-- end col -->

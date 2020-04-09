@@ -5,7 +5,7 @@
  <head>
   <meta charset="utf-8"/>
   <title>
-   Manage Parent - Command Seconday School Suleja
+   Manage Libarian - Command Seconday School Suleja
   </title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <meta content="School Management System Portal" name="description">
@@ -244,11 +244,11 @@
         <ol class="breadcrumb">
          <li class="breadcrumb-item">
           <a href="javascript:void(0);">
-           Parent
+           Libarian
           </a>
          </li>
          <li class="breadcrumb-item active">
-          Manage Parent
+          Manage Libarian
          </li>
         </ol>
        </div>
@@ -341,7 +341,7 @@
        </ul>
       </li>
       <li>
-       <a href="admission.html">
+       <a href="add-student.html">
         <i class="mdi mdi-monitor">
         </i>
         <span>
@@ -746,10 +746,10 @@
         <div class="card">
          <div class="card-body">
           <h4 class="mt-0 header-title">
-           Manage Parent
+           Manage Parents
           </h4>
           <p class="text-muted mb-4 font-13">
-           All Parentistrators.
+           All Parents.
           </p>
           <div class="animation-modal">
            <a class="btn btn-primary waves-effect" data-animation="fadein" data-overlaycolor="#38414a" data-plugin="custommodal" href="#custom-modal">
@@ -780,7 +780,7 @@
                   Create
                  </label>
                  <div class="col-sm-9">
-                  <input class="form-control" id="example-text-input" type="hidden" name="form_type" value="create"/>
+                  <input class="form-control" id="example-text-input" name="form_type" type="hidden" value="create"/>
                  </div>
                 </div>
                <div class="form-group row">
@@ -901,15 +901,23 @@
             <div class="col-lg-12">
              <div class="card">
               <div class="card-body">
-               <div class="form-group row">
-                 <div class="form-group row">
-                  <label class="col-sm-2 col-form-label text-right" for="example-text-input">
-                   Edit
-                  </label>
-                  <div class="col-sm-9">
-                   <input class="form-control" id="example-text-input" type="hidden" name="form_type" value="edit"/>
-                  </div>
+                <div class="form-group row">
+                 <label class="col-sm-2 col-form-label text-right" for="example-text-input">
+                  Edit
+                 </label>
+                 <div class="col-sm-9">
+                  <input class="form-control" id="example-text-input" name="form_type" type="hidden" value="edit"/>
                  </div>
+                </div>
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label text-right" for="example-text-input">
+                 Name of User To Be Edited
+                </label>
+                <div class="col-sm-9">
+                 <input class="form-control" id="example-text-input" name="previous_name" type="text" value=""/>
+                </div>
+               </div>
+               <div class="form-group row">
                 <label class="col-sm-2 col-form-label text-right" for="example-text-input">
                  Name
                 </label>

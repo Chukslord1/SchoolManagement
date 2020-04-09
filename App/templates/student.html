@@ -343,7 +343,7 @@
        </ul>
       </li>
       <li>
-       <a href="admission.html">
+       <a href="add-student.html">
         <i class="mdi mdi-monitor">
         </i>
         <span>
@@ -827,117 +827,13 @@
            <!--end row-->
           </div>
           <div class="animation-modal">
-           <a class="btn btn-primary waves-effect" data-animation="fadein" data-overlaycolor="#38414a" data-plugin="custommodal" href="#custom-modal">
+           <a class="btn btn-primary waves-effect" data-animation="fadein" data-overlaycolor="#38414a" data-plugin="custommodal" href="manage-admin.html">
             Create Admin
            </a>
           </div>
           <!--end animation modal-->
           <!-- Custom Modal -->
-          <div class="modal-demo" id="custom-modal">
-           <button class="close" onclick="Custombox.modal.close();" type="button">
-            <span>
-             ×
-            </span>
-            <span class="sr-only">
-             Close
-            </span>
-           </button>
-           <h4 class="custom-modal-title">
-            Create Admin
-           </h4>
-           <div class="row">
-            <div class="col-lg-12">
-             <div class="card">
-              <div class="card-body">
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right" for="example-text-input">
-                 Name
-                </label>
-                <div class="col-sm-9">
-                 <input class="form-control" id="example-text-input" type="text" value=""/>
-                </div>
-               </div>
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right" for="example-text-input">
-                 Username
-                </label>
-                <div class="col-sm-9">
-                 <input class="form-control" id="example-text-input" type="text" value=""/>
-                </div>
-               </div>
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right" for="example-email-input">
-                 Email
-                </label>
-                <div class="col-sm-9">
-                 <input class="form-control" id="example-email-input" type="email" value=""/>
-                </div>
-               </div>
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right" for="example-tel-input">
-                 Phone Number
-                </label>
-                <div class="col-sm-9">
-                 <input class="form-control" id="example-tel-input" type="tel" value=""/>
-                </div>
-               </div>
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right" for="example-password-input">
-                 Password
-                </label>
-                <div class="col-sm-9">
-                 <input class="form-control" id="example-password-input" type="password" value=""/>
-                </div>
-               </div>
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right">
-                 Gender
-                </label>
-                <div class="col-sm-9">
-                 <select class="form-control">
-                  <option>
-                   Select
-                  </option>
-                  <option>
-                   Male
-                  </option>
-                  <option>
-                   Female
-                  </option>
-                 </select>
-                </div>
-               </div>
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right">
-                 Address
-                </label>
-                <div class="col-sm-9">
-                 <textarea class="form-control" rows="5"></textarea>
-                </div>
-               </div>
-               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-right">
-                 Admin Profile Image
-                </label>
-                <div class="col-sm-4">
-                 <input class="dropify" data-default-file="assets/plugins/dropify/images/1.jpg" id="input-file-now-custom-1" type="file">
-                 </input>
-                </div>
-                <!--end col-->
-               </div>
-               <!--end row-->
-               <div class="row">
-                <div class="col-sm-9 text-right">
-                 <button class="btn btn-primary px-5 py-2" type="submit">
-                  Submit
-                 </button>
-                </div>
-               </div>
-              </div>
-             </div>
-            </div>
-           </div>
-          </div>
+
           <!--end custom modal-->
           <!--Begin custom populated modal-->
           <div class="modal-demo" id="custom-modal-edit">
@@ -956,6 +852,14 @@
             <div class="col-lg-12">
              <div class="card">
               <div class="card-body">
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label text-right" for="example-text-input">
+                 Name of User To Be Edited
+                </label>
+                <div class="col-sm-9">
+                 <input class="form-control" id="example-text-input" name="previous_name" type="text" value=""/>
+                </div>
+               </div>
                <div class="form-group row">
                 <label class="col-sm-2 col-form-label text-right" for="example-text-input">
                  Name
@@ -1027,183 +931,90 @@
            </div>
           </div>
           <div class="card-body">
-           <table class="table table-bordered dt-responsive nowrap" id="datatable" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-            <thead>
-             <tr>
-              <th>
-               Name
-              </th>
-              <th>
-               Class
-              </th>
-              <th>
-               Address
-              </th>
-              <th>
-               Pin
-              </th>
-              <th>
-               Gender
-              </th>
-              <th>
-               Exam Results
-              </th>
-              <th>
-               Action
-              </th>
-             </tr>
-            </thead>
-            <tbody>
-             <tr>
-              <td>
-               <img alt="" height="52" src="{% static 'assets/images/products/img-2.png' %}"/>
-               <p class="d-inline-block align-middle mb-0">
-                <a class="d-inline-block align-middle mb-0 product-name" href="profile.html">
-                 Onome Onoja
-                </a>
-                <br/>
-                <span class="text-muted font-13">
-                 CSS/JS/2020
-                </span>
-               </p>
-              </td>
-              <td>
-               JSS1
-              </td>
-              <td>
-               22 Abidjan Close, Maitama, Abuja
-              </td>
-              <td>
-               47829437294
-              </td>
-              <td>
-               <span class="badge badge-soft-warning">
-                Female
-               </span>
-              </td>
-              <td>
-               <ul class="list-inline mb-0">
-                <a href="student-reslt.html">
-                 <button class="btn" data-placement="top" data-toggle="tooltip" title="First Term" type="button">
-                  <li class="list-inline-item align-middle">
-                   <i class="fas fa-circle text-warning">
-                   </i>
-                  </li>
-                 </button>
-                </a>
-                <a href="student-reslt.html">
-                 <button class="btn" data-placement="top" data-toggle="tooltip" title="Second Term" type="button">
-                  <li class="list-inline-item align-middle">
-                   <i class="fas fa-circle text-success">
-                   </i>
-                  </li>
-                 </button>
-                </a>
-                <a href="student-reslt.html">
-                 <button class="btn" data-placement="top" data-toggle="tooltip" title="Third Term" type="button">
-                  <li class="list-inline-item align-middle">
-                   <i class="fas fa-circle text-dark">
-                   </i>
-                  </li>
-                 </button>
-                </a>
-               </ul>
-              </td>
-              <td>
-               <div class="btn-group">
-                <button class="btn btn-outline-secondary btn-sm" type="button">
-                 <i class="far fa-edit">
-                 </i>
-                </button>
-                <button class="btn btn-outline-secondary btn-sm" type="button">
-                 <i class="far fa-trash-alt">
-                 </i>
-                </button>
-               </div>
-              </td>
-             </tr>
-             <tr>
-              <td>
-               <img alt="" height="52" src="{% static 'assets/images/products/img-2.png' %}"/>
-               <p class="d-inline-block align-middle mb-0">
-                <a class="d-inline-block align-middle mb-0 product-name" href="profile.html">
-                 Abdul Azeez
-                </a>
-                <br/>
-                <span class="text-muted font-13">
-                 CSS/JS/2222
-                </span>
-               </p>
-              </td>
-              <td>
-               JSS1
-              </td>
-              <td>
-               22 Abidjan Close, Maitama, Lagos
-              </td>
-              <td>
-               2829437294
-              </td>
-              <td>
-               <span class="badge badge-soft-pink">
-                Male
-               </span>
-              </td>
-              <td>
-               <ul class="list-inline mb-0">
-                <a href="student-reslt.html">
-                 <button class="btn" data-placement="top" data-toggle="tooltip" title="First Term" type="button">
-                  <li class="list-inline-item align-middle">
-                   <i class="fas fa-circle text-warning">
-                   </i>
-                  </li>
-                 </button>
-                </a>
-                <a href="student-reslt.html">
-                 <button class="btn" data-placement="top" data-toggle="tooltip" title="Second Term" type="button">
-                  <li class="list-inline-item align-middle">
-                   <i class="fas fa-circle text-success">
-                   </i>
-                  </li>
-                 </button>
-                </a>
-                <a href="student-reslt.html">
-                 <button class="btn" data-placement="top" data-toggle="tooltip" title="Third Term" type="button">
-                  <li class="list-inline-item align-middle">
-                   <i class="fas fa-circle text-dark">
-                   </i>
-                  </li>
-                 </button>
-                </a>
-               </ul>
-              </td>
-              <td>
-               <div class="btn-group">
-                <a href="profile.html">
-                 <button class="btn btn-outline-secondary btn-sm" data-placement="top" data-toggle="tooltip" title="Student Profile" type="button">
-                  <i class="fas fa-user-graduate">
+            <table class="table table-bordered dt-responsive nowrap" id="datatable" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+             <thead>
+              <tr>
+               <th>
+                #
+               </th>
+               <th>
+                Photo
+               </th>
+               <th>
+                Name
+               </th>
+               <th>
+                Username/Email
+               </th>
+               <th>
+                Phone
+               </th>
+               <th>
+                Address
+               </th>
+               <th>
+                Action
+               </th>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+                {% for student in students %}
+               <td>
+                1
+               </td>
+               <td>
+                <img alt="" height="52" src="{% static 'assets/images/products/img-2.png' %}"/>
+               </td>
+               <td>
+                <p class="d-inline-block align-middle mb-0">
+                 <a class="d-inline-block align-middle mb-0 product-name" href="">
+                  {{student.name}}
+                 </a>
+                 <br/>
+                 <span class="text-muted font-13">
+
+                 </span>
+                </p>
+               </td>
+               <td>
+                <p class="d-inline-block align-middle mb-0">
+                 <a class="d-inline-block align-middle mb-0 product-name" href="">
+                  {{ student.username }}
+                 </a>
+                 <br/>
+                 <span class="text-muted font-13">
+                  {{student.email}}
+                 </span>
+                </p>
+               </td>
+               <td>
+                {{student.phone_number}}
+               </td>
+               <td>
+                {{student.address}}
+               </td>
+               <td>
+                <div class="btn-group">
+                 <div class="animation-modal">
+                  <a data-plugin="custommodal" href="#custom-modal-edit">
+                   <button class="btn btn-outline-secondary btn-sm" type="button">
+                    <i class="far fa-edit">
+                    </i>
+                   </button>
+                  </a>
+                 </div>
+                 <!--end animation modal-->
+                 <button class="btn btn-outline-secondary btn-sm" type="button">
+                  <i class="far fa-trash-alt">
                   </i>
                  </button>
-                </a>
-                <div class="animation-modal">
-                 <a data-plugin="custommodal" href="#custom-modal">
-                  <button class="btn btn-outline-secondary btn-sm" data-placement="top" data-toggle="tooltip" title="Generate ID Card" type="button">
-                   <i class="far fa-id-card">
-                   </i>
-                  </button>
-                 </a>
                 </div>
-                <a href="editstudent.html">
-                </a>
-                <button class="btn btn-outline-secondary btn-sm" data-placement="top" data-toggle="tooltip" title="Edit" type="button">
-                 <i class="far fa-edit">
-                 </i>
-                </button>
-               </div>
-              </td>
-             </tr>
-            </tbody>
-           </table>
+               </td>
+              </tr>
+              {% endfor %}
+             </tbody>
+            <student
           </div>
          </div>
         </div>

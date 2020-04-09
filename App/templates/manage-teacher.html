@@ -5,7 +5,7 @@
  <head>
   <meta charset="utf-8"/>
   <title>
-   Teachers - Command Seconday School Suleja
+   Manage Libarian - Command Seconday School Suleja
   </title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <meta content="School Management System Portal" name="description">
@@ -14,22 +14,11 @@
    <link href="{% static 'assets/images/favicon.ico' %}" rel="shortcut icon"/>
    <link href="{% static 'assets/plugins/custombox/custombox.min.css' %}" rel="stylesheet" type="text/css"/>
    <link href="{% static 'assets/plugins/dropify/css/dropify.min.css' %}" rel="stylesheet"/>
-   <link href="{% static 'assets/plugins/select2/select2.min.css' %}" rel="stylesheet" type="text/css"/>
-   <!-- Clock css -->
-   <link href="assets/plugins/daterangepicker/daterangepicker.css" rel="stylesheet"/>
-   <!-- Plugins css -->
-   <link href="{% static 'assets/plugins/timepicker/tempusdominus-bootstrap-4.css' %}" rel="stylesheet"/>
-   <link href="{% static 'assets/plugins/timepicker/bootstrap-material-datetimepicker.css' %}" rel="stylesheet">
-    <link href="{% static 'assets/plugins/clockpicker/jquery-clockpicker.min.css' %}" rel="stylesheet"/>
-    <link href="{% static 'assets/plugins/colorpicker/asColorPicker.min.css" rel="stylesheet" type="text/css">
-     <!-- App css -->
-     <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
-      <link href="{% static 'assets/css/icons.css' %}" rel="stylesheet" type="text/css">
-       <link href="{% static 'assets/css/metismenu.min.css' %}" rel="stylesheet" type="text/css"/>
-       <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" type="text/css"/>
-      </link>
-     </link>
-    </link>
+   <!-- App css -->
+   <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"/>
+   <link href="{% static 'assets/css/icons.css' %}" rel="stylesheet" type="text/css"/>
+   <link href="{% static 'assets/css/metismenu.min.css' %}" rel="stylesheet" type="text/css"/>
+   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" type="text/css">
    </link>
   </meta>
  </head>
@@ -255,11 +244,11 @@
         <ol class="breadcrumb">
          <li class="breadcrumb-item">
           <a href="javascript:void(0);">
-           Teachers
+           Libarian
           </a>
          </li>
          <li class="breadcrumb-item active">
-          Manage Teachers
+          Manage Libarian
          </li>
         </ol>
        </div>
@@ -352,7 +341,7 @@
        </ul>
       </li>
       <li>
-       <a href="admission.html">
+       <a href="add-student.html">
         <i class="mdi mdi-monitor">
         </i>
         <span>
@@ -757,14 +746,14 @@
         <div class="card">
          <div class="card-body">
           <h4 class="mt-0 header-title">
-           Manage Teacher
+           Manage Teachers
           </h4>
           <p class="text-muted mb-4 font-13">
-           All Teacher.
+           All Teachers.
           </p>
           <div class="animation-modal">
            <a class="btn btn-primary waves-effect" data-animation="fadein" data-overlaycolor="#38414a" data-plugin="custommodal" href="#custom-modal">
-            Create Teacher
+            CreateTeachers
            </a>
           </div>
           <!--end animation modal-->
@@ -791,7 +780,7 @@
                   Create
                  </label>
                  <div class="col-sm-9">
-                  <input class="form-control" id="example-text-input" type="hidden" name="form_type" value="create"/>
+                  <input class="form-control" id="example-text-input" name="form_type" type="hidden" value="create"/>
                  </div>
                 </div>
                <div class="form-group row">
@@ -870,7 +859,7 @@
                </div>
                <div class="form-group row">
                 <label class="col-sm-2 col-form-label text-right">
-                 Teacher Profile Image
+                 Parent Profile Image
                 </label>
                 <div class="col-sm-4">
                  <input class="dropify" data-default-file="assets/plugins/dropify/images/1.jpg" id="input-file-now-custom-1" name="image" type="file">
@@ -917,9 +906,17 @@
                   Edit
                  </label>
                  <div class="col-sm-9">
-                  <input class="form-control" id="example-text-input" type="hidden" name="form_type" value="edit"/>
+                  <input class="form-control" id="example-text-input" name="form_type" type="hidden" value="edit"/>
                  </div>
                 </div>
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label text-right" for="example-text-input">
+                 Name of User To Be Edited
+                </label>
+                <div class="col-sm-9">
+                 <input class="form-control" id="example-text-input" name="previous_name" type="text" value=""/>
+                </div>
+               </div>
                <div class="form-group row">
                 <label class="col-sm-2 col-form-label text-right" for="example-text-input">
                  Name
@@ -1114,23 +1111,7 @@
   </script>
   <script src="{% static 'assets/pages/jquery.form-upload.init.js' %}">
   </script>
-  <script src="{% static 'assets/plugins/daterangepicker/daterangepicker.js' %}">
-  </script>
-  <script src="{% static 'assets/plugins/timepicker/tempusdominus-bootstrap-4.js' %}">
-  </script>
-  <script src="{% static 'assets/plugins/timepicker/bootstrap-material-datetimepicker.js' %}">
-  </script>
-  <script src="{% static 'assets/plugins/clockpicker/jquery-clockpicker.min.js' %}">
-  </script>
-  <script src="{% static 'assets/plugins/colorpicker/jquery-asColor.js' %}">
-  </script>
-  <script src="{% static 'assets/plugins/colorpicker/jquery-asGradient.js' %}">
-  </script>
-  <script src="{% static 'assets/plugins/colorpicker/jquery-asColorPicker.min.js' %}">
-  </script>
   <!-- Required datatable js -->
-  <script src="{% static 'assets/plugins/moment/moment.js' %}">
-  </script>
   <script src="{% static 'assets/plugins/datatables/jquery.dataTables.min.js' %}">
   </script>
   <script src="{% static 'assets/plugins/datatables/dataTables.bootstrap4.min.js' %}">
@@ -1139,20 +1120,6 @@
   <script src="{% static 'assets/plugins/custombox/custombox.min.js' %}">
   </script>
   <script src="{% static 'assets/plugins/custombox/custombox.legacy.min.js' %}">
-  </script>
-  <script src="{% static 'assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js' %}">
-  </script>
-  <script src="{% static 'assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js' %}">
-  </script>
-  <script src="{% static 'assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js' %}">
-  </script>
-  <script src="{% static 'assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js' %}">
-  </script>
-  <script src="{% static 'assets/pages/jquery.clock-img.init.js' %}">
-  </script>
-  <script src="{% static 'assets/plugins/select2/select2.min.js' %}">
-  </script>
-  <script src="{% static 'assets/pages/jquery.forms-advanced.js' %}">
   </script>
   <script src="{% static 'assets/pages/jquery.modal-animation.js' %}">
   </script>

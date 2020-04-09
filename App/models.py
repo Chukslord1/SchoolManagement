@@ -36,8 +36,6 @@ class BulkStudent(models.Model):
     name = models.TextField()
     #for student adding just make the usertpe to be equal to student in reg without any if or for stetment
     parent = models.CharField(max_length=100)
-    class_room = models.CharField(max_length=100)
-    session = models.CharField(max_length=100)
     gender = models.CharField(max_length=100)
     email= models.EmailField()
     password = models.TextField()
