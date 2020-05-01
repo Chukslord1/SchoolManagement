@@ -17,6 +17,7 @@ class UserProfile(models.Model):
     phone_number = models.CharField(max_length=11)
     address = models.TextField()
     image = models.ImageField()
+    qr_image = models.ImageField(**NULL_AND_BLANK)
 
     USER_TYPE_CHOICES = (
         ('Parent', 'Parent'),
@@ -47,3 +48,5 @@ class UnusedPins(models.Model):
 class UsedPins(models.Model):
     pin = models.CharField(max_length=12)
 #use auth to check if the pin is in the unusedpin and in the used pinwhen your posting what the users are going to use
+class AttendClass(models.Model):
+    image=models.ImageField()

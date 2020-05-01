@@ -1,6 +1,8 @@
+import os
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include
+from django.conf.urls.static import static
 from . import views
 
 app_name = "APP"
@@ -33,6 +35,8 @@ urlpatterns = [
     path("chat.html", views.Chat, name="chat"),
     path("calendar.html", views.Calendar, name="calendar"),
     path("admission.html", views.Admission, name="admission"),
+    path("test_attend.html", views.test_attend, name="test_attend"),
+    path("qr_code.html", views.decode_qr, name="qr_code"),
 
 
 
@@ -40,4 +44,4 @@ urlpatterns = [
 
 
 
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

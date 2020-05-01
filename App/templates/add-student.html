@@ -767,7 +767,7 @@
            </li>
           </ul>
           <!-- Tab panes -->
-          <form method="POST" >
+          <form action="{% url 'APP:addStudent' %}" enctype="multipart/form-data" method="POST" >
           {% csrf_token %}
           <div class="tab-content">
            <div class="tab-pane active p-3" id="singlestudent"  role="tabpanel">
@@ -954,7 +954,7 @@
                   Student Profile Image
                  </label>
                  <div class="col-sm-4">
-                  <input class="dropify" data-default-file="{% static 'assets/plugins/dropify/images/1.jpg' %}" name="image" id="input-file-now-custom-1" type="file">
+                  <input name="image" type="file" accept="image/*" capture>
                   </input>
                  </div>
                  <!--end col-->
@@ -981,9 +981,6 @@
 
              <div class="row">
                  <div class="card-body">
-
-
-
                      <form method="POST" class="form-horizontal well" role="form">
                        {% csrf_token %}
                          <div class="row">
@@ -991,107 +988,76 @@
                                <label class="control-label">Bulk Student</label>
                                <input type="hidden" name="form_type" value="bulkstudent" class="form-control">
                            </div>
-                             <div class="col-sm-4">
-                                 <div class="dropdown mb-2 mb-md-0">
-                                     <button class="btn btn-secondary dropdown-toggle scrollable-menu" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                         Select Class
-                                         <i class="mdi mdi-chevron-down"></i>
-                                     </button>
-                                     <div class="dropdown-menu" aria-labelledby="Select Class">
-                                         <a class="dropdown-item" href="#">JSS1</a>
-                                         <a class="dropdown-item" href="#">JSS2</a>
-                                         <a class="dropdown-item" href="#">JSS3</a>
-                                         <a class="dropdown-item" href="#">SS1</a>
-                                         <a class="dropdown-item" href="#">SS2</a>
-                                         <a class="dropdown-item" href="#">SS3</a>
+                           <div class="col-sm-2">
+                               <label class="control-label">Name</label>
+                               <input type="text" name="name" value="Ochuko Onoja" class="form-control">
+                           </div><!--end col-->
+                           <div class="col-sm-2">
+                               <label class="control-label">Email</label>
+                               <input type="text" name="email" value="" class="form-control">
+                           </div><!--end col-->
+                           <div class="col-sm-2">
+                               <label class="control-label">Password</label>
+                               <input type="text" name="password1" value="*********" class="form-control">
+                           </div><!--end col-->
+                           <div class="col-sm-2">
+                               <label class="control-label">Confirm Password</label>
+                               <input type="text" name="password2" value="*********" class="form-control">
+                           </div>
+                           <div class="col-sm-2">
+                               <label class="control-label">Gender</label>
+                               <select name="gender" class="form-control">
+                                   <option value="male" selected="">Male</option>
+                                   <option value="female" selected="">Female</option>
+                               </select>
+                           </div><!--end col-->
+                           <div class="col-sm-2">
+                               <label class="control-label">Select Parent</label>
+                               <select class="form-control" name="parent">
+                                 <option>
+                                  Select A Parent
+                                 </option>
+                                 {% for parent in parents %}
+                                <option>
+                                 {{ parent.name }}
+                                </option>
+                                {% endfor %}
+                               </select>
+                           </div><!--end col-->
 
-                                     </div>
-                                 </div>
-                             </div><!--emd col-->
-
-                             <div class="col-sm-4">
-                                 <div class="dropdown mb-2 mb-md-0">
-                                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                         Select Session
-                                         <i class="mdi mdi-chevron-down"></i>
-                                     </a>
-
-                                     <div class="dropdown-menu" aria-labelledby="selectsession">
-                                         <a class="dropdown-item" href="#">A</a>
-                                         <a class="dropdown-item" href="#">B</a>
+                           <div class="repeater-custom-show-hide">
+                               <div data-repeater-list="car">
+                                   <div data-repeater-item="">
+                                       <div class="form-group row  d-flex align-items-end">
 
 
-                                     </div>
 
-                                 </div>
+                                           <div class="col-sm-1">
+                                               <span data-repeater-delete="" class="btn btn-danger btn-sm">
+                                                   <span class="far fa-trash-alt mr-1"></span> Delete
+                                               </span>
+                                           </div><!--end col-->
+                                       </div><!--end row-->
+                                   </div><!--end /div-->
 
-                             </div><!--end col-->
+
+                               </div><!--end repet-list-->
+
+                               <div class="form-group row mb-0">
+                                   <div class="col-sm-12">
+                                       <span data-repeater-create="" class="btn btn-light btn-md">
+                                           <span class="fa fa-plus"></span> Add
+                                       </span>
+                                       <input type="submit" value="Submit" class="btn btn-success">
+                                   </div><!--end col-->
+                               </div><!--end row-->
+                           </div>
+
+
 
                          </div><!--end row-->
 
-                             <div class="repeater-custom-show-hide">
-                                 <div data-repeater-list="car">
-                                     <div data-repeater-item="">
-                                         <div class="form-group row  d-flex align-items-end">
-                                             <div class="col-sm-2">
-                                                 <label class="control-label">Name</label>
-                                                 <input type="text" name="name" value="Ochuko Onoja" class="form-control">
-                                             </div><!--end col-->
-                                             <div class="col-sm-2">
-                                                 <label class="control-label">Email</label>
-                                                 <input type="text" name="email" value="" class="form-control">
-                                             </div><!--end col-->
-                                             <div class="col-sm-2">
-                                                 <label class="control-label">Password</label>
-                                                 <input type="text" name="password1" value="*********" class="form-control">
-                                             </div><!--end col-->
-                                             <div class="col-sm-2">
-                                                 <label class="control-label">Confirm Password</label>
-                                                 <input type="text" name="password2" value="*********" class="form-control">
-                                             </div>
-                                             <div class="col-sm-2">
-                                                 <label class="control-label">Gender</label>
-                                                 <select name="gender" class="form-control">
-                                                     <option value="male" selected="">Male</option>
-                                                     <option value="female" selected="">Female</option>
-                                                 </select>
-                                             </div><!--end col-->
-                                             <div class="col-sm-2">
-                                                 <label class="control-label">Select Parent</label>
-                                                 <select class="form-control" name="parent">
-                                                   <option>
-                                                    Select A Parent
-                                                   </option>
-                                                   {% for parent in parents %}
-                                                  <option>
-                                                   {{ parent.name }}
-                                                  </option>
-                                                  {% endfor %}
-                                                 </select>
-                                             </div><!--end col-->
-
-
-
-                                             <div class="col-sm-1">
-                                                 <span data-repeater-delete="" class="btn btn-danger btn-sm">
-                                                     <span class="far fa-trash-alt mr-1"></span> Delete
-                                                 </span>
-                                             </div><!--end col-->
-                                         </div><!--end row-->
-                                     </div><!--end /div-->
-
-
-                                 </div><!--end repet-list-->
-
-                                 <div class="form-group row mb-0">
-                                     <div class="col-sm-12">
-                                         <span data-repeater-create="" class="btn btn-light btn-md">
-                                             <span class="fa fa-plus"></span> Add
-                                         </span>
-                                         <input type="submit" value="Submit" class="btn btn-success">
-                                     </div><!--end col-->
-                                 </div><!--end row-->
-                             </div> <!--end repeter-->
+                           <!--end repeter-->
                         <!--end fieldset-->
                      </form><!--end form-->
                  </div><!--end card-body-->
