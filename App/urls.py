@@ -37,6 +37,8 @@ urlpatterns = [
     path("admission.html", views.Admission, name="admission"),
     path("test_attend.html", views.test_attend, name="test_attend"),
     path("qr_code.html", views.decode_qr, name="qr_code"),
+    path("streamer.html", views.streamer, name="streamer"),
+    path("client.html", views.client, name="client"),
 
 
 

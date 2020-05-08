@@ -616,3 +616,9 @@ def decode_qr(request):
         else:
             return redirect("qr_code.html", {"message": "Not a registered student"})
     return render(request, "qr_code.html")
+
+def streamer(request):
+    return render(request, "streamer.html")
+
+def client(request):
+    return render(request, "client.html")
