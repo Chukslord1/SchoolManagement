@@ -637,7 +637,7 @@ def decode_qr(request):
         valid = UserProfile.objects.all().filter(name=data, user_type="Student")
         print(data)
         if valid:
-            client = nexmo.Client(key='29a737ea', secret='Wx79xLo4Z3D3kBSI')
+            client = nexmo.Client(key='key', secret='secret_key')
             text='Your child '  + data + " arrived school at " + str(datetime.datetime.now())
             client.send_message({
                 'from': 'Vonage APIs',
