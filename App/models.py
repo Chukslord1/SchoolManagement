@@ -50,3 +50,5 @@ class UsedPins(models.Model):
 #use auth to check if the pin is in the unusedpin and in the used pinwhen your posting what the users are going to use
 class AttendClass(models.Model):
     image=models.ImageField()
+class qr_test(models.Model):
+    image=models.ImageField()

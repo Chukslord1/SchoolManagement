@@ -353,6 +353,27 @@
        </a>
       </li>
       <li>
+    <li>
+       <a href="test_attend.html">
+        <i class="mdi mdi-monitor">
+        </i>
+        <span>
+         Face Recognition
+        </span>
+
+       </a>
+      </li>
+      <li>
+       <a href="qr_code.html">
+        <i class="mdi mdi-monitor">
+        </i>
+        <span>
+         QR Code Test
+        </span>
+       </a>
+      </li>
+   
+      <li>
        <a href="javascript: void(0);">
         <i class="mdi mdi-bank">
         </i>
@@ -965,15 +986,16 @@
                   <button class="btn btn-primary px-5 py-2" type="submit">
                    Submit
                   </button>
+           {% if message %}
+          <span style="color:red">**{{ message }}**</span> </br>
+          {% endif %}
                  </div>
                 </div>
                </div>
               </div>
              </div>
             </div>
-            {% if message %}
-          <span style="color:red">**{{ message }}**</span> </br>
-          {% endif %}
+
            </div>
          </form>
 

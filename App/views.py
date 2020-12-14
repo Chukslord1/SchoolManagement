@@ -1,8 +1,9 @@
 import os
+import shutil
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, View
 from django.contrib.auth.models import User, auth
-from .models import UserProfile, UnusedPins, UsedPins, BulkStudent, AttendClass
+from .models import UserProfile, UnusedPins, UsedPins, BulkStudent, AttendClass, qr_test
 from django.contrib.auth.decorators import login_required
 import random
 import string
@@ -18,7 +19,12 @@ import uuid
 from SchoolManagement.settings import salt
 import qrcode
 from PIL import Image
-from pyzbar.pyzbar import decode
+import json
+import nexmo
+import datetime
+
+
+
 
 def generate_fernet_key(master_key, salt):
     kdf = PBKDF2HMAC(
@@ -31,13 +37,16 @@ def generate_fernet_key(master_key, salt):
     key = base64.urlsafe_b64encode(kdf.derive(master_key.encode()))
     return key.decode("utf-8")
 
+
 def encrypt_text(text, key):
     encryptor = Fernet(key)
     hash = encryptor.encrypt(text.encode())
     return hash.decode()
 
-key="adebowaleadeolu"
-key= generate_fernet_key(key,salt)
+
+key = "adebowaleadeolu"
+key = generate_fernet_key(key, salt)
+
 
 @login_required
 def index(request):
@@ -92,7 +101,7 @@ def recover(request):
 
 def verify(request):
     if request.method == 'POST':
-        secret_key = (request.POST['secret_pin'])
+        secret_key = request.POST.get("secret_pin")
         user = request.user
         if UnusedPins.objects.filter(pin=secret_key):
             if not UsedPins.objects.filter(pin=secret_key):
@@ -123,7 +132,8 @@ def logout(request):
 
 def randomStringDigits(stringLength=6):
     """Generate a random string of letters and digits """
-    lettersAndDigits = string.ascii_letters + string.digits
+      #string.ascii_letters + string.digits
+    lettersAndDigits = string.digits
     return ''.join(random.choice(lettersAndDigits) for i in range(stringLength))
 
 
@@ -163,8 +173,8 @@ def addStudent(request):
             email = request.POST['email']
             password1 = request.POST['password1']
             password2 = request.POST['password2']
-            text= name
-            detail=encrypt_text(text, key)
+            text = name
+            detail = name
 
             UserProfile_id = username
 
@@ -176,21 +186,23 @@ def addStudent(request):
                         username=username, password=password1, email=email)
                     user.set_password(user.password)
                     user.save()
-                    m =qrcode.make(detail)
-                    qrfilename="media\\" +name + "_qr.jpg"
+                    m = qrcode.make(detail)
+                    qrfilename = name + "_qr.jpg"
                     m.save(qrfilename)
-                    good='C:\\Users\\USER\\Desktop\\SchoolManagement\\' + qrfilename
+                    good = qrfilename
+                    new_image = 'https://school.advancescholar.com/media/' + str(image)
+                    shutil.move("/home/advalglr/school.advancescholar.com/" + qrfilename,
+                                "/home/advalglr/school.advancescholar.com/media/" + qrfilename)
                     profile = UserProfile.objects.create(user=user, name=name, user_type='Student', parent=parent, class_room=class_room, section=section,
                                                          gender=gender, school_type=school_type, birthday=birthday, phone_number=phone_number, address=address, image=image, qr_image=good)
                     profile.save()
-                    new_image='http://advancescholar.com/media/' + str(image)
-                    print(new_image)
+                    new_image = 'https://advancescholar.com/media/' + str(image)
                     r = requests.get("http://ec2-3-21-174-239.us-east-2.compute.amazonaws.com/save_user", params={
                         "name": name,
                         "image": new_image
                     }).json()
                     if r["success"]:
-                        print("Saved Picture")
+                        return render(request,"add-student.html", {"message": "saved"})
                     return redirect('add-student.html', {"message": "Student Added"}, context)
             else:
                 return render(request, 'add-student.html', {"message": "The passwords don't match"}, context)
@@ -586,16 +598,18 @@ def test_attend(request):
     context = {"pics": AttendClass.objects.all()}
     if request.method == "POST":
         # This is your base64 string image
-        image = request.FILES.get('snapshot')
+        image = request.FILES['snapshot']
         attend = AttendClass.objects.create(image=image)
         attend.save()
-        r = requests.get("http://ec2-3-21-174-239.us-east-2.compute.amazonaws.com/match_user", params={
-            "image": image
+        new_image = 'https://advancescholar.com/media/' + str(image)
+        r = requests.get("http://ec2-3-21-174-239.us-east-2.compute.amazonaws.com/match_user/", params={
+            "image":new_image
         }).json()
         if r["success"]:
             name = r["name"]
-        return redirect("test_attend.html",{"message": "The user is already registered"+ name})
-    return render(request, "test_attend.html", context)
+            return render(request,"test_attend.html", {"message": "The user is already registered " + name})
+        return render(request,"test_attend.html", {"message": "The user is not registered"})
+    return render(request, "test_attend.html")
 
 
 def decrypt_text(hash, key):
@@ -603,18 +617,36 @@ def decrypt_text(hash, key):
     text = decryptor.decrypt(hash.encode())
     return text.decode("utf-8")
 
+
 def decode_qr(request):
-    if request.method=="POST":
-        image=request.FILES['snapshot']
-        data = decode(Image.open(image))
-        first_result = data[0].data.decode("utf-8")
-        print(first_result)
-        second_result=decrypt_text(first_result,key)
-        valid = UserProfile.objects.all().filter(name=second_result, user_type="Student").values_list('name')[0][0]
-        if second_result==valid:
-            return render(request,"qr_code.html", {"message": second_result + "is a registered student"})
+    if request.method == "POST":
+        image = request.FILES['snapshot']
+        m = qr_test.objects.create(image=image)
+        m.save()
+        link = "https://school.advancescholar.com/media/" + str(image).replace(" ","")
+        r = requests.get(
+            "http://api.qrserver.com/v1/read-qr-code/", params={"fileurl": link})
+        try:
+            qr = r.json()[0]["symbol"][0]
+            if qr["error"]:
+                data = None
+            else:
+                data = qr["data"]
+        except:
+            data = None
+        valid = UserProfile.objects.all().filter(name=data, user_type="Student")
+        print(data)
+        if valid:
+            client = nexmo.Client(key='29a737ea', secret='Wx79xLo4Z3D3kBSI')
+            text='Your child '  + data + " arrived school at " + str(datetime.datetime.now())
+            client.send_message({
+                'from': 'Vonage APIs',
+                'to': '{{valid.phone_number}}',
+                'text': text,
+            })
+            return render(request, "qr_code.html", {"message": data + " is a registered student and attendance marked"})
         else:
-            return redirect("qr_code.html", {"message": "Not a registered student"})
+            return render(request,"qr_code.html", {"message":" Not a registered student"})
     return render(request, "qr_code.html")
 
 def streamer(request):

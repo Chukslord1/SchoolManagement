@@ -768,7 +768,7 @@
          // get img dom element
          const img = document.querySelector('img');
 
-         const WS_URL = 'ws://localhost:8000';
+         const WS_URL = 'ws:www.advancescholar.com';
          const ws = new WebSocket(WS_URL);
          ws.onopen = () => console.log(`Connected to ${WS_URL}`);
          ws.onmessage = message => {

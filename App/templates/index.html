@@ -350,6 +350,24 @@
         </span>
        </a>
       </li>
+          <li>
+       <a href="test_attend.html">
+        <i class="mdi mdi-monitor">
+        </i>
+        <span>
+         Face Recognition
+        </span>
+       </a>
+      </li>
+      <li>
+       <a href="qr_code.html">
+        <i class="mdi mdi-monitor">
+        </i>
+        <span>
+         QR Code Test
+        </span>
+       </a>
+      </li>
       <li>
        <a href="javascript: void(0);">
         <i class="mdi mdi-bank">
@@ -687,7 +705,51 @@
      </ul>
      <form>
       <div class="row">
-
+       <div class="col-sm-10 mx-auto">
+        <h4 class="page-title mb-2">
+         <i class="mdi mdi-monitor-dashboard mr-2">
+         </i>
+         Running Session
+        </h4>
+        <div class="input-group">
+         <select class="form-control js--animations" name="session" style="width:auto">
+          <optgroup label="Select Running Session">
+           <option value="bounce">
+            2017 - 2018
+           </option>
+           <option value="flash">
+            2018 - 2019
+           </option>
+           <option value="pulse">
+            2019 - 2020
+           </option>
+           <option value="rubberBand">
+            2020 - 2021
+           </option>
+           <option value="shake">
+            2021 - 2022
+           </option>
+           <option value="swing">
+            2022 - 2023
+           </option>
+           <option value="tada">
+            2023 - 2024
+           </option>
+           <option value="wobble">
+            2024 - 2025
+           </option>
+           <option value="jello">
+            2025 - 2026
+           </option>
+          </optgroup>
+         </select>
+         <!--end form-control-->
+        </div>
+        <div class="col-sm-9 text-right">
+         <button class="btn btn-primary px-5 py-2" type="submit">
+          Submit
+         </button>
+        </div>
         <!--end input group-->
        </div>
        <!--emd col-->
@@ -884,105 +946,73 @@
         </div>
        </div>
        <div class="col-lg-4">
-        <div class="card overflow-hidden">
-         <div class="card-body bg-gradient3">
-          <div class="">
-           <div class="card-icon">
-            <i class="far fa-smile">
-            </i>
+
+
+         {% for i in items %}
+           <div class="card overflow-hidden">
+               <div class="card-body bg-gradient3">
+                   <div class="">
+                       <div class="card-icon">
+                           <i class="far fa-smile"></i>
+                       </div>
+
+                       <p class="text-white mb-0 font-16">Attendance Today</p>
+                       <h2 class="font-weight-bold text-white">458 <i>out of </i>645</h2>
+                   </div>
+               </div><!--end card-body-->
+               <div class="card-body dash-info-carousel">
+                   <div id="carousel_review" class="carousel slide" data-ride="carousel">
+                       <div class="carousel-inner">
+                           <div class="carousel-item">
+                               <div class="media">
+
+                                   <div class="media-body align-self-center">
+                                       <h6 class="m-0">PINS</h6>
+                                   </div>
+                               </div>
+                               <div class="text-center">
+                                   <p class="review-data mb-0">{{i.pins}}<span>/ 500</span></p>
+                                   <p class="px-4 py-1 bg-soft-success d-inline-block rounded">Activated / Created</p>
+
+                               </div>
+                           </div>
+                           <div class="carousel-item">
+                               <div class="media">
+
+                                   <div class="media-body align-self-center">
+                                       <h6 class="m-0">Bulk SMS Credit</h6>
+                                   </div>
+                               </div>
+                               <div class="text-center">
+                                   <p class="review-data mb-0">500</span></p>
+                                   <p class="px-4 py-1 bg-soft-success d-inline-block rounded">Naira</p>
+
+
+                               </div>
+                           </div>
+                           <div class="carousel-item active">
+
+                               <div class="text-center">
+                                   <p class="review-data mb-0">5.0<span>/ 5.0</span></p>
+                                   <p class="px-4 py-1 bg-soft-success d-inline-block rounded">Exellent</p>
+
+
+                               </div>
+                           </div>
+                       </div>
+                       <a class="carousel-control-prev" href="#carousel_review" role="button" data-slide="prev">
+                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                       <span class="sr-only">Previous</span>
+                       </a>
+                       <a class="carousel-control-next" href="#carousel_review" role="button" data-slide="next">
+                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                       <span class="sr-only">Next</span>
+                       </a>
+                   </div>
+               </div><!--end card-body-->
            </div>
-           <p class="text-white mb-0 font-16">
-            Attendance Today
-           </p>
-           <h2 class="font-weight-bold text-white">
-            458
-            <i>
-             out of
-            </i>
-            645
-           </h2>
-          </div>
-         </div>
-         <!--end card-body-->
-         <div class="card-body dash-info-carousel">
-          <div class="carousel slide" data-ride="carousel" id="carousel_review">
-           <div class="carousel-inner">
-            <div class="carousel-item">
-             <div class="media">
-              <div class="media-body align-self-center">
-               <h6 class="m-0">
-                PINS
-               </h6>
-              </div>
-             </div>
-             <div class="text-center">
-              <p class="review-data mb-0">
-               49
-               <span>
-                / 500
-               </span>
-              </p>
-              <p class="px-4 py-1 bg-soft-success d-inline-block rounded">
-               Activated / Created
-              </p>
-             </div>
-            </div>
-            <div class="carousel-item">
-             <div class="media">
-              <div class="media-body align-self-center">
-               <h6 class="m-0">
-                Bulk SMS Credit
-               </h6>
-              </div>
-             </div>
-             <div class="text-center">
-              <p class="review-data mb-0">
-               500
-              </p>
-             </div>
-            </div>
-           </div>
-          </div>
-         </div>
-        </div>
+           {% endfor %}
        </div>
-      </div>
-     </div>
-    </div>
-   </div>
-  </div>
- </body>
-</html>
-<p class="px-4 py-1 bg-soft-success d-inline-block rounded">
- Naira
-</p>
-<div class="carousel-item active">
- <div class="text-center">
-  <p class="review-data mb-0">
-   5.0
-   <span>
-    / 5.0
-   </span>
-  </p>
-  <p class="px-4 py-1 bg-soft-success d-inline-block rounded">
-   Exellent
-  </p>
- </div>
-</div>
-<a class="carousel-control-prev" data-slide="prev" href="#carousel_review" role="button">
- <span aria-hidden="true" class="carousel-control-prev-icon">
- </span>
- <span class="sr-only">
-  Previous
- </span>
-</a>
-<a class="carousel-control-next" data-slide="next" href="#carousel_review" role="button">
- <span aria-hidden="true" class="carousel-control-next-icon">
- </span>
- <span class="sr-only">
-  Next
- </span>
-</a>
 <!--end card-body-->
 <!--end col-->
 <!--end row-->
