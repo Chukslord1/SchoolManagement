@@ -641,7 +641,7 @@ def decode_qr(request):
             text='Your child '  + data + " arrived school at " + str(datetime.datetime.now())
             client.send_message({
                 'from': 'Vonage APIs',
-                'to': '{{valid.phone_number}}',
+                'to': 'parent_number',
                 'text': text,
             })
             return render(request, "qr_code.html", {"message": data + " is a registered student and attendance marked"})
